@@ -30,7 +30,24 @@ var myChart_1 = new Chart(ctx, {
               fontColor: "white",
               fontSize: 13
           }
-      }
+      },
+      scales: {
+        xAxes: {
+            ticks:{
+                fontColor : "rgba(255, 255, 255, 1)",
+                fontSize : 11
+            }            
+        },
+        yAxes: {
+            ticks: {
+                fontColor : "white",
+                fontSize : 14,
+            }
+        }
+
+
+       }
+      
 
   }
 });
