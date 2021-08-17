@@ -1,3 +1,9 @@
+//sm. 로그인 모달창 로드
+$(window).on('load',function(){
+  $('#staticBackdrop').modal('show');
+});
+
+
 
 
 //sm. 슬라이드 이미지 작동 스크립트(swiper)
