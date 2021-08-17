@@ -1,164 +1,165 @@
-<!DOCTYPE HTML>
-<!-- 자바스크립트 차단된 콘텐츠 자동 허용 실시 -->
-<!-- saved from url=(0013)about:internet -->
-
-<!-- 표시 언어 지정 -->
-<html lang="ko">
-
-<!-- 헤더 정의 부분 -->
+<!DOCTYPE html>
+<html>
 <head>
-    <title>HTML TEST</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
-    
-
-    <!-- 내부 CSS 스타일 지정 -->
-    <style>			    			 	    	
-
-		/* html, body 영역 스타일 지정 */
-		html, body{
-			width : 100%;
-			height : 100%;
-			margin : 0;
-			padding : 0;
-			border : none;
-			overflow : auto;					
-		}
-		
-		
-
-		/* [body 스크롤바 메인 스타일 지정] */
-		body::-webkit-scrollbar {
-			width: 10px;
-			background-color: #c1c1c1;
-		}
-		/* [body 스크롤바 thumb 스타일 지정] */
-		body::-webkit-scrollbar-thumb {					
-			background-color: #444444;
-		}
-
-
-
-		/* [myBarHeightChart 막대 세로 캔버스 레이아웃] */
-		#myBarHeightChart{
-			/* 가로 width 크기에 따라서 차트 크기가 지정됩니다 */
-			width: 70%;
-			height: auto;
-			margin: 0 auto;
-			padding: 0;
-			border: 1px solid #000000;
-			border-radius: 20px;
-			background-color: #eeeeee;
-
-			position: relative;
-			top: 5%;
-			left: 0;
-
-			display: block;
-		}
-
-
-  
-		      				                          
-    </style>
-
-
-    <!-- Jquery CDN 로드 : 항상 최신 버전 사용 -->    
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script> 
-
-
-
-    <!-- chart js 라이브러리 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
-
-
-
-    <!-- 내부 JS 지정 -->
-    <script>
-
-    	/*
-    	[JS 요약 설명]
-    	1. window.onload : 브라우저 로드 완료 상태를 나타냅니다 
-    	2. chart js : <canvas> 사용해 차트를 렌더링 하며 단일 노드와 함께 페이지에 포함된 스크립트만 있으면 됩니다
-    	3. chart js 공식 사이트 : https://www.chartjs.org/docs/latest/
-    	4. chart js cdn 참고 사이트 : https://cdnjs.com/libraries/Chart.js
-    	*/
-
-   	
-    	
-    	/* [html 최초 로드 및 이벤트 상시 대기 실시] */
-    	window.onload = function() {
-    		console.log("");
-    		console.log("[window onload] : [start]");
-    		console.log("");
-
-    		/* [bar 세로 막대 : 그리기 실시] */
-    		drawBarHeight();
-    		    		
-    	};
-
-
-    	/* [bar 세로 막대 : 그리기 함수] */
-    	function drawBarHeight(){
-    		console.log("");
-    		console.log("[drawBarHeight] : [start]");
-    		console.log("");
-
-    		// [body 에 선언된 캔버스 id 지정 실시]
-    		var ctx = document.getElementById('myBarHeightChart').getContext('2d');
-    		var myChart = new Chart(ctx, {
-    			type: 'bar', // [차트 타입 지정]
-    			data: {
-    				labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'], // [데이터 라벨 (제목)]
-    				datasets: [{
-    					label: '# of Votes', // [데이터 시트 제목]
-    					data: [20, 19, 3, 5, 2, 3], // [데이터 : Red ~ Orange]
-    					backgroundColor: [ // [막대 배경 색상 : Red ~ Orange ]
-    						'rgba(255, 99, 132, 0.2)',
-    						'rgba(54, 162, 235, 0.2)',
-    						'rgba(255, 206, 86, 0.2)',
-    						'rgba(75, 192, 192, 0.2)',
-    						'rgba(153, 102, 255, 0.2)',
-    						'rgba(255, 159, 64, 0.2)'
-    					],
-    					borderColor: [ // [막대 테두리 색상 : Red ~ Orange ]
-    						'rgba(255, 99, 132, 1)',
-    						'rgba(54, 162, 235, 1)',
-    						'rgba(255, 206, 86, 1)',
-    						'rgba(75, 192, 192, 1)',
-    						'rgba(153, 102, 255, 1)',
-    						'rgba(255, 159, 64, 1)'
-    					],
-    					borderWidth: 1 // [막대 테두리 굵기 설정]
-    				}]
-    			},
-    			options: {
-    				legend: {
-    					labels: {
-    						fontColor: "red",
-    						fontSize: 18
-    					}
-    				},
-    				scales: {
-    					y: {
-    						beginAtZero: true
-    					}
-    				}
-    			}
-    		});
-    	};
-    	
-    </script>
-
-
+<meta charset="UTF-8">
+<title>chart.js</title>
+<head>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 </head>
-
-
 <body>
+	<div class="chart-container" style="position: relative; height:200px; width:60vw">
+		<canvas id="myChart"></canvas>
+	</div>
+	<button type="button" id="reData">데이터 변경</button>
+	<button type="button" id="addData">데이터 추가</button>
+	<button type="button" id="addDataSet">데이터셋 추가</button>
+	<button type="button" id="delData">데이터 삭제</button>
+	<button type="button" id="delDataset">데이터셋 삭제</button>
 
-<!-- 레이아웃 : bar 세로 막대 -->
-<canvas id="myBarHeightChart"></canvas>
 
+  <script>
+	var ctx = document.getElementById('myChart');
+	  
+	var config = {
+		type: 'line',
+		data: {
+			labels: [ // Date Objects
+				'data1',
+				'data2',
+				'data3',
+				'data4',
+				'data5',
+				'data6',
+				'data7'
+			],
+			datasets: [{
+				label: 'My First dataset',
+				backgroundColor: 'rgba(75, 192, 192, 1)',
+				borderColor: 'rgba(75, 192, 192, 1)',
+				fill: false,
+				data: [
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50)
+				],
+			}, {
+				label: 'My Second dataset',
+				backgroundColor: 'rgba(255, 99, 132, 1)',
+				borderColor: 'rgba(255, 99, 132, 1)',
+				fill: false,
+				data: [
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50)
+				],
+			}]
+		},
+		options: {
+			maintainAspectRatio: false,
+			title: {
+				text: 'Chart.js Time Scale'
+			},
+			scales: {
+				yAxes: [{
+					scaleLabel: {
+						display: true,
+						labelString: '차트'
+					}
+				}]
+			},
+		}
+	};
+	 
+	//차트 그리기
+	var myChart = new Chart(ctx, config);
+	  
+	//데이터 변경
+	document.getElementById('reData').onclick = function(){
+		
+		//데이터셋 수 만큼 반복
+		var dataset = config.data.datasets;
+		for(var i=0; i<dataset.length; i++){
+			console.log(dataset);
+			//데이터 갯수 만큼 반복
+			var data = dataset[i].data;
+			for(var j=0 ; j < data.length ; j++){
+				data[j] = Math.floor(Math.random() * 50);
+			}
+		}
+		
+		myChart.update();	//차트 업데이트
+	}
+	
+	//데이터 추가
+	document.getElementById('addData').onclick = function(){
+		
+		//라벨추가
+		config.data.labels.push('data'+config.data.labels.length)
+		
+		//데이터셋 수 만큼 반복
+		var dataset = config.data.datasets;
+		for(var i=0; i<dataset.length; i++){
+			//데이터셋의 데이터 추가
+			dataset[i].data.push(Math.floor(Math.random() * 50));
+		}
+		myChart.update();	//차트 업데이트
+	}
+	
+	//데이터셋 추가
+	document.getElementById('addDataSet').onclick = function(){
+		var color1 = Math.floor(Math.random() * 256);
+		var color2 = Math.floor(Math.random() * 256);
+		var color3 = Math.floor(Math.random() * 256);
+		
+		console.log(color1 + " " + color2 + " " + color3)
+		
+		var newDataset = {
+			label: 'new Dataset'+config.data.datasets.length,
+			borderColor : 'rgba('+color1+', '+color2+', '+color3+', 1)',
+			backgroundColor : 'rgba('+color1+', '+color2+', '+color3+', 1)',
+			data: [],
+			fill: false
+		}
+		
+		// newDataset에 데이터 삽입
+		for (var i=0; i< config.data.labels.length; i++){
+			var num = Math.floor(Math.random() * 50);
+			newDataset.data.push(num);
+		}
+		
+		// chart에 newDataset 푸쉬
+		config.data.datasets.push(newDataset);
+		
+		myChart.update();	//차트 업데이트
+	}
+	
+	//데이터 삭제
+	document.getElementById('delData').onclick = function(){
+		
+		config.data.labels.splice(-1,1);//라벨 삭제
+		
+		//데이터 삭제
+		config.data.datasets.forEach(function(dataset) {
+			dataset.data.pop();
+		});
+		
+		myChart.update();	//차트 업데이트
+	}
+	
+	//데이터셋 삭제
+	document.getElementById('delDataset').onclick = function(){
+		config.data.datasets.splice(-1,1);
+		myChart.update();	//차트 업데이트
+	}
+	
+  </script>
 </body>
-
-</html>

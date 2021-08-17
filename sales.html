@@ -59,7 +59,7 @@
 
 
     <!--sm. 슬라이드 이미지(swiper)-->
-    <div class="swiper-container">
+    <div class="swiper-container" style="background-color: black;">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <!--sm. 슬라이드 이미지 중앙정렬 및 페이드인에니메이션 적용, 이미지들 가로 반응형 사이즈 적용-->
@@ -97,22 +97,18 @@
     <div class="sideBanner">
         <div class="alert alert-info" role="alert">
             <h5 style="text-align: center;">연도별</h5>
-            <select class="form-select" aria-label="Default select example">
-                <option value="1"><h6>2021</h6></option>
-                <option value="2"><h6>2020</h6></option>
-                <option value="3"><h6>2019</h6></option>
+            <select id="selectyear" onchange="testt()" class="form-select" aria-label="Default select example" >
+                <option value="2021"><h6>2021</h6></option>
+                <option value="2020"><h6>2020</h6></option>
+                <option value="2019"><h6>2019</h6></option>
               </select>
           </div>
         <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="button"><h5>상반기 매출</h5></button>
-            <button class="btn btn-success" type="button"><h5>하반기 매출</h5></button>
-            <button class="btn btn-warning" type="button"><h5>연 매출지표</h5></button>
+            <button class="btn btn-primary" type="button" onclick="location.href = '#movingtasteBox';"><h5>상반기 매출</h5></button>
+            <button class="btn btn-success" type="button" onclick="location.href = '#movingganjiBox';"><h5>하반기 매출</h5></button>
+            <button class="btn btn-warning" type="button" onclick="location.href = '#movingrestBox';"><h5>연 매출지표</h5></button>
           </div>
     </div>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
@@ -128,10 +124,10 @@
 
 
     <!--sm. 상반기 키워드 표시 상자, 경고상자 양식 적용-->
-    <div id = "movingtasteBox" class="container-fluid row" style="float: none; margin:100 auto;">
+    <div id = "movingtasteBox" class="container-fluid row animate__animated animate__slideInLeft" style="float: none; margin:100 auto;">
         <div class="alert alert-secondary col-3" style="float: none; margin:0 auto;">
             <div class="text-center">
-                <h1> 상반기 매출 현황 지표 </h1>
+                <h2> 상반기 매출 현황 지표 </h2>
             </div>
         </div>
     </div>
@@ -151,7 +147,7 @@
 
     <div class="container-fluid">
 
-        <div id="tasteExplain1" class="row">
+        <div id="theFirstHalf1" class="row animate__animated animate__slideInLeft">
             <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
 
 
@@ -168,16 +164,15 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                     <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
-                                    <figure>
-                                         <img src="images/catalog/2.png" class="img-fluid">
-                                        <!--이하 이미지들 모두 반응형 사이즈 조절 적용-->
-                                    </figure>    
+                                    <h2 class="text-center">월별 매출현황(상반기)</h2>
+                                    <canvas id="myChart1"></canvas>
+
                                 </div>
     
                                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                      <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
-                                    <h2 class="text-center">월별 매출현황(상반기)</h2>
-                                    <canvas id="myChart1"></canvas>
+                                        <img src="images/catalog/2.png" class="img-fluid">
+                                       <!--이하 이미지들 모두 반응형 사이즈 조절 적용-->
                                 </div>
 
                             </div>
@@ -195,28 +190,7 @@
             <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>\
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div id="tasteExplain2" class="row">
+        <div id="theFirstHalf2" class="row">
             <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
 
 
@@ -241,7 +215,8 @@
                                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                      <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
                                      <h2 class="text-center">상반기 주요 제품 매출액 비중</h2>
-                                     <canvas id="myChart4"></canvas>
+                                     <canvas id="myChart4"></canvas><br>
+                                     <img src="images/catalog/16.png" class="img-fluid">
                                 </div>
 
                              </div>
@@ -276,10 +251,265 @@
         <p>&nbsp;</p>
         <p>&nbsp;</p>
 
- 
 
 
 
+        <!--하반기---------------------------------------------------------------------------------->
+
+
+
+            <!--sm. 하반기 키워드 표시 상자, 경고상자 양식 적용-->
+    <div id = "movingganjiBox" class="container-fluid row" style="float: none; margin:100 auto;">
+        <div class="alert alert-secondary col-3" style="float: none; margin:0 auto;">
+            <div class="text-center">
+                <h2> 하반기 매출 현황 지표 </h2>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+
+    <!--sm. 하반기 작성 시작-->
+
+    <div class="container-fluid">
+
+        <div id="theSecondHalf1" class="row">
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+
+
+            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                <div class="card text-white bg-dark">
+                    <div class="row">
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
+                                        <img src="images/catalog/2.png" class="img-fluid">
+                                       <!--이하 이미지들 모두 반응형 사이즈 조절 적용-->
+                                </div>
+    
+                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                     <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
+                                     <h2 class="text-center">월별 매출현황(하반기)</h2>
+                                     <canvas id="myChart5"></canvas>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                    </div>
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>\
+        </div>
+
+        <div id="theSecondHalf2" class="row">
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+
+
+            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                <div class="card text-white bg-dark">
+                    <div class="row">
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                     <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
+                                     <h2 class="text-center">하반기 제품별 매출 현황</h2>
+                                     <canvas id="myChart6"></canvas><br>
+                                     <canvas id="myChart7"></canvas>       
+                                </div>
+    
+                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                     <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
+                                     <h2 class="text-center">하반기 주요 제품 매출액 비중</h2>
+                                     <canvas id="myChart8"></canvas><br>
+                                        <img src="images/catalog/17.png" class="img-fluid">
+                                       <!--이하 이미지들 모두 반응형 사이즈 조절 적용-->
+                                </div>
+
+                             </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                    </div>
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        
+
+<!--연간--------------------------------------------------------------------------------------------------->
+    <!--sm. 연간 키워드 표시 상자, 경고상자 양식 적용-->
+    <div id = "movingrestBox" class="container-fluid row" style="float: none; margin:100 auto;">
+        <div class="alert alert-secondary col-3" style="float: none; margin:0 auto;">
+            <div class="text-center">
+                <h2> 연간 매출 현황 지표 </h2>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+
+    <!--sm. 연간 작성 시작-->
+
+    <div class="container-fluid">
+
+        <div id="theYear1" class="row">
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+
+
+            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                <div class="card text-white bg-dark">
+                    <div class="row">
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
+                                    <h2 class="text-center">월별 매출현황(연간)</h2>
+                                    <canvas id="myChart9"></canvas>
+
+                                </div>
+    
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                    </div>
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>\
+        </div>
+
+        <div id="theYear2" class="row">
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+
+
+            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                <div class="card text-white bg-dark">
+                    <div class="row">
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                     <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
+                                     <h2 class="text-center">연간 제품별 매출 현황</h2>
+                                     <canvas id="myChart10"></canvas><br>
+                                     <canvas id="myChart11"></canvas>       
+                                </div>
+    
+                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                     <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
+                                     <h2 class="text-center">연간 주요 제품 매출액 비중</h2>
+                                     <canvas id="myChart12"></canvas><br>
+                                        <img src="images/catalog/18.jpg" class="img-fluid">
+                                       <!--이하 이미지들 모두 반응형 사이즈 조절 적용-->
+                                </div>
+
+                             </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                    </div>
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
 
 
 
@@ -290,17 +520,14 @@
         <!-- sm. 참조될 라이브러리들(js)  -->
           <script src="js/jquery-3.6.0.min.js"></script>
           <script src="js/bootstrap.js"></script>
-         
-
-          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.esm.min.js"></script>
-          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
-          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/helpers.esm.min.js"></script>
-          <script src="js/chartcustom.js"></script>
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>      
+           <script src="js/chartcustom.js"></script>
           <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
           
         <script src="js/costom.js"></script>
         <!-- sm. 참조될 라이브러리들(js)  -->
-        <!-- sm. 구글 맵 api 소환술-->
+ 
 
 
 </body>
