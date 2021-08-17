@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Google Map</title>
+</head>
+
+<body>
+  <div id="map" style="width:50%; height: 50vh;"></div>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwnsi6iUhOfn_c3xS6n0aHNbsWyaReGCE&callback=initMap1&region=kr"></script>
+  <script>
+    function initMap1() {
+      var seoul = { lat: 37.5642135 ,lng: 127.0016985 };
+      var map = new google.maps.Map(
+        document.getElementById('map'), {
+          zoom: 12,
+          center: seoul
+        });
+      
+    }
+  </script>
+</body>
+</html>

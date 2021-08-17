@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+
+    <!-- sm. 참조될 라이브러리들(css)  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <!--sm.본문 효과용 css class 따로 정리해둔 것-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- sm. 슬라이더 라이브러리  -->
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- sm. 참조될 라이브러리들(css)  -->
+
+
+
+
+
+
+</head>
+
+<body>
+    <!--sm. 사이드 햄버거 호출 및 사이드 메뉴-->
+    <input class="burger-check" type="checkbox" id="burger-check"><label class="burger-icon" for="burger-check"><span
+            class="burger-sticks"></span></label>
+    <div class="menu">
+        <div style="width: 500px;"></div>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="d-flex flex-grow-1">
+                <span class="w-100 d-lg-none d-block"></span>
+                <a class="navbar-brand" href="#"> EIS 시스템 </a>
+                <div class="w-100 text-right">
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <!--sm. 제목-->
+    <div class="row">
+        <p></p>
+        <h1 class="animate__animated animate__fadeInDown text-center">매출현황</h1>
+        <p></p>
+
+
+    </div>
+    <p>&nbsp;</p>
+
+
+    <!--sm. 슬라이드 이미지(swiper)-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <!--sm. 슬라이드 이미지 중앙정렬 및 페이드인에니메이션 적용, 이미지들 가로 반응형 사이즈 적용-->
+                <article class="centered animate__animated animate__fadeInDown">
+                    <img class="animate__animated animate__fadeInDown img-fluid" src="images/catalog/11.png">
+                </article>
+            </div>
+            <div class="swiper-slide">
+                <article class="col-xs-3 animate__animated animate__fadeInDown img-fluid">
+                    <img class="animate__animated animate__fadeInDown img-fluid" src="images/catalog/12.png">
+                </article>
+            </div>
+            <div class="swiper-slide">
+                <article class="col-xs-6 animate__animated animate__fadeInDown img-fluid">
+                    <img class="animate__animated animate__fadeInDown img-fluid" src="images/catalog/13.jpg">
+                </article>
+            </div>
+            <div class="swiper-slide">
+                <article class="col-xs-6 animate__animated animate__fadeInDown img-fluid">
+                    <img class="animate__animated animate__fadeInDown img-fluid" src="images/catalog/14.jpg">
+                </article>
+            </div>
+            <div class="swiper-slide">
+                <article class="col-xs-6 animate__animated animate__fadeInDown img-fluid">
+                    <img class="animate__animated animate__fadeInDown img-fluid" src="images/catalog/15.jpg">
+                </article>
+            </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+    <!--sm. 플로팅배너 적용 -->
+    <div class="sideBanner">
+        <div class="alert alert-info" role="alert">
+            <h5 style="text-align: center;">연도별</h5>
+            <select class="form-select" aria-label="Default select example">
+                <option value="1"><h6>2021</h6></option>
+                <option value="2"><h6>2020</h6></option>
+                <option value="3"><h6>2019</h6></option>
+              </select>
+          </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="button"><h5>상반기 매출</h5></button>
+            <button class="btn btn-success" type="button"><h5>하반기 매출</h5></button>
+            <button class="btn btn-warning" type="button"><h5>연 매출지표</h5></button>
+          </div>
+    </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+
+
+
+
+
+
+
+
+    <!--sm. 상반기 키워드 표시 상자, 경고상자 양식 적용-->
+    <div id = "movingtasteBox" class="container-fluid row" style="float: none; margin:100 auto;">
+        <div class="alert alert-secondary col-3" style="float: none; margin:0 auto;">
+            <div class="text-center">
+                <h1> 상반기 매출 현황 지표 </h1>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+
+    <!--sm. 상반기 작성 시작-->
+
+    <div class="container-fluid">
+
+        <div id="tasteExplain1" class="row">
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+
+
+            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                <div class="card text-white bg-dark">
+                    <div class="row">
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
+                                    <figure>
+                                         <img src="images/catalog/2.png" class="img-fluid">
+                                        <!--이하 이미지들 모두 반응형 사이즈 조절 적용-->
+                                    </figure>    
+                                </div>
+    
+                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                     <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
+                                    <h2 class="text-center">월별 매출현황(상반기)</h2>
+                                    <canvas id="myChart1"></canvas>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                    </div>
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>\
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="tasteExplain2" class="row">
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+
+
+            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                <div class="card text-white bg-dark">
+                    <div class="row">
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                     <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
+                                     <h2 class="text-center">상반기 제품별 매출 현황</h2>
+                                     <canvas id="myChart2"></canvas><br>
+                                     <canvas id="myChart3"></canvas>       
+                                </div>
+    
+                                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                     <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
+                                     <h2 class="text-center">상반기 주요 제품 매출액 비중</h2>
+                                     <canvas id="myChart4"></canvas>
+                                </div>
+
+                             </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+                    </div>
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    
+                </div>
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+
+ 
+
+
+
+
+
+
+        <footer>
+            <p class="text-center"><small>&copy; EIS 시스템</small></p>
+        </footer>
+
+        <!-- sm. 참조될 라이브러리들(js)  -->
+          <script src="js/jquery-3.6.0.min.js"></script>
+          <script src="js/bootstrap.js"></script>
+         
+
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.esm.min.js"></script>
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/helpers.esm.min.js"></script>
+          <script src="js/chartcustom.js"></script>
+          <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+          
+        <script src="js/costom.js"></script>
+        <!-- sm. 참조될 라이브러리들(js)  -->
+        <!-- sm. 구글 맵 api 소환술-->
+
+
+</body>
+
+</html>
