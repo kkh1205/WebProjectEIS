@@ -2,17 +2,18 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
 
 
-    <!-- sm. 참조될 라이브러리들(css)  -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css"><!--부트스트랩 테마 적용(cosmo 테마)-->
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/sidebars.css">
-    <!-- sm. 참조될 라이브러리들(css)  -->
+  <!-- sm. 참조될 라이브러리들(css)  -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!--부트스트랩 테마 적용(cosmo 테마)-->
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/sidebars.css">
+  <!-- sm. 참조될 라이브러리들(css)  -->
 
 
 
@@ -24,154 +25,148 @@
 <body>
 
 
-    <main><!--메인임-->
-      <!--sm. 기훈이가 구성할 사이드바. 냅두면됨-->
-      <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
-          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-            <span class="fs-4">Sidebar</span>
+  <main>
+    <!--메인임-->
+    <!--sm. 기훈이가 구성할 사이드바. 냅두면됨-->
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32">
+          <use xlink:href="#bootstrap" />
+        </svg>
+        <span class="fs-4">Sidebar</span>
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home" />
+            </svg>
+            Home
           </a>
-          <hr>
-          <ul class="nav nav-pills flex-column mb-auto">
-            <li class="nav-item">
-              <a href="#" class="nav-link active" aria-current="page">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link text-white">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-                Dashboard
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link text-white">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
-                Orders
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link text-white">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                Products
-              </a>
-            </li>
-            <li>
-              <a href="#" class="nav-link text-white">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-                Customers
-              </a>
-            </li>
-          </ul>
-          <hr>
-          <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-              <strong>mdo</strong>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
-            </ul>
-          </div>
-        </div>
-      
-        <div class="b-example-divider"></div>
-      <!--sm. 기훈이가 구성할 사이드바. 냅두면됨-->
-        <!--sm.이아래에서부터 작업시작하면됨 main이라는 틀 안에서 작업하는것에 주의할 것-->
+        </li>
+        <li>
+          <a href="#" class="nav-link text-white">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#speedometer2" />
+            </svg>
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link text-white">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#table" />
+            </svg>
+            Orders
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link text-white">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#grid" />
+            </svg>
+            Products
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link text-white">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#people-circle" />
+            </svg>
+            Customers
+          </a>
+        </li>
+      </ul>
+      <hr>
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+          <strong>mdo</strong>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+          <li><a class="dropdown-item" href="#">New project...</a></li>
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="b-example-divider"></div>
+    <!--sm. 기훈이가 구성할 사이드바. 냅두면됨-->
+    <!--sm.이아래에서부터 작업시작하면됨 main이라는 틀 안에서 작업하는것에 주의할 것-->
+    
 
 
-        <div class="container-fluid">
-          <p>&nbsp;</p>
+    <div class="container-fluid">
+      <div class="row">
 
-          <div id="theFirstHalf1" class="row animate__animated animate__pulse">
-              <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
-  
-  
-              <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                  <div class="card text-white bg-dark">
-                      <div class="row">
-  
-                      <p>&nbsp;</p>
-                      <p>&nbsp;</p>
-                      <p>&nbsp;</p>
-  
-                          <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
-                          <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                              <div class="row">
-                                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                      <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
-                                      <h2 class="text-center">2021년 매출현황</h2>
-                                      <canvas id="myChart1"></canvas>
-  
-                                  </div>
-      
-
-                              </div>
-                          </div>
-                          <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-primary shadow h-100 py-2">
+              <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                              Earnings (Monthly)</div>
+                          <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                          <i class="bi bi-water"></i>
+                          <i class="bi bi-volume-off-fill"></i>
                       </div>
-  
-                      <p>&nbsp;</p>
-                      <p>&nbsp;</p>
-                      <p>&nbsp;</p>
-                      
+                      <div class="col-auto">
+                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      </div>
                   </div>
               </div>
-  
-              <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>\
           </div>
-  
-          <div id="theFirstHalf2" class="row animate__animated animate__pulse">
-              <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
-  
-  
-              <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                  <div class="card text-white bg-dark">
-                      <div class="row">
-  
-                      <p>&nbsp;</p>
-                      <p>&nbsp;</p>
-                      <p>&nbsp;</p>
-  
-                          <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
-                          <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                              <div class="row">
-                                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                       <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
-                                       <h2 class="text-center">2021년 제품별 매출 현황</h2>
-                                       <canvas id="myChart2"></canvas><br>
-                                       <canvas id="myChart3"></canvas>       
-                                  </div>
-      
-                                   <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                       <!--sm. 창 large 사이즈일때 4col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
-                                       <h2 class="text-center">2021년 국가별 매출 현황</h2>
-                                       <canvas id="myChart4"></canvas><br>
-                                  </div>
-  
-                               </div>
-                          </div>
-                          <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
-                      </div>
-  
-                      
-                  </div>
-              </div>
-  
-              <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
-          </div>
-  
-  
-  
-  
+      </div>
+
       </div>
 
 
+      <div id="theFirstHalf2" class="row animate__animated animate__pulse">
+
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="card text-white bg-dark">
+            <div class="row">
+
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <!--sm. 창 large 사이즈일때 6col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
+                    <h2 class="text-center">2021년 라인별 가동률 현황</h2>
+                    <canvas id="myChart2"></canvas><br>
+                    <canvas id="myChart3"></canvas>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <!--sm. 창 large 사이즈일때 6col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
+                    <h2 class="text-center">2021년 제품별 조업도</h2>
+                    <canvas id="myChart1"></canvas>
+
+                    <h2 class="text-center">2021년 제품별 생산금액</h2>
+                    <canvas id="myChart4"></canvas><br>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
 
 
 
@@ -197,15 +192,13 @@
 
 
 
-      <!--이안에서 작업하면됨-->
-
-      </main>
 
 
 
 
+    <!--이안에서 작업하면됨-->
 
-
+  </main>
 
 
 
@@ -230,15 +223,21 @@
 
 
 
-        <!-- sm. 참조될 라이브러리들(js)  -->
-          <script src="js/jquery-3.6.0.min.js"></script>
-          <script src="js/bootstrap.js"></script>
-          <script src="js/sidebars.js"></script>
-          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.js"></script>
-          <script src="js/saleschart.js"></script>
 
-        <!-- sm. 참조될 라이브러리들(js)  -->
- 
+
+
+
+
+
+  <!-- sm. 참조될 라이브러리들(js)  -->
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/sidebars.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.js"></script>
+  <script src="js/saleschart.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <!-- sm. 참조될 라이브러리들(js)  -->
+
 
 
 </body>
