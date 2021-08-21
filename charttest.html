@@ -4,16 +4,22 @@
 <meta charset="UTF-8">
 <title>chart.js</title>
 <head>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-</head>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/sidebars.js"></script>
+    <script src="js/chart.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"></head>
 <body>
 	<canvas id="myChart" style="height:30vh; width:50vw"></canvas>
 
 	<script>
 	var ctx = document.getElementById('myChart');
+
+
+    
 	var myChart = new Chart(ctx, {
-	    type: 'line',
+	    type: 'bar',
 	    data: {
 			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
 			datasets: [{
@@ -33,39 +39,19 @@
 				borderWidth: 2
 			}]
 		},
-		options: {
-			responsive: false,
-			legend: {
-				labels: {
-					fontColor: "red",
-					fontSize: 18
-				}
-			},
-			scales: {
-				yAxes: [{
-					ticks: {
-						beginAtZero: true,
-						stepSize : 2,
-						fontColor : "rgba(251, 203, 9, 1)",
-						fontSize : 14,
-					},
-					gridLines:{
-						color: 'rgba(166, 201, 226, 1)',
-						lineWidth:3
-					}
-				}],
-				xAxes: [{
-					ticks:{
-						fontColor : 'rgba(12, 13, 13, 1)',
-						fontSize : 5
-					},
-					gridLines:{
-						color: "rgba(87, 152, 23, 1)",
-						lineWidth: 1
-					}
-				}]
-			}
-		}
+        options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Chart.js Bar Chart'
+      }
+    }
+  }
 	});
 	</script>
 </body>
+

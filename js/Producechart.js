@@ -9,47 +9,50 @@ var chart4arr = [12, 19, 3, 5, 2, 3];
 var ctx = document.getElementById('myChart1');
 var myChart_1 = new Chart(ctx, {
 
-  type: 'line',
+    type: 'line',
 
 
-  data: {
-     labels: ['January', 'February', 'March', 'April', 'May', 'June','August', 'September', 'October', 'November', 'December'],
-      datasets: [{
-          label: '월별 생산액(억 원)',
-          backgroundColor: 'rgb(255, 99, 132)',
-          borderColor: 'rgb(255, 99, 132)',
-          data: chart1arr,
-          fill: false
-      }]
-  },
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'August', 'September', 'October', 'November', 'December'],
+        datasets: [{
+            label: '월별 생산액(억 원)',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: chart1arr,
+            fill: false
+        }]
+    },
 
 
-  options: {
-      legend: {
-          labels: {
-              color: "white",
-              fontSize: 5
-          }
-      },
-      scales: {
-        xAxes: {
-            ticks:{
-                color : "rgba(255, 255, 255, 1)",
-                fontSize : 10
-            }            
-        },
-        yAxes: {
-            ticks: {
-                color : "white",
-                fontSize : 14,
+    options: {
+        plugins: {
+            legend: {
+                labels: {
+                    usePointStyle: true,
+                    color: "rgba(255, 255, 255, 1)"
+                }
             }
+
+        },
+        scales: {
+            X: {
+                ticks: {
+                    color: "rgba(255, 255, 255, 1)",
+                    font: { size: 10 }
+                }
+            },
+            Y: {
+                ticks: {
+                    color: "white",
+                    fontSize: 14,
+                }
+            }
+
+
         }
 
 
-       }
-      
-
-  }
+    }
 });
 
 
@@ -97,30 +100,33 @@ var myChart_2 = new Chart(ctx, {
         }]
     },
     options: {
-        legend: {
-            labels: {
-                color: "white",
-                fontSize: 5
+        plugins: {
+            legend: {
+                labels: {
+                    usePointStyle: true,
+                    color: "rgba(255, 255, 255, 1)"
+                }
             }
+
         },
         scales: {
-          xAxes: {
-              ticks:{
-                  color : "rgba(255, 255, 255, 1)",
-                  fontSize : 10
-              }            
-          },
-          yAxes: {
-              ticks: {
-                  color : "white",
-                  fontSize : 14,
-              }
-          }
-  
-  
-         }
-        
-  
+            xAxes: {
+                ticks: {
+                    color: "rgba(255, 255, 255, 1)",
+                    fontSize: 10
+                }
+            },
+            yAxes: {
+                ticks: {
+                    color: "white",
+                    fontSize: 14,
+                }
+            }
+
+
+        }
+
+
     }
 });// 우선 컨텍스트를 가져옵니다. 
 var ctx = document.getElementById("myChart3").getContext('2d');
@@ -156,30 +162,33 @@ var myChart_3 = new Chart(ctx, {
         }]
     },
     options: {
-        legend: {
-            labels: {
-                color: "white",
-                fontSize: 5
+        plugins: {
+            legend: {
+                labels: {
+                    usePointStyle: true,
+                    color: "rgba(255, 255, 255, 1)"
+                }
             }
+
         },
         scales: {
-          xAxes: {
-              ticks:{
-                  color : "rgba(255, 255, 255, 1)",
-                  fontSize : 10
-              }            
-          },
-          yAxes: {
-              ticks: {
-                  color : "white",
-                  fontSize : 14,
-              }
-          }
-  
-  
-         }
-        
-  
+            xAxes: {
+                ticks: {
+                    color: "rgba(255, 255, 255, 1)",
+                    fontSize: 10
+                }
+            },
+            yAxes: {
+                ticks: {
+                    color: "white",
+                    fontSize: 14,
+                }
+            }
+
+
+        }
+
+
     }
 });
 
@@ -213,24 +222,27 @@ var myChart_4 = new Chart(ctx, {
         }]
     },
     options: {
-        legend: {
-            labels: {
-                color: "white",
-                fontSize: 5
+        plugins: {
+            legend: {
+                labels: {
+                    usePointStyle: true,
+                    color: "rgba(255, 255, 255, 1)"
+                }
             }
+
         },
         scales: {
 
-          yAxes: {
-              ticks: {
-                  color : "white",
-                  fontSize : 14,
-              }
-          }
-  
-  
-         }
-        
-  
+            yAxes: {
+                ticks: {
+                    color: "white",
+                    fontSize: 14,
+                }
+            }
+
+
+        }
+
+
     }
 });
