@@ -2,8 +2,8 @@
 
 //직선그래프//
 var chart1arr = [0, 10, 5, 2, 20, 30];
-var chart2arr = [12, 19, 3, 5, 2, 3];
-var chart3arr = [5, 16, 18, 10, 15, 6];
+var chart2arr = [80, 88, 95, 90, 86, 99];
+var chart3arr = [80, 70, 89, 96, 95, 98];
 var chart4arr = [12, 19, 3, 5, 2, 3];
 
 var ctx = document.getElementById('myChart1');
@@ -42,6 +42,15 @@ var myChart_1 = new Chart(ctx, {
                 }
             },
             Y: {
+ 
+                grid: {
+                    drawBorder: false,
+                    color: "gray"
+                    },
+                  
+
+                
+
                 ticks: {
                     color: "white",
                     fontSize: 14,
@@ -54,6 +63,19 @@ var myChart_1 = new Chart(ctx, {
 
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -117,6 +139,10 @@ var myChart_2 = new Chart(ctx, {
                 }
             },
             Y: {
+                grid: {
+                    drawBorder: false,
+                    color: "gray"
+                    },
                 ticks: {
                     color: "white",
                     fontSize: 14,
@@ -179,6 +205,12 @@ var myChart_3 = new Chart(ctx, {
                 }
             },
             Y: {
+
+                grid: {
+                    drawBorder: false,
+                    color: "gray"
+                    },
+
                 ticks: {
                     color: "white",
                     fontSize: 14,
