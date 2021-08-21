@@ -13,9 +13,9 @@ var myChart_1 = new Chart(ctx, {
 
 
   data: {
-     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+     labels: ['January', 'February', 'March', 'April', 'May', 'June','August', 'September', 'October', 'November', 'December'],
       datasets: [{
-          label: '월별 매출액(억 원)',
+          label: '월별 생산액(억 원)',
           backgroundColor: 'rgb(255, 99, 132)',
           borderColor: 'rgb(255, 99, 132)',
           data: chart1arr,
@@ -27,20 +27,20 @@ var myChart_1 = new Chart(ctx, {
   options: {
       legend: {
           labels: {
-              fontColor: "white",
-              fontSize: 13
+              color: "white",
+              fontSize: 5
           }
       },
       scales: {
         xAxes: {
             ticks:{
-                fontColor : "rgba(255, 255, 255, 1)",
-                fontSize : 11
+                color : "rgba(255, 255, 255, 1)",
+                fontSize : 10
             }            
         },
         yAxes: {
             ticks: {
-                fontColor : "white",
+                color : "white",
                 fontSize : 14,
             }
         }
@@ -75,7 +75,7 @@ var myChart_2 = new Chart(ctx, {
     data: {
         labels: ["A-12", "A-41", "BB-03", "BG-304", "BG-306", "BG-098"],
         datasets: [{
-            label: '매출액(억 원)',
+            label: '가동률(%)',
             data: chart2arr,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -97,14 +97,30 @@ var myChart_2 = new Chart(ctx, {
         }]
     },
     options: {
-        maintainAspectRatio: true, // default value. false일 경우 포함된 div의 크기에 맞춰서 그려짐.
+        legend: {
+            labels: {
+                color: "white",
+                fontSize: 5
+            }
+        },
         scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
+          xAxes: {
+              ticks:{
+                  color : "rgba(255, 255, 255, 1)",
+                  fontSize : 10
+              }            
+          },
+          yAxes: {
+              ticks: {
+                  color : "white",
+                  fontSize : 14,
+              }
+          }
+  
+  
+         }
+        
+  
     }
 });// 우선 컨텍스트를 가져옵니다. 
 var ctx = document.getElementById("myChart3").getContext('2d');
@@ -118,7 +134,7 @@ var myChart_3 = new Chart(ctx, {
     data: {
         labels: ["B-15", "YUH-31", "POP-10", "KPO-01", "BZO-123", "BPD-12"],
         datasets: [{
-            label: '매출액(억 원)',
+            label: '가동률(%)',
             data: chart3arr,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -140,14 +156,30 @@ var myChart_3 = new Chart(ctx, {
         }]
     },
     options: {
-        maintainAspectRatio: true, // default value. false일 경우 포함된 div의 크기에 맞춰서 그려짐.
+        legend: {
+            labels: {
+                color: "white",
+                fontSize: 5
+            }
+        },
         scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
+          xAxes: {
+              ticks:{
+                  color : "rgba(255, 255, 255, 1)",
+                  fontSize : 10
+              }            
+          },
+          yAxes: {
+              ticks: {
+                  color : "white",
+                  fontSize : 14,
+              }
+          }
+  
+  
+         }
+        
+  
     }
 });
 
@@ -181,13 +213,24 @@ var myChart_4 = new Chart(ctx, {
         }]
     },
     options: {
-        maintainAspectRatio: true, // default value. false일 경우 포함된 div의 크기에 맞춰서 그려짐.
+        legend: {
+            labels: {
+                color: "white",
+                fontSize: 5
+            }
+        },
         scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
+
+          yAxes: {
+              ticks: {
+                  color : "white",
+                  fontSize : 14,
+              }
+          }
+  
+  
+         }
+        
+  
     }
 });
