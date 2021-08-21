@@ -1,7 +1,7 @@
 
 
 //직선그래프//
-var chart1arr = [0, 10, 5, 2, 20, 30];
+var chart1arr = [0, 10, 5, 2, 20, 30,32];
 var chart2arr = [80, 88, 95, 90, 86, 99];
 var chart3arr = [80, 70, 89, 96, 95, 98];
 var chart4arr = [12, 19, 3, 5, 2, 3];
@@ -13,7 +13,7 @@ var myChart_1 = new Chart(ctx, {
 
 
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'August', 'September', 'October', 'November', 'December'],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
             label: '월별 생산액(억 원)',
             backgroundColor: 'rgb(255, 99, 132)',
