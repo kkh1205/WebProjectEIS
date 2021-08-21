@@ -110,13 +110,13 @@ var myChart_2 = new Chart(ctx, {
 
         },
         scales: {
-            xAxes: {
+            X: {
                 ticks: {
                     color: "rgba(255, 255, 255, 1)",
                     fontSize: 10
                 }
             },
-            yAxes: {
+            Y: {
                 ticks: {
                     color: "white",
                     fontSize: 14,
@@ -172,13 +172,13 @@ var myChart_3 = new Chart(ctx, {
 
         },
         scales: {
-            xAxes: {
+            X: {
                 ticks: {
                     color: "rgba(255, 255, 255, 1)",
                     fontSize: 10
                 }
             },
-            yAxes: {
+            Y: {
                 ticks: {
                     color: "white",
                     fontSize: 14,
@@ -233,7 +233,7 @@ var myChart_4 = new Chart(ctx, {
         },
         scales: {
 
-            yAxes: {
+            Y: {
                 ticks: {
                     color: "white",
                     fontSize: 14,
