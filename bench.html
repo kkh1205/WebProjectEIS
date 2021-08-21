@@ -102,8 +102,42 @@
     <!--sm.이아래에서부터 작업시작하면됨 main이라는 틀 안에서 작업하는것에 주의할 것-->
 
 
+    
+
+
 
     <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">연도별 생산지표</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarColor03">
+            <ul class="navbar-nav me-auto">
+
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">연도선택</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">2021년</a>
+                  <a class="dropdown-item" href="#">2020년</a>
+                  <a class="dropdown-item" href="#">2019년</a>
+                </div>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-sm-2" type="text" placeholder="검색">
+              <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+
+
+
       <div class="row">
 
         <div class="col-xl-3 col-md-6 mb-4">
@@ -184,7 +218,7 @@
 
       </div>
 
-      <div class="card text-white bg-dark ">
+      <div style="margin: 1vh; padding: 1vh;" class="card text-white bg-dark ">
         <div id="theFirstHalf2" class="row animate__animated animate__pulse">
           <h2 class="text-center">2021년 라인별 가동률 현황</h2>
 
@@ -199,31 +233,31 @@
 
       </div>
       <div class="row">
-
         <div class="col-6">
-          <div class="card text-white bg-dark">
+          <div style="margin: 0.5vh; padding: 1vh;" class="card bg-dark">
             <canvas id="myChart1"></canvas>
           </div>
         </div>
-
         <div class="col-6">
-          <div style="height: 30vh;" class="card text-white bg-dark">
-            <canvas id="myChart4"></canvas>
+          <div style="margin: 0.5vh; padding: 1vh;" class="card bg-dark">
+            <div class="row">
+
+              <div class="col-3"></div>
+              <div class="col-6">
+                <canvas id="myChart4"></canvas>
+              </div>
+              <div class="col-3"></div>
+            </div>
+
           </div>
+
         </div>
+
+
 
 
       </div>
 
-    </div>
-
-
-
-
-
-
-
-    
 
 
 
@@ -249,7 +283,14 @@
 
 
 
-    <!--이안에서 작업하면됨-->
+
+
+
+
+
+
+
+      <!--이안에서 작업하면됨-->
 
   </main>
 
@@ -286,7 +327,8 @@
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/sidebars.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.js"></script>
+  <script src="js/chart.js"></script>
+  
   <script src="js/saleschart.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <!-- sm. 참조될 라이브러리들(js)  -->
