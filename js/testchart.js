@@ -47,6 +47,7 @@ var myChart_2 = new Chart(ctx, {
                 console.log(value);
                 var myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
                 myModal.show()
+                
             }
         },
             
