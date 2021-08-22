@@ -10,4 +10,4 @@ function clickHandler(evt, chart) {           //sm. 클릭으로 이벤트 실�
         var myModal = new bootstrap.Modal(document.getElementById('exampleModal'))  //sm. 차트 클릭이벤트와 함께 모달 실행, 모달의 인스턴스 생상하여 모달의 아이디를 추적하여 저장
         myModal.show()                                                              //sm. 모달 실행
         
-    }};
+    }}
