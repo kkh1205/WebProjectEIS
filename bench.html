@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="css/sidebars.css">
     <!-- sm. 참조될 라이브러리들(css)  -->
 
-
+    <!-- sy. 참조될 라이브러리들(css) -->
+    
+    <!-- sy. 참조될 라이브러리들(css) -->
+    
 
 
 
@@ -171,6 +174,89 @@
     <!--sm. 기훈이가 구성할 사이드바. 냅두면됨-->
     <!--sm.이아래에서부터 작업시작하면됨 main이라는 틀 안에서 작업하는것에 주의할 것-->
 
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">품질관리</h1>
+          <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme.
+              The charts below have been customized - for further customization options, please visit the <a
+                  target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js
+                  documentation</a>.</p>
+
+          <button type="button" class="btn btn-primary">검사계획</button>
+          <button type="button" class="btn btn-secondary">품질검사</button>
+          <button type="button" class="btn btn-success">품질이력</button>
+          <button type="button" class="btn btn-info">정보</button>
+          <button type="button" class="btn btn-warning">불량분석</button>
+          <button type="button" class="btn btn-danger">결과표</button>
+          <button type="button" class="btn btn-light">Light 모드</button>
+          <button type="button" class="btn btn-dark">Dark 모드</button>
+          <button type="button" class="btn btn-link">Link</button>  
+          
+          <p>&nbsp;</p>
+          <!-- Content Row -->
+          <div class="row">
+
+              <div class="col-xl-8 col-lg-7">
+
+                  <!-- Area Chart -->
+                  <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                          <h6 class="m-0 font-weight-bold text-primary">검사계획</h6>
+                      </div>
+                      <div class="card-body">
+                          <div class="chart-area">
+                              <canvas id="myAreaChart"></canvas>
+                          </div>
+                          <hr>
+                          Styling for the area chart can be found in the
+                          <code>/js/chart-area-sy.js</code> file.
+                      </div>
+                  </div>
+
+                  <!-- Bar Chart -->
+                  <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                          <h6 class="m-0 font-weight-bold text-primary">품질검사</h6>
+                      </div>
+                      <div class="card-body">
+                          <div class="chart-bar">
+                              <canvas id="myBarChart"></canvas>
+                          </div>
+                          <hr>
+                          Styling for the bar chart can be found in the
+                          <code>/js/chart-bar-sy.js</code> file.
+                      </div>
+                  </div>
+
+              </div>
+
+              <!-- Donut Chart -->
+              <div class="col-xl-4 col-lg-5">
+                  <div class="card shadow mb-4">
+                      <!-- Card Header - Dropdown -->
+                      <div class="card-header py-3">
+                          <h6 class="m-0 font-weight-bold text-primary">불량분석</h6>
+                      </div>
+                      <!-- Card Body -->
+                      <div class="card-body">
+                          <div class="chart-pie pt-4">
+                              <canvas id="myPieChart"></canvas>
+                          </div>
+                          <hr>
+                          Styling for the donut chart can be found in the
+                          <code>/js/chart-pie-sy.js</code> file.
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+      <!-- /.container-fluid -->
+
+  </div>
+  <!-- End of Main Content -->
 
 
 
@@ -181,8 +267,7 @@
 
 
 
-
-      <h1>asdasd</h1>
+      
 
 
 
@@ -244,6 +329,12 @@
 
       <!-- sm. 참조될 라이브러리들(js)  -->
 
+        <!-- sy. 참조될 라이브러리들(js) -->
+      <script src="js/Chart.min.js"></script>
+        <!-- sy. Page level custom scripts -->
+      <script src="js/chart-area-sy.js"></script>
+      <script src="js/chart-pie-sy.js"></script>
+      <script src="js/chart-bar-sy.js"></script>
 
 
 </body>
