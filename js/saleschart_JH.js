@@ -1,10 +1,11 @@
 
 
 //직선그래프//
-var chart1arr = [1, 10, 5, 2, 20, 3,1, 10, 5, 2, 20, 30];
-var chart2arr = [12, 19, 14, 23, 33, 3, 2, 3, 5, 2, 3];
+var chart1arr = [15, 20, 20, 25, 25, 15,10, 30, 80, 20, 20, 35];
+var chart1_1arr = [0, 5, 5, 0, 5, 5,0, 7, 3, 3, 1, 1];
+var chart2arr = [20, 25, 55, 25, 37, 3, 2,8, 10, 130];
 var chart3arr = [5, 16, 18, 10, 15, 6];
-var chart4arr = [12, 19, 14, 23, 33];
+var chart4arr = [20, 25, 55, 25, 37];
 
 var ctx = document.getElementById('myChart1');
 var myChart_1 = new Chart(ctx, {
@@ -12,19 +13,34 @@ var myChart_1 = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'August', 'September', 'October', 'November', 'December'],
-        datasets: [{
-            label: '월별 매출액',
+        datasets: [
+            {
+            label: '채권회수율(억)',
             data: chart1arr,
             backgroundColor: [
-                'rgba(248,37,37, 0.2)', //1월
                 
+                'rgba(54, 162, 235, 0.2)'
             ],
             borderColor: [
-                'rgba(248,37,37,1)',  // 1월
+                'rgba(255,255,255,1)'
                 
             ],
             borderWidth: 1
-        }]
+        },
+        {
+            label: '미수금(억)',
+            data: chart1_1arr,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)'
+                
+            ],
+            borderColor: [
+                'rgba(255,255,255,1)'
+            ],
+            borderWidth: 1
+        },
+        
+    ]
     },
     options: {
         plugins: {
@@ -37,13 +53,19 @@ var myChart_1 = new Chart(ctx, {
 
         },
         scales: {
-            xAxes: {
+            X: {
+                stacked: true,
                 ticks: {
                     color: "rgba(255, 255, 255, 1)",
                     fontSize: 10
                 }
             },
-            yAxes: {
+            Y: {
+                stacked: true,
+                grid: {
+                    drawBorder: false,
+                    color: "gray"
+                    },
                 ticks: {
                     color: "white",
                     fontSize: 14,
@@ -190,7 +212,6 @@ var myChart_5 = new Chart(ctx, {
 
     }
 });
-
 
 
 
