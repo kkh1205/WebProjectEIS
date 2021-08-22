@@ -15,7 +15,7 @@
     <!-- sm. 참조될 라이브러리들(css)  -->
 
     <!-- sy. 참조될 라이브러리들(css) -->
-    
+    <link rel="stylesheet" href="css/animateksy.css">
     <!-- sy. 참조될 라이브러리들(css) -->
     
 
@@ -177,22 +177,68 @@
   <!--sy. Begin Main Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">품질관리</h1>
-          <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme.
-              The charts below have been customized - for further customization options, please visit the <a
-                  target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js
-                  documentation</a>.</p>
+          <!-- sy. Navbars   -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Quality</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          
+              <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">Home
+                      <span class="visually-hidden">(current)</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-sm-2" type="text" placeholder="Search">
+                  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav> 
 
-          <button type="button" class="btn btn-primary">검사계획</button>
-          <button type="button" class="btn btn-secondary">품질검사</button>
-          <button type="button" class="btn btn-success">품질이력</button>
-          <button type="button" class="btn btn-info">정보</button>
-          <button type="button" class="btn btn-warning">불량분석</button>
-          <button type="button" class="btn btn-danger">결과표</button>
-          <button type="button" class="btn btn-light">Light 모드</button>
-          <button type="button" class="btn btn-dark">Dark 모드</button>
-          <button type="button" class="btn btn-link">Link</button>  
+          <!-- Page Heading -->
+          <p>&nbsp;</p>
+          <h1 class="h3 mb-2 text-gray-800">품질관리</h1>
+          <p class="mb-4">
+            <strong>품질 관리 과정에서 발생된 데이터를 수집 및 분석</strong>하여 
+            <span class="text-info">①품질효율(품질비용)최적화, ②품질불량 최소화, ③품질능력향상, ④품질 예측 및 사전예방</span>을 할 수 있도록 지원합니다. &nbsp;
+            please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.jsdocumentation</a>.
+          </p>
+
+          
+                  <button type="button" class="btn btn-primary">검사계획</button>
+                  <button type="button" class="btn btn-secondary">품질검사</button>
+                  <button type="button" class="btn btn-success">품질이력</button>
+                  <button type="button" class="btn btn-info">정보</button>
+                  <button type="button" class="btn btn-warning">불량분석</button>
+                  <button type="button" class="btn btn-danger">전체 결과표</button>
+                  <button type="button" class="btn btn-light">Light 모드</button>
+                  <button type="button" class="btn btn-dark">Dark 모드</button>
+                  <button type="button" class="btn btn-link">Link</button>
           
           <p>&nbsp;</p>
           <!-- Content Row -->
@@ -252,6 +298,95 @@
                           <code>/js/chart-pie-sy.js</code> file.
                       </div>
                   </div>
+
+              <!-- sy. Accordion -->
+                  <h1>정보</h1>
+                  <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          감속기
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                        <div class="accordion-body">
+                          <h6 style="margin-top: 2%;">성공</h6>
+                          <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                          </div>
+                          <h6 style="margin-top: 2%;">중간</h6>
+                          <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                          </div>
+                          <h6 style="margin-top: 2%;">보통</h6>
+                          <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                          </div>
+                          <h6 style="margin-top: 3%;">불량</h6>
+                          <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          전자레버
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+                        <div class="accordion-body">
+                          <h6 style="margin-top: 2%;">성공</h6>
+                          <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                          </div>
+                          <h6 style="margin-top: 2%;">중간</h6>
+                          <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                          </div>
+                          <h6 style="margin-top: 2%;">보통</h6>
+                          <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                          </div>
+                          <h6 style="margin-top: 3%;">불량</h6>
+                          <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          탄성커플링
+                        </button>
+                      </h2>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <h6 style="margin-top: 2%;">성공</h6>
+                          <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                          </div>
+                          <h6 style="margin-top: 2%;">중간</h6>
+                          <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                          </div>
+                          <h6 style="margin-top: 2%;">보통</h6>
+                          <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                          </div>
+                          <h6 style="margin-top: 3%;">불량</h6>
+                          <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
               </div>
 
           </div>
@@ -259,13 +394,14 @@
           <p>&nbsp;</p>
           <p>&nbsp;</p>
           
+          <!-- sy. table -->
           <div class="row">
               <div class="col-xl-8 col-lg-7">
-                <h1>품질관리 그래프</h1>
+                <h1>품질이력</h1>
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th scope="col">Type</th>
+                      <th scope="col">No</th>
                       <th scope="col">Column heading</th>
                       <th scope="col">Column heading</th>
                       <th scope="col">Column heading</th>
@@ -273,61 +409,61 @@
                   </thead>
                   <tbody>
                     <tr class="table-active">
-                      <th scope="row">Active</th>
+                      <th scope="row">1</th>
                       <td>Column content</td>
                       <td>Column content</td>
                       <td>Column content</td>
                     </tr>
                     <tr>
-                      <th scope="row">Default</th>
+                      <th scope="row">2</th>
                       <td>Column content</td>
                       <td>Column content</td>
                       <td>Column content</td>
                     </tr>
                     <tr class="table-primary">
-                      <th scope="row">Primary</th>
+                      <th scope="row">3</th>
                       <td>Column content</td>
                       <td>Column content</td>
                       <td>Column content</td>
                     </tr>
                     <tr class="table-secondary">
-                      <th scope="row">Secondary</th>
+                      <th scope="row">4</th>
                       <td>Column content</td>
                       <td>Column content</td>
                       <td>Column content</td>
                     </tr>
                     <tr class="table-success">
-                      <th scope="row">Success</th>
+                      <th scope="row">5</th>
                       <td>Column content</td>
                       <td>Column content</td>
                       <td>Column content</td>
                     </tr>
                     <tr class="table-danger">
-                      <th scope="row">Danger</th>
+                      <th scope="row">6</th>
                       <td>Column content</td>
                       <td>Column content</td>
                       <td>Column content</td>
                     </tr>
                     <tr class="table-warning">
-                      <th scope="row">Warning</th>
+                      <th scope="row">7</th>
                       <td>Column content</td>
                       <td>Column content</td>
                       <td>Column content</td>
                     </tr>
                     <tr class="table-info">
-                      <th scope="row">Info</th>
+                      <th scope="row">8</th>
                       <td>Column content</td>
                       <td>Column content</td>
                       <td>Column content</td>
                     </tr>
                     <tr class="table-light">
-                      <th scope="row">Light</th>
+                      <th scope="row">9</th>
                       <td>Column content</td>
                       <td>Column content</td>
                       <td>Column content</td>
                     </tr>
                     <tr class="table-dark">
-                      <th scope="row">Dark</th>
+                      <th scope="row">&nbsp;</th>
                       <td>Column content</td>
                       <td>Column content</td>
                       <td>Column content</td>
