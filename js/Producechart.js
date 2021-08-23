@@ -153,7 +153,7 @@ var myChart_2 = new Chart(ctx, {
             X: {
                 ticks: {
                     color: "rgba(255, 255, 255, 1)",
-                    fontSize: 10
+                    font: { size: 10 }
                 }
             },
             Y: {
@@ -163,7 +163,7 @@ var myChart_2 = new Chart(ctx, {
                     },
                 ticks: {
                     color: "white",
-                    fontSize: 14,
+                    font: { size: 10 },
                 }
             }
 
