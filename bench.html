@@ -292,7 +292,7 @@
           </h3>
           <div class="card">
             <div class="card-header text-white bg-secondary">
-              2021년도 분기별 매출
+              2021년도 부서별 분기매출 탭 슬라이드로 바꿀 예정 아니면 그냥 바 차트로
             </div>
             <div class="card-body">
               <div class="chart-area">
@@ -307,35 +307,35 @@
             <thead class="table-secondary">
               <tr>
                 <th scope="col"></th>
-                <th scope="col">A-01</th>
-                <th scope="col">A-02</th>
-                <th scope="col">A-03</th>
+                <th scope="col" style="font-size: 1em;">기술영업</th>
+                <th scope="col" style="font-size: 1em;">소프트웨어</th>
+                <th scope="col" style="font-size: 1em;">해외영업</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">1분기</th>
-                <td>2500</td>
-                <td>3000</td>
-                <td>1500</td>
+                  <td style="text-align: center;">80</td>
+                  <td style="text-align: center;">100</td>
+                  <td style="text-align: center;">200</td>
               </tr>
               <tr>
                 <th scope="row">2분기</th>
-                <td>2000</td>
-                <td>2500</td>
-                <td>2000</td>
+                  <td style="text-align: center;">90</td>
+                  <td style="text-align: center;">50</td>
+                  <td style="text-align: center;">150</td>
               </tr>
               <tr>
                 <th scope="row">3분기</th>
-                <td>3000</td>
-                <td>2500</td>
-                <td>2500</td>
+                  <td style="text-align: center;">85</td>
+                  <td style="text-align: center;">75</td>
+                  <td style="text-align: center;">120</td>
               </tr>
               <tr>
                 <th scope="row">4분기</th>
-                <td>2800</td>
-                <td>3200</td>
-                <td>2800</td>
+                  <td style="text-align: center;">70</td>
+                  <td style="text-align: center;">90</td>
+                  <td style="text-align: center;">190</td>
               </tr>
             </tbody>
           </table>
@@ -371,27 +371,27 @@
             <tbody>
               <tr>
                 <th scope="row">1분기</th>
-                <td>2500</td>
-                <td>3000</td>
-                <td>1500</td>
+                <td>0.02</td>
+                <td>0.05</td>
+                <td>0.01</td>
               </tr>
               <tr>
                 <th scope="row">2분기</th>
-                <td>2000</td>
-                <td>2500</td>
-                <td>2000</td>
+                <td>0.03</td>
+                <td>0.02</td>
+                <td>0.04</td>
               </tr>
               <tr>
                 <th scope="row">3분기</th>
-                <td>3000</td>
-                <td>2500</td>
-                <td>2500</td>
+                <td>0.09</td>
+                <td>0.06</td>
+                <td>0.05</td>
               </tr>
               <tr>
                 <th scope="row">4분기</th>
-                <td>2800</td>
-                <td>3200</td>
-                <td>2800</td>
+                <td>0.07</td>
+                <td>0.09</td>
+                <td>0.05</td>
               </tr>
             </tbody>
           </table>
@@ -410,7 +410,7 @@
         </div>
         <div class="card-body">
           <div class="chart-area">
-            <canvas id="QualityChart"></canvas>
+            <canvas id="PerformanceChart"></canvas>
           </div>
         </div>
       </div>
@@ -438,9 +438,10 @@
   <script src="js/bootstrap.js"></script>
   <script src="js/sidebars.js"></script>
   <script src="js/chart.js"></script>
-  <script src="js/Producechart.js"></script>
-  <script src="js/ProducechartModal.js"></script>
   <script src="js/mainProduceChart.js"></script>
+  <script src="js/mainSalesChart.js"></script>
+  <script src="js/mainQualityChart.js"></script>
+  <script src="js/PerformanceChart.js"></script>
 </body>
 
 </html>
