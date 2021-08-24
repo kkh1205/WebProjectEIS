@@ -10,6 +10,7 @@ html {
 main {
   display: flex;
 <<<<<<< HEAD
+<<<<<<< HEAD
   flex-wrap: nowrap;
   height: 100vh;
   height: -webkit-fill-available;
@@ -20,6 +21,12 @@ main {
   height: -webkit-fill-available;
   /* max-height: 100vh; */
 >>>>>>> 성민브렌치
+=======
+  flex-wrap: nowrap;
+  height: 100vh;
+  height: -webkit-fill-available;
+  /* max-height: 100vh; */
+>>>>>>> 정현브랜치
   overflow-x: auto;
   overflow-y: hidden;
 }
