@@ -1,11 +1,12 @@
-var ctx = document.getElementById('SalesChart')
+var ctx = document.getElementById('SalesChart2')
 
-var SalesChart = new Chart(ctx,  {
+var SalesChart2 = new Chart(ctx,  {
     type: 'doughnut',
     data: {
         labels: ['기술영업', '소프트웨어', '해외영업'],
         datasets: [{
-            data: [80, 100, 200],
+            label: '2분기',
+            data: [50, 100, 170],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -31,7 +32,7 @@ var SalesChart = new Chart(ctx,  {
             },
             title: {
                 display: true,
-                text: '부서별 1분기 매출'
+                text: '부서별 2분기 매출'
             }
         }
     }

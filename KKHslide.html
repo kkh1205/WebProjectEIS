@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+
+
+  <!-- sm. 참조될 라이브러리들(css)  -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!--부트스트랩 테마 적용(cosmo 테마)-->
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/sidebars.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+  <!-- sm. 참조될 라이브러리들(css)  -->
+  <style>
+    @font-face {
+      font-family: 'IBMPlexSansKR-Medium';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Medium.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'IBMPlexSansKR-Medium';
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="card">
+          <div class="card-header text-white bg-secondary">
+            2021년도 부서별 분기매출
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="SalesChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card">
+          <div class="card-header text-white bg-secondary">
+            2021년도 부서별 분기매출
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="SalesChart2"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card">
+          <div class="card-header text-white bg-secondary">
+            2021년도 부서별 분기매출
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="SalesChart3"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card">
+          <div class="card-header text-white bg-secondary">
+            2021년도 부서별 분기매출
+          </div>
+          <div class="card-body">
+            <div class="chart-area">
+              <canvas id="SalesChart4"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- sm. 참조될 라이브러리들(js)  -->
+  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/sidebars.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/mainProduceChart.js"></script>
+  <script src="js/mainSalesChart.js"></script>
+  <script src="js/mainSalesChart2.js"></script>
+  <script src="js/mainSalesChart3.js"></script>
+  <script src="js/mainSalesChart4.js"></script>
+  <script src="js/mainQualityChart.js"></script>
+  <script src="js/PerformanceChart.js"></script>
+</body>
+
+</html>

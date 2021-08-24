@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
   <!-- sm. 참조될 라이브러리들(css)  -->
+  <link rel="stylesheet" href="css/KKHstyle.css">
   <style>
     @font-face {
     font-family: 'IBMPlexSansKR-Medium';
@@ -241,7 +242,7 @@
             </div>
             <div class="card-body">
               <div class="chart-area">
-                <canvas id="ProduceChart"></canvas>
+                <canvas id="ProduceChart" height="300em"></canvas>
               </div>
             </div>
           </div>
@@ -251,32 +252,32 @@
             <thead class="table-light">
               <tr>
                 <th scope="col"></th>
-                <th scope="col">A-01</th>
-                <th scope="col">A-02</th>
-                <th scope="col">A-03</th>
+                <th scope="col" style="font-size: .8em;">A-01</th>
+                <th scope="col" style="font-size: .8em;">A-02</th>
+                <th scope="col" style="font-size: .8em;">A-03</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1분기</th>
+                <th scope="row" style="text-align: center;">1분기</th>
                 <td>2500</td>
                 <td>3000</td>
                 <td>1500</td>
               </tr>
               <tr>
-                <th scope="row">2분기</th>
+                <th scope="row" style="text-align: center;">2분기</th>
                 <td>2000</td>
                 <td>2500</td>
                 <td>2000</td>
               </tr>
               <tr>
-                <th scope="row">3분기</th>
+                <th scope="row" style="text-align: center;">3분기</th>
                 <td>3000</td>
                 <td>2500</td>
                 <td>2500</td>
               </tr>
               <tr>
-                <th scope="row">4분기</th>
+                <th scope="row" style="text-align: center;">4분기</th>
                 <td>2800</td>
                 <td>3200</td>
                 <td>2800</td>
@@ -290,55 +291,108 @@
         <div class="col-md-4">
           <h3 style="text-align: center; margin-top: 5%;"><a href="#" style="text-decoration: none; color: #000;">매출</a>
           </h3>
-          <div class="card">
-            <div class="card-header text-white bg-secondary">
-              2021년도 부서별 분기매출 탭 슬라이드로 바꿀 예정 아니면 그냥 바 차트로
-            </div>
-            <div class="card-body">
-              <div class="chart-area">
-                <canvas id="SalesChart"></canvas>
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="card">
+                  <div class="card-header text-white bg-secondary">
+                    2021년도 부서별 분기매출
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-area">
+                      <canvas id="SalesChart" height="300em"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div class="card-header text-white bg-secondary">
+                    2021년도 부서별 분기매출
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-area">
+                      <canvas id="SalesChart2" height="300em"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div class="card-header text-white bg-secondary">
+                    2021년도 부서별 분기매출
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-area">
+                      <canvas id="SalesChart3" height="300em"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div class="card-header text-white bg-secondary">
+                    2021년도 부서별 분기매출
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-area">
+                      <canvas id="SalesChart4" height="300em"></canvas>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
 
 
+
     <!-- KH. 매출 테이블 -->
-          <table class="table table-hover" style="margin-top: 5%;">
-            <thead class="table-secondary">
-              <tr>
-                <th scope="col"></th>
-                <th scope="col" style="font-size: 1em;">기술영업</th>
-                <th scope="col" style="font-size: 1em;">소프트웨어</th>
-                <th scope="col" style="font-size: 1em;">해외영업</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1분기</th>
-                  <td style="text-align: center;">80</td>
-                  <td style="text-align: center;">100</td>
-                  <td style="text-align: center;">200</td>
-              </tr>
-              <tr>
-                <th scope="row">2분기</th>
-                  <td style="text-align: center;">90</td>
-                  <td style="text-align: center;">50</td>
-                  <td style="text-align: center;">150</td>
-              </tr>
-              <tr>
-                <th scope="row">3분기</th>
-                  <td style="text-align: center;">85</td>
-                  <td style="text-align: center;">75</td>
-                  <td style="text-align: center;">120</td>
-              </tr>
-              <tr>
-                <th scope="row">4분기</th>
-                  <td style="text-align: center;">70</td>
-                  <td style="text-align: center;">90</td>
-                  <td style="text-align: center;">190</td>
-              </tr>
-            </tbody>
-          </table>
+            <table class="table table-hover" style="margin-top: 5%;">
+              <thead class="table-secondary">
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col" style="font-size: .7em; text-align: center;">기술영업</th>
+                  <th scope="col" style="font-size: .7em; text-align: center;">소프트웨어</th>
+                  <th scope="col" style="font-size: .7em; text-align: center;">해외영업</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" style="text-align: center;">1분기</th>
+                    <td style="text-align: center;">80</td>
+                    <td style="text-align: center;">100</td>
+                    <td style="text-align: center;">200</td>
+                </tr>
+                <tr>
+                  <th scope="row" style="text-align: center;">2분기</th>
+                    <td style="text-align: center;">50</td>
+                    <td style="text-align: center;">100</td>
+                    <td style="text-align: center;">170</td>
+                </tr>
+                <tr>
+                  <th scope="row" style="text-align: center;">3분기</th>
+                    <td style="text-align: center;">150</td>
+                    <td style="text-align: center;">40</td>
+                    <td style="text-align: center;">70</td>
+                </tr>
+                <tr>
+                  <th scope="row" style="text-align: center;">4분기</th>
+                    <td style="text-align: center;">80</td>
+                    <td style="text-align: center;">60</td>
+                    <td style="text-align: center;">180</td>
+                </tr>
+              </tbody>
+            </table>
 
 
         </div>
@@ -352,7 +406,7 @@
             </div>
             <div class="card-body">
               <div class="chart-area">
-                <canvas id="QualityChart"></canvas>
+                <canvas id="QualityChart" height="300em"></canvas>
               </div>
             </div>
           </div>
@@ -363,32 +417,32 @@
             <thead class="table-primary">
               <tr>
                 <th scope="col"></th>
-                <th scope="col">A-01</th>
-                <th scope="col">A-02</th>
-                <th scope="col">A-03</th>
+                <th scope="col" style="font-size: .8em;">A-01</th>
+                <th scope="col" style="font-size: .8em;">A-02</th>
+                <th scope="col" style="font-size: .8em;">A-03</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1분기</th>
+                <th scope="row" style="text-align: center;">1분기</th>
                 <td>0.02</td>
                 <td>0.05</td>
                 <td>0.01</td>
               </tr>
               <tr>
-                <th scope="row">2분기</th>
+                <th scope="row" style="text-align: center;">2분기</th>
                 <td>0.03</td>
                 <td>0.02</td>
                 <td>0.04</td>
               </tr>
               <tr>
-                <th scope="row">3분기</th>
+                <th scope="row" style="text-align: center;">3분기</th>
                 <td>0.09</td>
                 <td>0.06</td>
                 <td>0.05</td>
               </tr>
               <tr>
-                <th scope="row">4분기</th>
+                <th scope="row" style="text-align: center;">4분기</th>
                 <td>0.07</td>
                 <td>0.09</td>
                 <td>0.05</td>
@@ -406,7 +460,7 @@
 
       <div class="card" style="margin-top: 4%;">
         <div class="card-header">
-          <h3 style="text-align: center;">2021 분기별 실적추이</h3>
+          <h3 style="text-align: center;">2021 분기별 매출액 & 영업이익</h3>
         </div>
         <div class="card-body">
           <div class="chart-area">
@@ -440,6 +494,9 @@
   <script src="js/chart.js"></script>
   <script src="js/mainProduceChart.js"></script>
   <script src="js/mainSalesChart.js"></script>
+  <script src="js/mainSalesChart2.js"></script>
+  <script src="js/mainSalesChart3.js"></script>
+  <script src="js/mainSalesChart4.js"></script>
   <script src="js/mainQualityChart.js"></script>
   <script src="js/PerformanceChart.js"></script>
 </body>
