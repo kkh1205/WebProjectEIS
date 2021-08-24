@@ -11,6 +11,7 @@ main {
   display: flex;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   flex-wrap: nowrap;
   height: 100vh;
   height: -webkit-fill-available;
@@ -22,11 +23,16 @@ main {
   /* max-height: 100vh; */
 >>>>>>> 성민브렌치
 =======
+=======
+>>>>>>> 소연브랜치
   flex-wrap: nowrap;
   height: 100vh;
   height: -webkit-fill-available;
   /* max-height: 100vh; */
+<<<<<<< HEAD
 >>>>>>> 정현브랜치
+=======
+>>>>>>> 소연브랜치
   overflow-x: auto;
   overflow-y: hidden;
 }
