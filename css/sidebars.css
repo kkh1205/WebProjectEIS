@@ -9,10 +9,17 @@ html {
 
 main {
   display: flex;
+<<<<<<< HEAD
   flex-wrap: nowrap;
   height: 100vh;
   height: -webkit-fill-available;
  /*  max-height: 100vh; */
+=======
+  flex-wrap: nowrap; 
+  height: 100vh;
+  height: -webkit-fill-available;
+  /* max-height: 100vh; */
+>>>>>>> 성민브렌치
   overflow-x: auto;
   overflow-y: hidden;
 }
