@@ -133,45 +133,55 @@
     </div>
     <!--sm. 모바일사이즈에서 등장하는 사이드바-->
     <div class="d-flex flex-column flex-shrink-0 bg-dark d-lg-none" style="width: 4.5rem;">
-      <a href="#" class="d-block p-3 link-dark text-decoration-none" title="Icon-only" data-bs-toggle="tooltip" data-bs-placement="right">
+      <a href="#" class="d-block p-3 link-dark text-decoration-none" title="Icon-only" data-bs-toggle="tooltip"
+        data-bs-placement="right">
         <i class="bi bi-signpost-split" style="font-size: 1.7rem; color: lavender;"></i>
       </a>
       <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
         <li class="nav-item">
-          <a href="#" class="nav-link  py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="main.html" class="nav-link py-3 border-bottom" aria-current="page" title="Home"
+            data-bs-toggle="tooltip" data-bs-placement="right">
             <i class="bi bi-house-door" style="font-size: 2rem;"></i>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link  py-3 border-bottom" title="Produce" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="produce.html" class="nav-link py-3 border-bottom" title="Produce" data-bs-toggle="tooltip"
+            data-bs-placement="right">
             <i class="bi bi-minecart-loaded" style="font-size: 2rem;"></i>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-linka ctive py-3 border-bottom" title="Sales" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="sales.html" class="nav-link active py-3 border-bottom" title="Sales" data-bs-toggle="tooltip"
+            data-bs-placement="right">
             <i class="bi bi-tags" style="font-size: 2rem;"></i>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 border-bottom" title="Quality" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="quality.html" class="nav-link py-3 border-bottom" title="Quality" data-bs-toggle="tooltip"
+            data-bs-placement="right">
             <i class="bi bi-shield" style="font-size: 2rem;"></i>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 border-bottom" title="Infomation" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="#" class="nav-link py-3 border-bottom" title="Infomation" data-bs-toggle="tooltip"
+            data-bs-placement="right">
             <i class="bi bi-lightbulb" style="font-size: 2rem;"></i>
           </a>
         </li>
       </ul>
       <div class="dropdown border-top">
-        <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+        <a href="#"
+          class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
+          id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
           <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
         </a>
         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
           <li><a class="dropdown-item" href="#">New project...</a></li>
           <li><a class="dropdown-item" href="#">Settings</a></li>
           <li><a class="dropdown-item" href="#">Profile</a></li>
-          <li><hr class="dropdown-divider"></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
           <li><a class="dropdown-item" href="#">Sign out</a></li>
         </ul>
       </div>
@@ -336,13 +346,35 @@
                   <div class="row">
                     
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <h2 class="text-center">2021년 월별 매출액</h2>
-                      <canvas id="myChart1"></canvas><br>
+                      <div class="card">
+                        <div class="card-header">
+                          <h2 class="text-center">2021년 월별 매출액</h2>
+                        </div>
+                        <div class="card-body">
+                          <blockquote class="blockquote mb-0">
+                            <canvas id="myChart1"></canvas><br>
+                          </blockquote>
+                        </div>
+                      </div>
+                      
+                     
                     </div>
 
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                      <h2 class="text-center">2021년 제품별 매출액</h2>
-                      <canvas id="myChart2"></canvas>
+
+                      <div class="card">
+                        <div class="card-header">
+                          <h2 class="text-center">2021년 제품별 매출액</h2>
+                        </div>
+                        <div class="card-body">
+                          <blockquote class="blockquote mb-0">
+                            <canvas id="myChart2"></canvas>
+                          </blockquote>
+                          <p>&nbsp;</p>
+                        </div>
+                      </div>
+                      
+                      
                     </div>
                     
                       <!--sm. 창 large 사이즈일때 6col 사용 미디움은 6col, 태블릿 및 모바일 사이즈에는 세로표기-->
@@ -363,26 +395,43 @@
           
           <div class="row">
             <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-              <h2 class="text-center">2021년 상위 T0P5 제품 월별 매출액</h2>
-              <canvas id="myChart6"></canvas>
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="text-center">2021년 상위 T0P5 제품 월별 매출액</h2>
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0">
+                    <canvas id="myChart6"></canvas>
+                  </blockquote>
+                </div>
+              </div>
+             
            
             </div>
             
             
-          
+            
             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
               
                 <div class="row">
-                  <h2 class="text-center">2021년 상위 T0P5 제품(매출)</h2>
-                  <div class="col-2"></div>
-          
-                  <div class="col-8"><canvas id="myChart5"></canvas></div>
-          
-                  <div class="col-2"></div>
+                  <div class="card">
+                    <div class="card-header">
+                      <h2 class="text-center">2021년 상위 T0P5 제품(매출)</h2>
+                    </div>
+                    <div class="card-body">
+                      <blockquote class="blockquote mb-0">
+
+                        <canvas id="myChart5"></canvas>
+                      </blockquote>
+                    </div>
+                  </div>
+                  
+                 
           
                 </div>
              
             </div>
+            
             
 
             <p>&nbsp;</p>
