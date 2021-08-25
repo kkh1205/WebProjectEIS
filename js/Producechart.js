@@ -131,6 +131,8 @@ var myChart_2 = new Chart(ctx, {
                 var value = myChart_2.data.datasets[firstPoint.datasetIndex].data[firstPoint.index];    //sm. 차트의 바를 클릭했을때 그 데이터값을 가져오기
                 console.log(label);     //sm. 콘솔로 값이 제대로 가져와지는지 확인
                 console.log(value);
+
+                
                 var myModal = new bootstrap.Modal(document.getElementById('exampleModal'))  //sm. 차트 클릭이벤트와 함께 모달 실행, 모달의 인스턴스 생상하여 모달의 아이디를 추적하여 저장
                 myModal.show()                                                              //sm. 모달 실행
                 
