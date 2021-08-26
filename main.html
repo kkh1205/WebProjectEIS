@@ -134,25 +134,25 @@
       </a>
       <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
         <li class="nav-item">
-          <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="Home"
+          <a href="main.html" class="nav-link active py-3 border-bottom" aria-current="page" title="Home"
             data-bs-toggle="tooltip" data-bs-placement="right">
             <i class="bi bi-house-door" style="font-size: 2rem;"></i>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 border-bottom" title="Produce" data-bs-toggle="tooltip"
+          <a href="produce.html" class="nav-link py-3 border-bottom" title="Produce" data-bs-toggle="tooltip"
             data-bs-placement="right">
             <i class="bi bi-minecart-loaded" style="font-size: 2rem;"></i>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 border-bottom" title="Sales" data-bs-toggle="tooltip"
+          <a href="sales.html" class="nav-link py-3 border-bottom" title="Sales" data-bs-toggle="tooltip"
             data-bs-placement="right">
             <i class="bi bi-tags" style="font-size: 2rem;"></i>
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 border-bottom" title="Quality" data-bs-toggle="tooltip"
+          <a href="quality.html" class="nav-link py-3 border-bottom" title="Quality" data-bs-toggle="tooltip"
             data-bs-placement="right">
             <i class="bi bi-shield" style="font-size: 2rem;"></i>
           </a>
@@ -170,7 +170,6 @@
           id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
           <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
         </a>
-        <!-- KH. 이 드롭다운 메뉴는 어디있는거야? -->
         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
           <li><a class="dropdown-item" href="#">New project...</a></li>
           <li><a class="dropdown-item" href="#">Settings</a></li>
@@ -235,7 +234,7 @@
 
     <!-- KH. 생산 차트  -->
         <div class="col-md-4">
-          <h3 style="text-align: center; margin-top: 5%;"><a href="#" style="text-decoration: none; color: #000;">생산</a></h3>
+          <h3 style="text-align: center; margin-top: 5%;"><a href="produce.html" style="text-decoration: none; color: #000;">생산</a></h3>
           <div class="card">
             <div class="card-header">
               2021년도 총 생산량
@@ -289,7 +288,7 @@
         </div>
     <!-- KH. 매출 차트 -->
         <div class="col-md-4">
-          <h3 style="text-align: center; margin-top: 5%;"><a href="#" style="text-decoration: none; color: #000;">매출</a>
+          <h3 style="text-align: center; margin-top: 5%;"><a href="sales.html" style="text-decoration: none; color: #000;">매출</a>
           </h3>
           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -398,7 +397,7 @@
         </div>
     <!-- KH. 품질 차트 -->
         <div class="col-md-4">
-          <h3 style="text-align: center; margin-top: 5%;"><a href="#" style="text-decoration: none; color: #000;">품질</a>
+          <h3 style="text-align: center; margin-top: 5%;"><a href="quality.html" style="text-decoration: none; color: #000;">품질</a>
           </h3>
           <div class="card">
             <div class="card-header text-white bg-primary">
@@ -470,7 +469,7 @@
       </div>
 
       <!-- KH. 지도 보여주면서 각나라 수출 현황 -->
-      <!-- KH. 새벽4시임 ㅎㅎㅎㅎ -->
+      <!-- KH. 특정나라 클릭 시 수출현황 모달창 -->
 
       <hr style="margin-top: 3%;">
       <div class="card" style="margin-top: 3%">
@@ -478,7 +477,12 @@
           <h3 style="text-align: center;"> 2021년도 수출 현황 </h3>
         </div>
         <div class="card-body">
-          <img src="./img/worldmap.png" alt="WorldMap" style="max-width: 100%;">
+          <img src="./img/worldmap.png" alt="WorldMap" style="max-width: 100%;" usemap="#worldmap">
+
+          <map name="worldmap">
+            <area id="america" target="_blank" shape="poly" coords="35,169,72,103,193,99,248,68,448,68,480,123,189,386,35,169"
+              href="https://namu.wiki/w/%EB%AF%B8%EA%B5%AD" alt="america">
+          </map>
         </div>
 
       </div>
@@ -487,11 +491,22 @@
     
   </main>
 
+  <!-- KH. 반응형 이미지 맵 적용 -->
+  <script>
+    $(function () {
+      $('img[usemap]').rwdImageMaps();
+      $("#img").width("100%");
+    });
+  </script>
+
   <!-- sm. 참조될 라이브러리들(js)  -->
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/sidebars.js"></script>
   <script src="js/chart.js"></script>
+  <script src="js/jquery.rwdImageMaps.js"></script>
+
+  <!-- KH. 적용차트들 -->
   <script src="js/mainProduceChart.js"></script>
   <script src="js/mainSalesChart.js"></script>
   <script src="js/mainSalesChart2.js"></script>

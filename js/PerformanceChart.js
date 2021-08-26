@@ -27,7 +27,7 @@ var PerformanceChart = new Chart(ctx,  {
             borderColor: [
                 'rgba(54, 162, 235, 1)'
             ],
-            borderWidth: 2,
+            borderWidth: 3,
             type: 'line',
             order: 0
         }]
