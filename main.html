@@ -477,10 +477,10 @@
           <h3 style="text-align: center;"> 2021년도 수출 현황 </h3>
         </div>
         <div class="card-body">
-          <img src="./img/worldmap.png" alt="WorldMap" style="max-width: 100%;" usemap="#worldmap">
+          <img id="america" src="./img/worldmap.png" alt="WorldMap" style="max-width: 100%;" usemap="#worldmap">
 
           <map name="worldmap">
-            <area id="america" target="_blank" shape="poly" coords="35,169,72,103,193,99,248,68,448,68,480,123,189,386,35,169"
+            <area target="_blank" shape="poly" coords="35,169,72,103,193,99,248,68,448,68,480,123,189,386,35,169"
               href="https://namu.wiki/w/%EB%AF%B8%EA%B5%AD" alt="america">
           </map>
         </div>
@@ -493,10 +493,7 @@
 
   <!-- KH. 반응형 이미지 맵 적용 -->
   <script>
-    $(function () {
-      $('img[usemap]').rwdImageMaps();
-      $("#img").width("100%");
-    });
+    $('map').imageMapResize();
   </script>
 
   <!-- sm. 참조될 라이브러리들(js)  -->
@@ -504,7 +501,7 @@
   <script src="js/bootstrap.js"></script>
   <script src="js/sidebars.js"></script>
   <script src="js/chart.js"></script>
-  <script src="js/jquery.rwdImageMaps.js"></script>
+  <script src="js/imageMapResizer.js"></script>
 
   <!-- KH. 적용차트들 -->
   <script src="js/mainProduceChart.js"></script>
