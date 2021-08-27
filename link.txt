@@ -24,3 +24,16 @@ http://smart.moatt.co.kr/images/pdf/moatt_mes.pdf
 https://eunyoe.tistory.com/60
 
 
+===============================
+//소중 링크
+부트스트랩 예제
+https://getbootstrap.com/docs/5.1/getting-started/introduction/
+
+부트스트랩CDN
+https://www.bootstrapcdn.com/bootswatch/?theme=11
+
+CDN테마사용
+https://cowhacker.tistory.com/101
+
+CANVAS개념
+https://frhyme.github.io/javascript/chart_js_basic_and_canvas/
