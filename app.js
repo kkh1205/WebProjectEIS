@@ -10,10 +10,7 @@ app.get('/', function(req,res) {
     res.sendFile(__dirname + "/views/index.html")
 })
 
-// localhost:3000/main 브라우저에 res.sendFile() 내부의 파일이 띄워진다.
-app.get('/main', function(req,res) {
-    res.sendFile(__dirname + "/views/index.html")
-})
+
 
 app.use(express.static('views'))
 
