@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
-
+  <!--KH. JQuery 적용 (다른 라이브러리보다 먼저 적용해야 된다고 함.) -->
+  <script src="js/jquery-3.6.0.min.js"></script>
 
   <!-- sm. 참조될 라이브러리들(css)  -->
   <link rel="stylesheet" href="css/bootstrap.css">
@@ -476,13 +477,35 @@
         <div class="card-header text-white bg-secondary">
           <h3 style="text-align: center;"> 2021년도 수출 현황 </h3>
         </div>
-        <div class="card-body">
-          <img id="america" src="./img/worldmap.png" alt="WorldMap" style="max-width: 100%;" usemap="#worldmap">
 
-          <map name="worldmap">
+        <!-- KH. 반응형 이미지맵 적용 -->
+        <div class="card-body">
+          <img id="worldmap" src="./img/worldmap.png" alt="World_Map" style="max-width: 100%;" usemap="#worldmap"> <!-- KH. usemap은 하위태크 map의 name속성을 적어야한다. -->
+
+          <map id="america" name="worldmap"> <!-- KH. id는 그냥 나중에 구분하려고 적어놓은거 -->
             <area target="_blank" shape="poly" coords="35,169,72,103,193,99,248,68,448,68,480,123,189,386,35,169"
               href="https://namu.wiki/w/%EB%AF%B8%EA%B5%AD" alt="america">
+
+            <area target="_blank" shape="poly" coords="275,325,416,406,310,635,200,400,275,325"
+              href="https://namu.wiki/w/%EB%82%A8%EC%95%84%EB%A9%94%EB%A6%AC%EC%B9%B4?from=%EB%82%A8%EB%AF%B8"
+              alt="south_america">
+
+            <area target="_blank" shape="poly"
+              coords="638,127,611,201,591,243,476,246,470,174,500,140,540,120,540,70,588,70,638,127"
+              href="https://namu.wiki/w/%EC%9C%A0%EB%9F%BD" alt="europe">
+            
+            <area target="_blank" shape="poly" coords="641,121,1046,113,925,427,797,383,693,351,600,244"
+              href="https://namu.wiki/w/%EC%95%84%EC%8B%9C%EC%95%84" alt="asia">
+
+            <area target="_blank" shape="poly" coords="667,338,618,262,483,248,435,341,583,543,684,474,708,344,667,338"
+              href="https://namu.wiki/w/%EC%95%84%ED%94%84%EB%A6%AC%EC%B9%B4" alt="africa">
+
+            <area target="_blank" shape="poly"
+              coords="892,476,967,433,971,381,1148,452,1094,483,1105,547,1062,581,985,579,883,538"
+              href="https://namu.wiki/w/%ED%98%B8%EC%A3%BC" alt="australia">
+
           </map>
+            
         </div>
 
       </div>
@@ -493,15 +516,17 @@
 
   <!-- KH. 반응형 이미지 맵 적용 -->
   <script>
-    $('map').imageMapResize();
+    jQuery( document ).ready(function( $ ) {
+    $('img[usemap]').rwdImageMaps();
+    });
   </script>
 
   <!-- sm. 참조될 라이브러리들(js)  -->
-  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/rwdImageMaps.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/sidebars.js"></script>
   <script src="js/chart.js"></script>
-  <script src="js/imageMapResizer.js"></script>
+  
 
   <!-- KH. 적용차트들 -->
   <script src="js/mainProduceChart.js"></script>
