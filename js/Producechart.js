@@ -4,7 +4,7 @@
 var chart1arr = [0, 10, 5, 2, 20, 30,32];
 var chart2arr = [80, 88, 95, 90, 86, 99];
 var chart3arr = [80, 70, 89, 96, 95, 98];
-var chart4arr = [12, 19, 3, 5, 2, 3];
+var chart4arr = [12, 19, 3, 9, 17, 15];
 
 var ctx = document.getElementById('myChart1');
 var myChart_1 = new Chart(ctx, {
@@ -16,8 +16,9 @@ var myChart_1 = new Chart(ctx, {
         labels: ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
             label: '월별 생산액(억 원)',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: "#4e73df",
+            hoverBackgroundColor: "#2e59d9",
+            borderColor: "#4e73df",
             data: chart1arr,
             fill: false
         }]
@@ -29,7 +30,7 @@ var myChart_1 = new Chart(ctx, {
             legend: {
                 labels: {
                     usePointStyle: true,
-                    color: "rgba(255, 255, 255, 1)"
+                    color: "black"
                 }
             }
 
@@ -37,7 +38,7 @@ var myChart_1 = new Chart(ctx, {
         scales: {
             X: {
                 ticks: {
-                    color: "rgba(255, 255, 255, 1)",
+                    color: "black",
                     font: { size: 10 }
                 }
             },
@@ -52,7 +53,7 @@ var myChart_1 = new Chart(ctx, {
                 
 
                 ticks: {
-                    color: "white",
+                    color: "black",
                     fontSize: 14,
                 }
             }
@@ -102,22 +103,9 @@ var myChart_2 = new Chart(ctx, {
         datasets: [{
             label: '가동률(%)',
             data: chart2arr,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
+            backgroundColor: "#4e73df",
+            hoverBackgroundColor: "#2e59d9",
+            borderColor: "#4e73df",
             borderWidth: 1
         }]
     },
@@ -144,7 +132,7 @@ var myChart_2 = new Chart(ctx, {
             legend: {
                 labels: {
                     usePointStyle: true,
-                    color: "rgba(255, 255, 255, 1)"
+                    color: "black"
                 }
             }
 
@@ -152,7 +140,7 @@ var myChart_2 = new Chart(ctx, {
         scales: {
             X: {
                 ticks: {
-                    color: "rgba(255, 255, 255, 1)",
+                    color: "black",
                     font: { size: 10 }
                 }
             },
@@ -189,22 +177,9 @@ var myChart_3 = new Chart(ctx, {
         datasets: [{
             label: '가동률(%)',
             data: chart3arr,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
+            backgroundColor: "#4e73df",
+            hoverBackgroundColor: "#2e59d9",
+            borderColor: "#4e73df",
             borderWidth: 1
         }]
     },
@@ -228,7 +203,7 @@ var myChart_3 = new Chart(ctx, {
             legend: {
                 labels: {
                     usePointStyle: true,
-                    color: "rgba(255, 255, 255, 1)"
+                    color: "black"
                 }
             }
 
@@ -236,7 +211,7 @@ var myChart_3 = new Chart(ctx, {
         scales: {
             X: {
                 ticks: {
-                    color: "rgba(255, 255, 255, 1)",
+                    color: "black",
                     fontSize: 10
                 }
             },
@@ -264,28 +239,15 @@ var myChart_3 = new Chart(ctx, {
 var ctx = document.getElementById("myChart4").getContext('2d');
 
 var myChart_4 = new Chart(ctx, {
-    type: 'doughnut',
+    type: 'radar',
     data: {
         labels: ["B-15", "A-12", "BB-03", "BG-304", "BG-306", "BG-098"],
         datasets: [{
             label: '비율',
             data: chart4arr,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
+            backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+            hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+            hoverBorderColor: "rgba(234, 236, 244, 1)",
             borderWidth: 1
         }]
     },
@@ -294,7 +256,8 @@ var myChart_4 = new Chart(ctx, {
             legend: {
                 labels: {
                     usePointStyle: true,
-                    color: "rgba(255, 255, 255, 1)"
+                    color: "black",
+                    display: false
                 }
             }
 
@@ -303,7 +266,7 @@ var myChart_4 = new Chart(ctx, {
 
             Y: {
                 ticks: {
-                    color: "white",
+                    color: "black",
                     fontSize: 14,
                 }
             }
