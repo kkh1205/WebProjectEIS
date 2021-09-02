@@ -5,7 +5,7 @@ var connection = mysql.createConnection({
     port     : '3306',
     user     : 'root',
     password :'123456789',
-    database : 'JHDB'
+    database : 'JHDB'  
 });  
 var app = express();  
   
@@ -16,27 +16,90 @@ if(!err) {
     console.log("Error connecting database ... \n\n");    
 }  
 });  
-
-app.post('/', function(req, res){
-  var responseData = {};
- 
-  var query =  connection.query('select score from scoreboard where uid="ma" ORDER BY num DESC limit 10', function(err,rows){ 
-    responseData.score = [];
-    if(err) throw err;
-    if(rows[0]){
-      responseData.result = "ok";
-      rows.forEach(function(val){
-        responseData.score.push(val.score);
-      })
-    }
-    else{
-      responseData.result = "none";
-      responseData.score = "";
-    }
-    res.json(responseData);
-  });
-});
+  
+app.get("/",function(request,response){  
+connection.query('SELECT * from monthsales', function(err, rows, fields) {  
+connection.end();  
+  if (!err){  
+    response.send(rows);   
+    console.log('The solution is: ', rows);  
+  }  
+  else  
+    console.log('Error while performing Query.');  
+  });  
+  
+});  
+  
 app.listen(3000); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const express = require('express');
+// const path = require('path');
+// const router = require('../server/routes/router');
+
+// const app = express();
+// const PORT = process.env.PORT || 4000;
+
+// app.use(express.static(path.join(__dirname, '..', 'DBServer/')));
+
+// app.use('/', router);
+
+// app.listen(PORT, () => {
+//     console.log(`Check out the app at http://localhost:${PORT}`);
+// });
+
+
+
+
+  
+// connection.connect(function(err){  
+// if(!err) {  
+//     console.log("Database is connected ... \n\n");    
+// } else {  
+//     console.log("Error connecting database ... \n\n");    
+// }  
+// });  
+
+
+// app.listen(3000); 
 
 
   
