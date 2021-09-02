@@ -9,7 +9,7 @@ var loginData = {
         password: options.storageConfig.password
 };
 
-var mysql = require('mysql');
+var mysql = require('mysql'); // my sql에 저장된 데이터 가져오기
 var connection = mysql.createConnection({
     host     : 'database-1.chaokiahnhcd.us-east-2.rds.amazonaws.com',
     port     : '3306',
@@ -29,7 +29,7 @@ app.get('/', function(req,res){
   res.sendFile(__dirname+'/public/main.html');
 });
 
-app.post('/', function(req, res){
+app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날리기!
   var responseData = {};
 
   var query =  connection.query('select score from scoreboard where uid="ma" ORDER BY num DESC limit 10', function(err,rows){
@@ -38,7 +38,7 @@ app.post('/', function(req, res){
     if(rows[0]){
       responseData.result = "ok";
       rows.forEach(function(val){
-        responseData.score.push(val.score);
+        responseData.score.push(val.score); // responseData에다가 배열로 저장을 시킴
       })
     }
     else{
