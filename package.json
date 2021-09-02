@@ -1,0 +1,28 @@
+{
+  "name": "db",
+  "version": "1.0.0",
+  "main": "maria.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "exports": "^0.0.1",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkh1205/WebProjectEIS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kkh1205/WebProjectEIS/issues"
+  },
+  "homepage": "https://github.com/kkh1205/WebProjectEIS#readme",
+  "description": ""
+}
