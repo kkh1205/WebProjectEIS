@@ -1,5 +1,11 @@
 
 
+
+
+
+
+
+
 //직선그래프//
 var chart1arr = [15, 20, 20, 25, 25, 15,10, 30, 80, 20, 20, 35];
 var chart1_1arr = [0, 5, 5, 0, 5, 5,0, 7, 3, 3, 1, 1];
@@ -53,6 +59,7 @@ var myChart_1 = new Chart(ctx, {
         onClick: function clickHandler(evt) {           //sm. 클릭으로 이벤트 실행하기 바 차트의 바를 클릭해서 그 바의 값을 가져오고, 모달을 실행하고자함   
             const points = myChart_1.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
         
+            
             if (points.length) {
                 const firstPoint = points[0];   
                 var label = myChart_1.data.labels[firstPoint.index];    //sm. 차트의 바를 클릭했을때 그 라벨명을 가져오기
@@ -105,6 +112,8 @@ var myChart_1 = new Chart(ctx, {
 
     }
 });
+
+
 
 var ctx = document.getElementById('myChart2');
 var myChart_2 = new Chart(ctx, {
@@ -363,3 +372,30 @@ var myChart_6 = new Chart(ctx, {
 
     }
 });
+
+var button = document.getElementById("sendAjax")
+ 
+button.addEventListener("click", function() {
+    sendAjax('http://localhost:3000/');
+})
+ 
+function sendAjax(url) {
+    var oReq = new XMLHttpRequest();
+ 
+    oReq.open('POST', url);
+    oReq.setRequestHeader('Content-Type', "application/json") // json 형태로 보낸다                         
+    oReq.send();
+ 
+    oReq.addEventListener('load', function() {
+        var result = JSON.parse(oReq.responseText);
+        var score = result.score;
+        var comp_data = data.datasets[0].data;
+ 
+        for (var i = 0; i < comp_data.length; i++) {
+            comp_data[i] = score[i];
+        }
+ 
+        data.datasets[0].data = comp_data;
+        myChart_1.update();
+    })
+}
