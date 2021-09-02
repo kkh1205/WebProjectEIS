@@ -1,13 +1,59 @@
 
 
+var data1 = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'],
+    datasets: [{
+        label: '월별 생산액(억 원)',
+        backgroundColor: "#4e73df",
+        hoverBackgroundColor: "#2e59d9",
+        borderColor: "#4e73df",
+        data: [0, 0, 0, 0, 0, 0,0],
+        fill: false
+    }]
+};
+
+
+var data2 = {
+    labels: ["A-12", "A-41", "BB-03", "BG-304", "BG-306", "BG-098"],
+    datasets: [{
+        label: '가동률(%)',
+        data: [0,0,0,0,0,0],
+        backgroundColor: "#4e73df",
+        hoverBackgroundColor: "#2e59d9",
+        borderColor: "#4e73df",
+        borderWidth: 1
+    }]
+};
+
+var data3 = {
+    labels: ["B-15", "YUH-31", "POP-10", "KPO-01", "BZO-123", "BPD-12"],
+    datasets: [{
+        label: '가동률(%)',
+        data: [0, 0, 0, 0, 0, 0],
+        backgroundColor: "#4e73df",
+        hoverBackgroundColor: "#2e59d9",
+        borderColor: "#4e73df",
+        borderWidth: 1
+    }]
+};
+
+var data4 = {
+    labels: ["B-15", "A-12", "BB-03", "BG-304", "BG-306", "BG-098"],
+    datasets: [{
+        label: '비율',
+        data: [0, 0, 0, 0, 0, 0],
+        backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+        hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+        hoverBorderColor: "rgba(234, 236, 244, 1)",
+        borderWidth: 1
+    }]
+};
+
 
    
 
 //직선그래프//
-var chart1arr = [0, 10, 5, 2, 20, 30,32];
-var chart2arr = [80, 88, 95, 90, 86, 99];
-var chart3arr = [80, 70, 89, 96, 95, 98];
-var chart4arr = [12, 19, 3, 9, 17, 15];
+
 
 var ctx = document.getElementById('myChart1');
 var myChart_1 = new Chart(ctx, {
@@ -15,17 +61,7 @@ var myChart_1 = new Chart(ctx, {
     type: 'line',
 
 
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'],
-        datasets: [{
-            label: '월별 생산액(억 원)',
-            backgroundColor: "#4e73df",
-            hoverBackgroundColor: "#2e59d9",
-            borderColor: "#4e73df",
-            data: chart1arr,
-            fill: false
-        }]
-    },
+    data: data1,
 
 
     options: {
@@ -101,17 +137,7 @@ var ctx = document.getElementById("myChart2").getContext('2d');
 
 var myChart_2 = new Chart(ctx, {
     type: 'bar',
-    data: {
-        labels: ["A-12", "A-41", "BB-03", "BG-304", "BG-306", "BG-098"],
-        datasets: [{
-            label: '가동률(%)',
-            data: chart2arr,
-            backgroundColor: "#4e73df",
-            hoverBackgroundColor: "#2e59d9",
-            borderColor: "#4e73df",
-            borderWidth: 1
-        }]
-    },
+    data: data2,
     options: {
         onClick: function clickHandler(evt) {           //sm. 클릭으로 이벤트 실행하기 바 차트의 바를 클릭해서 그 바의 값을 가져오고, 모달을 실행하고자함   
             const points = myChart_2.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
@@ -175,17 +201,7 @@ var ctx = document.getElementById("myChart3").getContext('2d');
 */
 var myChart_3 = new Chart(ctx, {
     type: 'bar',
-    data: {
-        labels: ["B-15", "YUH-31", "POP-10", "KPO-01", "BZO-123", "BPD-12"],
-        datasets: [{
-            label: '가동률(%)',
-            data: chart3arr,
-            backgroundColor: "#4e73df",
-            hoverBackgroundColor: "#2e59d9",
-            borderColor: "#4e73df",
-            borderWidth: 1
-        }]
-    },
+    data: data3,
     options: {
         onClick: function clickHandler(evt) {           //sm. 클릭으로 이벤트 실행하기 바 차트의 바를 클릭해서 그 바의 값을 가져오고, 모달을 실행하고자함   
             const points = myChart_3.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
@@ -243,17 +259,7 @@ var ctx = document.getElementById("myChart4").getContext('2d');
 
 var myChart_4 = new Chart(ctx, {
     type: 'radar',
-    data: {
-        labels: ["B-15", "A-12", "BB-03", "BG-304", "BG-306", "BG-098"],
-        datasets: [{
-            label: '비율',
-            data: chart4arr,
-            backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-            hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-            hoverBorderColor: "rgba(234, 236, 244, 1)",
-            borderWidth: 1
-        }]
-    },
+    data: data4,
     options: {
         plugins: {
             legend: {
@@ -280,3 +286,30 @@ var myChart_4 = new Chart(ctx, {
 
     }
 });
+
+
+window.onload = function() {
+    sendAjax('http://localhost:3000/');
+};
+
+function sendAjax(url) {
+    var oReq = new XMLHttpRequest();
+
+    oReq.open('POST', url);
+    oReq.setRequestHeader('Content-Type', "application/json") // json 형태로 보낸다
+    oReq.send();
+
+    oReq.addEventListener('load', function() {
+        var result = JSON.parse(oReq.responseText);
+        var score = result.score;
+        var comp_data = data2.datasets[0].data;
+
+        for (var i = 0; i < comp_data.length; i++) {
+            comp_data[i] = score[i];
+            console.log(score[i]);
+        }
+
+        data2.datasets[0].data = comp_data;
+        myChart_2.update();
+    })
+}
