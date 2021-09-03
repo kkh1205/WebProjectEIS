@@ -301,15 +301,38 @@ function sendAjax(url) {
 
     oReq.addEventListener('load', function() {
         var result = JSON.parse(oReq.responseText);
-        var score = result.score;
-        var comp_data = data2.datasets[0].data;
+        console.log(result);
 
-        for (var i = 0; i < comp_data.length; i++) {
-            comp_data[i] = score[i];
-            console.log(score[i]);
+        var score = result.score;
+        var comp_data2 = data2.datasets[0].data;
+        var comp_data3 = data3.datasets[0].data;
+        var comp_data1 = data1.datasets[0].data;
+        var comp_data4 = data4.datasets[0].data;
+
+        for (var i = 0; i < 6; i++) {
+            comp_data2[i] = score[i];
+            console.log("2 :" + score[i]);
+        }
+        for (var i = 6; i < 12; i++) {
+            comp_data3[i-6] = score[i];
+            console.log("3 :" + score[i]);
+        }
+        for (var i = 12; i < 24; i++) {
+            comp_data1[i-12] = score[i];
+            console.log("1 :" + score[i]);
+        }
+        for (var i = 24; i < 30; i++) {
+            comp_data4[i-24] = score[i];
+            console.log("4 :" + score[i]);
         }
 
-        data2.datasets[0].data = comp_data;
+        data2.datasets[0].data = comp_data2;
+        data3.datasets[0].data = comp_data3;
+        data1.datasets[0].data = comp_data1;
+        data4.datasets[0].data = comp_data4;
         myChart_2.update();
+        myChart_3.update();
+        myChart_1.update();
+        myChart_4.update();
     })
 }
