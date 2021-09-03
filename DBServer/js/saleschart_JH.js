@@ -28,7 +28,8 @@ var myChart_1 = new Chart(ctx, {
         datasets: [
             {
             label: '채권회수율(억)',
-            data: chart1arr,
+            data: 
+            chart1arr,
             backgroundColor: [
                 
                 'rgba(54, 162, 235, 0.2)'
@@ -103,6 +104,7 @@ var myChart_1 = new Chart(ctx, {
                 ticks: {
                     color: "black",
                     fontSize: 14,
+                    beginAtzero: true
                 }
             }
 
@@ -112,101 +114,133 @@ var myChart_1 = new Chart(ctx, {
 
     }
 });
+var data = {
+    labels: ["감속기","NICO 감속기","전자레버", "탄성커플링", "PTO", "사이트 트러스터", "조수기", "유압기기", "조타기", "기타"],
+    datasets: [
+        {
+         label: '제품별 매출액',
+         data: [0,0,0,0,0,0,0,0,0,0],
+         backgroundColor: [
+        'rgba(240,157,157, 0.5)', //감속기
+        'rgba(101,75,190, 0.5)',  //NICO 감속기
+        'rgba(174,217,113, 0.5)',  //전자레버
+        'rgba(226,135,173, 0.5)',  //탄성커플링
+        'rgba(111,211,109, 0.5)', //PTO
+        'rgba(181,88,191, 0.5)', //사이트 트러스터
+        'rgba(123,200,207, 0.5)', //조수기
+        'rgba(232,235,86, 0.5)', //유압기기
+        'rgba(239,193,87, 0.5)',  //조타기
+        'rgba(195,143,65, 0.5)',  // 기타
+        
+    ],
+    borderColor: [
+        'rgba(240,157,157, 1)', //감속기
+        'rgba(101,75,190, 1)',  //NICO 감속기
+        'rgba(174,217,113, 1)',  //전자레버
+        'rgba(226,135,173, 1)',  //탄성커플링
+        'rgba(111,211,109, 1)', //PTO
+        'rgba(181,88,191, 1)', //사이트 트러스터
+        'rgba(123,200,207, 1)', //조수기
+        'rgba(232,235,86, 1)', //유압기기
+        'rgba(239,193,87, 1)',  //조타기
+        'rgba(195,143,65, 1)',  // 기타
+        
+    ],
+    borderWidth: 1
+    }
+]
+    
+};
+
+var option = {
+
+    onClick: function clickHandler(evt) {           //sm. 클릭으로 이벤트 실행하기 바 차트의 바를 클릭해서 그 바의 값을 가져오고, 모달을 실행하고자함   
+        const points = myChart_2.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+    
+        if (points.length) {
+            const firstPoint = points[0];   
+            var label = myChart_2.data.labels[firstPoint.index];    //sm. 차트의 바를 클릭했을때 그 라벨명을 가져오기
+            var value = myChart_2.data.datasets[firstPoint.datasetIndex].data[firstPoint.index];    //sm. 차트의 바를 클릭했을때 그 데이터값을 가져오기
+            console.log(label);     //sm. 콘솔로 값이 제대로 가져와지는지 확인
+            console.log(value);
+
+            
+            var myModal2 = new bootstrap.Modal(document.getElementById('productsales'))  //sm. 차트 클릭이벤트와 함께 모달 실행, 모달의 인스턴스 생상하여 모달의 아이디를 추적하여 저장
+            myModal2.show()                                                              //sm. 모달 실행
+            
+        }
+
+        
+    }
+    ,
+    animation: {
+        animateScale: true
+    },
+    
+    plugins: {
+        legend: {
+            labels: {
+                usePointStyle: true,
+                color: "rgba(0, 0, 0, 1)"
+                
+            }
+        }
+
+    },
+    scales: {
+        xAxes: {
+            ticks: {
+                color: "rgba(0, 0, 0, 1)",
+                fontSize: 10
+            }
+        },
+        yAxes: {
+            ticks: {
+                color: "black",
+                fontSize: 14,
+                beginAtZero: true
+            }
+        }
 
 
+    }
 
+
+}
 var ctx = document.getElementById('myChart2');
 var myChart_2 = new Chart(ctx, {
 
     type: 'bar',
-    data: {
-        labels: ["감속기","NICO 감속기","전자레버", "탄성커플링", "PTO", "사이트 트러스터", "조수기", "유압기기", "조타기", "기타"],
-        datasets: [{
-            label: '제품별 매출액',
-            data: chart2arr,
-            backgroundColor: [
-                'rgba(240,157,157, 0.5)', //감속기
-                'rgba(101,75,190, 0.5)',  //NICO 감속기
-                'rgba(174,217,113, 0.5)',  //전자레버
-                'rgba(226,135,173, 0.5)',  //탄성커플링
-                'rgba(111,211,109, 0.5)', //PTO
-                'rgba(181,88,191, 0.5)', //사이트 트러스터
-                'rgba(123,200,207, 0.5)', //조수기
-                'rgba(232,235,86, 0.5)', //유압기기
-                'rgba(239,193,87, 0.5)',  //조타기
-                'rgba(195,143,65, 0.5)',  // 기타
-                
-            ],
-            borderColor: [
-                'rgba(240,157,157, 1)', //감속기
-                'rgba(101,75,190, 1)',  //NICO 감속기
-                'rgba(174,217,113, 1)',  //전자레버
-                'rgba(226,135,173, 1)',  //탄성커플링
-                'rgba(111,211,109, 1)', //PTO
-                'rgba(181,88,191, 1)', //사이트 트러스터
-                'rgba(123,200,207, 1)', //조수기
-                'rgba(232,235,86, 1)', //유압기기
-                'rgba(239,193,87, 1)',  //조타기
-                'rgba(195,143,65, 1)',  // 기타
-                
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-
-        onClick: function clickHandler(evt) {           //sm. 클릭으로 이벤트 실행하기 바 차트의 바를 클릭해서 그 바의 값을 가져오고, 모달을 실행하고자함   
-            const points = myChart_2.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
-        
-            if (points.length) {
-                const firstPoint = points[0];   
-                var label = myChart_2.data.labels[firstPoint.index];    //sm. 차트의 바를 클릭했을때 그 라벨명을 가져오기
-                var value = myChart_2.data.datasets[firstPoint.datasetIndex].data[firstPoint.index];    //sm. 차트의 바를 클릭했을때 그 데이터값을 가져오기
-                console.log(label);     //sm. 콘솔로 값이 제대로 가져와지는지 확인
-                console.log(value);
-
-                
-                var myModal2 = new bootstrap.Modal(document.getElementById('productsales'))  //sm. 차트 클릭이벤트와 함께 모달 실행, 모달의 인스턴스 생상하여 모달의 아이디를 추적하여 저장
-                myModal2.show()                                                              //sm. 모달 실행
-                
-            }
-
-            
-        }
-        ,
-        
-        plugins: {
-            legend: {
-                labels: {
-                    usePointStyle: true,
-                    color: "rgba(0, 0, 0, 1)"
-                    
-                }
-            }
-
-        },
-        scales: {
-            xAxes: {
-                ticks: {
-                    color: "rgba(0, 0, 0, 1)",
-                    fontSize: 10
-                }
-            },
-            yAxes: {
-                ticks: {
-                    color: "black",
-                    fontSize: 14,
-                }
-            }
-
-
-        }
-
-
-    }
+    data: data,
+    options: option
 });
 
+var button = document.getElementById("sendAjax")
 
+button.addEventListener("click", function() {
+    sendAjax('http://localhost:3000');
+})
+
+function sendAjax(url) {
+    var oReq = new XMLHttpRequest();
+
+    oReq.open('POST', url);
+    oReq.setRequestHeader('Content-Type', "application/json") // json 형태로 보낸다
+    oReq.send();
+
+    oReq.addEventListener('load', function() {
+        var result = JSON.parse(oReq.responseText);
+        var score = result.score;
+        var comp_data = data.datasets[0].data;
+
+        for (var i = 0; i < comp_data.length; i++) {
+            comp_data[i] = score[i];
+        }
+
+        data.datasets[0].data = comp_data;
+        myChart_2.update();
+    })
+}
 
 
 
@@ -373,29 +407,3 @@ var myChart_6 = new Chart(ctx, {
     }
 });
 
-var button = document.getElementById("sendAjax")
- 
-button.addEventListener("click", function() {
-    sendAjax('http://localhost:3000/');
-})
- 
-function sendAjax(url) {
-    var oReq = new XMLHttpRequest();
- 
-    oReq.open('POST', url);
-    oReq.setRequestHeader('Content-Type', "application/json") // json 형태로 보낸다                         
-    oReq.send();
- 
-    oReq.addEventListener('load', function() {
-        var result = JSON.parse(oReq.responseText);
-        var score = result.score;
-        var comp_data = data.datasets[0].data;
- 
-        for (var i = 0; i < comp_data.length; i++) {
-            comp_data[i] = score[i];
-        }
- 
-        data.datasets[0].data = comp_data;
-        myChart_1.update();
-    })
-}
