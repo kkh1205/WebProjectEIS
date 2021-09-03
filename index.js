@@ -22,10 +22,10 @@ app.listen(3000,function(){
 })
 
 app.get('/', function(req,res){
-  res.sendFile(__dirname+'/public/main.html');
+  res.sendFile(__dirname+'/public/index.html');
 });
 
-app.post('/', function(req, res){
+app.post('/produce.html', function(req, res){
   var responseData = {};
 
   var query =  connection.query('SELECT score, uid FROM proUtil UNION ALL SELECT score, uid FROM proMonth UNION ALL SELECT score, uid FROM proPER', function(err,rows){

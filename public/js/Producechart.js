@@ -289,7 +289,7 @@ var myChart_4 = new Chart(ctx, {
 
 
 window.onload = function() {
-    sendAjax('http://localhost:3000/');
+    sendAjax('http://localhost:3000/produce.html');
 };
 
 function sendAjax(url) {
