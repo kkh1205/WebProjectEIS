@@ -1,5 +1,4 @@
 var ctx = document.getElementById('ProduceChart')
-
 var ProduceChart = new Chart(ctx,  {
     type: 'bar',
     data: {
