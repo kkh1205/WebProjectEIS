@@ -1,5 +1,6 @@
 var mysql = require('mysql'); //use mysql module
 
+
 var connection = mysql.createConnection({ //mysql 객체의 createConnection 메소드 호출
     host: 'database-1.chaokiahnhcd.us-east-2.rds.amazonaws.com', //호스트 설정
     port: '3306',
@@ -17,5 +18,5 @@ connection.query('select * from contacts', function (error, results, fields) {
     }
     console.log(results);
 });
-
+ 
 connection.end();
