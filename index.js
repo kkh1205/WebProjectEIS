@@ -28,14 +28,31 @@ app.get('/', function(req,res){
 app.post('/produce.html', function(req, res){
   var responseData = {};
 
-  var query =  connection.query('SELECT score, uid FROM proUtil UNION ALL SELECT score, uid FROM proMonth UNION ALL SELECT score, uid FROM proPER', function(err,rows){
+  var query =  connection.query('SELECT proUtil.score, proUtil.uid, proTable.run, proTable.besh, proTable.nonstop FROM proUtil left JOIN proTable ON proUtil.uid = proTable.uid UNION ALL SELECT score, uid, NULL, NULL, NULL FROM proMonth UNION ALL SELECT score, uid, NULL, NULL, NULL FROM proPER', function(err,rows){
     responseData.score = [];
     responseData.uid = [];
+    responseData.run = [];
+    responseData.besh = [];
+    responseData.nonstop = [];
+
     rows.forEach(function(val){
     responseData.score.push(val.score);
     })
+
     rows.forEach(function(val){
     responseData.uid.push(val.uid);
+    })
+
+    rows.forEach(function(val){
+    responseData.run.push(val.run);
+    })
+
+    rows.forEach(function(val){
+    responseData.besh.push(val.besh);
+    })
+    
+    rows.forEach(function(val){
+    responseData.nonstop.push(val.nonstop);
     })
     
 
