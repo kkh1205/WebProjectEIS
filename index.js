@@ -28,10 +28,14 @@ app.get('/', function(req,res){
 app.post('/', function(req, res){
   var responseData = {};
 
-  var query =  connection.query('SELECT score FROM proUtil UNION ALL SELECT score FROM proMonth UNION ALL SELECT score FROM proPER', function(err,rows){
+  var query =  connection.query('SELECT score, uid FROM proUtil UNION ALL SELECT score, uid FROM proMonth UNION ALL SELECT score, uid FROM proPER', function(err,rows){
     responseData.score = [];
+    responseData.uid = [];
     rows.forEach(function(val){
     responseData.score.push(val.score);
+    })
+    rows.forEach(function(val){
+    responseData.uid.push(val.uid);
     })
     
 

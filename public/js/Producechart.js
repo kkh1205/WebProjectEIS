@@ -304,25 +304,37 @@ function sendAjax(url) {
         console.log(result);
 
         var score = result.score;
+        var uid = result.uid;
         var comp_data2 = data2.datasets[0].data;
         var comp_data3 = data3.datasets[0].data;
         var comp_data1 = data1.datasets[0].data;
         var comp_data4 = data4.datasets[0].data;
+        var name_data2 = data2.labels;
+        var name_data3 = data3.labels;
+        var name_data1 = data1.labels;
+        var name_data4 = data4.labels;
 
         for (var i = 0; i < 6; i++) {
             comp_data2[i] = score[i];
+            name_data2[i] = uid[i];
             console.log("2 :" + score[i]);
         }
         for (var i = 6; i < 12; i++) {
             comp_data3[i-6] = score[i];
+            name_data3[i-6] = uid[i];
+
             console.log("3 :" + score[i]);
         }
         for (var i = 12; i < 24; i++) {
             comp_data1[i-12] = score[i];
+            name_data1[i-12] = uid[i];
+
             console.log("1 :" + score[i]);
         }
         for (var i = 24; i < 30; i++) {
             comp_data4[i-24] = score[i];
+            name_data4[i-24] = uid[i];
+
             console.log("4 :" + score[i]);
         }
 
@@ -330,6 +342,11 @@ function sendAjax(url) {
         data3.datasets[0].data = comp_data3;
         data1.datasets[0].data = comp_data1;
         data4.datasets[0].data = comp_data4;
+        data2.labels = name_data2;
+        data3.labels = name_data3;
+        data1.labels = name_data1;
+        data4.labels = name_data4;
+
         myChart_2.update();
         myChart_3.update();
         myChart_1.update();
