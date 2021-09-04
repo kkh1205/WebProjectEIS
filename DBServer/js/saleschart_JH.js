@@ -215,18 +215,19 @@ var myChart_2 = new Chart(ctx, {
     options: option
 });
 
-var button = document.getElementById("sendAjax")
 
-button.addEventListener("click", function() {
-    sendAjax('http://localhost:3000');
-})
+
+window.onload = function(){
+    sendAjax('http://localhost:3005');
+}
+
 
 function sendAjax(url) {
     var oReq = new XMLHttpRequest();
 
-    oReq.open('POST', url);
-    oReq.setRequestHeader('Content-Type', "application/json") // json 형태로 보낸다
-    oReq.send();
+    oReq.open('POST', url); // http 메서드 지정 및 접속할 url 입력
+    oReq.setRequestHeader('Content-Type', "application/json") // 컨텐츠 타입, json 이라고  알려주는거임
+    oReq.send();// 그걸 보냄.
 
     oReq.addEventListener('load', function() {
         var result = JSON.parse(oReq.responseText);
