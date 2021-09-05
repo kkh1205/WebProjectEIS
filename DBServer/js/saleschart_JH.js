@@ -18,43 +18,43 @@ var chart7arr = [10, 12, 1, 2, 3,2,8,3,7,1,1,1];
 var chart8arr = [0, 0, 0,15, 0,0,0,8,0,0,2,0];
 var chart9arr = [10, 0, 0, 17, 0,0,2,4,4,0,0,0];
 
-
+var data1 = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'August', 'September', 'October', 'November', 'December'],
+    datasets: [
+        {
+        label: '채권회수율(억)',
+        data: 
+        [0,0,0,0,0,0,0,0,0,0,0,0],
+        backgroundColor: [
+            
+            'rgba(54, 162, 235, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255,255,255,1)'
+            
+        ],
+        borderWidth: 1
+    },
+    {
+        label: '미수금(억)',
+        data: chart1_1arr,
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)'
+            
+        ],
+        borderColor: [
+            'rgba(255,255,255,1)'
+        ],
+        borderWidth: 1
+    }
+    
+]
+}
 var ctx = document.getElementById('myChart1');
 var myChart_1 = new Chart(ctx, {
 
     type: 'bar',
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'August', 'September', 'October', 'November', 'December'],
-        datasets: [
-            {
-            label: '채권회수율(억)',
-            data: 
-            chart1arr,
-            backgroundColor: [
-                
-                'rgba(54, 162, 235, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,255,255,1)'
-                
-            ],
-            borderWidth: 1
-        },
-        {
-            label: '미수금(억)',
-            data: chart1_1arr,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)'
-                
-            ],
-            borderColor: [
-                'rgba(255,255,255,1)'
-            ],
-            borderWidth: 1
-        }
-        
-    ]
-    },
+    data: data1,
     options: {
 
         onClick: function clickHandler(evt) {           //sm. 클릭으로 이벤트 실행하기 바 차트의 바를 클릭해서 그 바의 값을 가져오고, 모달을 실행하고자함   
@@ -118,8 +118,8 @@ var data = {
     labels: ["감속기","NICO 감속기","전자레버", "탄성커플링", "PTO", "사이트 트러스터", "조수기", "유압기기", "조타기", "기타"],
     datasets: [
         {
-         label: '제품별 매출액',
-         data: [0,0,0,0,0,0,0,0,0,0],
+         label: '제품별 매출액(억)',
+         data: [0,0,0,0,0,0,0,0,0,0,0,0],
          backgroundColor: [
         'rgba(240,157,157, 0.5)', //감속기
         'rgba(101,75,190, 0.5)',  //NICO 감속기
@@ -231,24 +231,26 @@ function sendAjax(url) {
 
     oReq.addEventListener('load', function() {
         var result = JSON.parse(oReq.responseText);
+       
+        var product = result.product;
         var score = result.score;
-        var product = reslut.product;
         var comp_data = data.datasets[0].data;
-        var comp_data1 = data.datasets[1].data;
-
-        for (var i = 0; i < comp_data.length; i++) {
-            comp_data[i] = score[i];
-        }
+        var comp_data1 = data1.datasets[0].data;
 
         for (var i = 0; i < comp_data.length; i++) {
             comp_data[i] = product[i];
         }
 
-        data.datasets[0].data = comp_data;
-        data.datasets[1].data = comp_data1;
-        myChart_1.update();
+        for (var i = 0; i < comp_data1.length; i++) {
+            comp_data1[i] = score[i];
+        }
 
+
+        data.datasets[0].data = comp_data;
+        data1.datasets[0].data = comp_data1;
+        myChart_1.update();
         myChart_2.update();
+        
         
     })
 }
