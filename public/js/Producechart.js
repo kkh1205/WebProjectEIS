@@ -266,10 +266,10 @@ var myChart_4 = new Chart(ctx, {
 });
 
 window.onload = function () {
-    sendAjax("http://localhost:3000/produce.html");
+    sendAjax2021("http://localhost:3000/produce.html");
 };
 
-function sendAjax(url) {
+function sendAjax2021(url) {
     var oReq = new XMLHttpRequest();
 
     oReq.open("POST", url);
@@ -280,12 +280,12 @@ function sendAjax(url) {
         var result = JSON.parse(oReq.responseText);
         console.log(result);
 
-        var score = result.score;
-        console.log(score[0]);
+        var score2021 = result.score2021;
+        console.log(score2021[0]);
         var uid = result.uid;
-        var run = result.run;
-        var besh = result.besh;
-        var nonstop = result.nonstop;
+        var run2021 = result.run2021;
+        var besh2021 = result.besh2021;
+        var nonstop2021 = result.nonstop2021;
         var comp_data2 = data2.datasets[0].data;
 
         var comp_data3 = data3.datasets[0].data;
@@ -297,27 +297,27 @@ function sendAjax(url) {
         var name_data4 = data4.labels;
 
         for (var i = 0; i < 6; i++) {
-            comp_data2[i] = score[i];
+            comp_data2[i] = score2021[i];
             name_data2[i] = uid[i];
-            console.log("2 :" + score[i]);
+            console.log("2 :" + score2021[i]);
         }
         for (var i = 6; i < 12; i++) {
-            comp_data3[i - 6] = score[i];
+            comp_data3[i - 6] = score2021[i];
             name_data3[i - 6] = uid[i];
 
-            console.log("3 :" + score[i]);
+            console.log("3 :" + score2021[i]);
         }
         for (var i = 12; i < 24; i++) {
-            comp_data1[i - 12] = score[i];
+            comp_data1[i - 12] = score2021[i];
             name_data1[i - 12] = uid[i];
 
-            console.log("1 :" + score[i]);
+            console.log("1 :" + score2021[i]);
         }
         for (var i = 24; i < 30; i++) {
-            comp_data4[i - 24] = score[i];
+            comp_data4[i - 24] = score2021[i];
             name_data4[i - 24] = uid[i];
 
-            console.log("4 :" + score[i]);
+            console.log("4 :" + score2021[i]);
         }
 
         data2.datasets[0].data = comp_data2;
@@ -339,16 +339,17 @@ function sendAjax(url) {
             document.querySelector(`#n${i + 1}`).innerHTML = uid[i];
         }
         for (var i = 0; i < 12; i++) {
-            console.log(run[i]);
-            document.querySelector(`#r${i + 1}`).innerHTML = run[i] + " %";
+            console.log(run2021[i]);
+            document.querySelector(`#r${i + 1}`).innerHTML = run2021[i] + " %";
         }
         for (var i = 0; i < 12; i++) {
-            console.log(besh[i]);
-            document.querySelector(`#b${i + 1}`).innerHTML = besh[i] + " %";
+            console.log(besh2021[i]);
+            document.querySelector(`#b${i + 1}`).innerHTML = besh2021[i] + " %";
         }
         for (var i = 0; i < 12; i++) {
-            console.log(nonstop[i]);
-            document.querySelector(`#no${i + 1}`).innerHTML = nonstop[i] + " %";
+            console.log(nonstop2021[i]);
+            document.querySelector(`#no${i + 1}`).innerHTML =
+                nonstop2021[i] + " %";
         }
     });
 }
