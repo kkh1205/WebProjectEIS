@@ -9,7 +9,7 @@ var mysql = require('mysql'); // mysql 사용시 쓰는 모듈
 // 새 연결 db생성.
 var db = mysql.createConnection({
   host: 'database-1.chaokiahnhcd.us-east-2.rds.amazonaws.com',
-  port : '3306',
+  port : 3306,
   user : 'root',
   password : '123456789',
   database : 'kkhPractice'
@@ -36,21 +36,34 @@ app.get('/', function(req,res){ // req(요청),res(응답) '/'는 서버에서�
 app.post('/', function(req,res){ // 포스트방식으로 데이터쿼리 전송
   var responseData = {}; // 객체 선언
 
-  var query = db.query('SELECT A01 FROM production', function(err,rows){
+  var query = db.query('SELECT A01,A02,A03 FROM production', function(err,rows){
     responseData.A01 = [];
+    responseData.A02 = [];
+    responseData.A03 = [];
+
     if(err) throw err;
     if(rows[0]) {
       responseData.result = 'ok';
       rows.forEach(function(val){
         responseData.A01.push(val.A01);
       });
+
+      rows.forEach(function(val){
+        responseData.A02.push(val.A02);
+      });
+
+      rows.forEach(function(val){
+        responseData.A03.push(val.A03);
+      });
     }
     else{
       responseData.result = 'none';
       responseData.A01 = '';
+      responseData.A02 = '';
+      responseData.A03 = '';
     }
     res.json(responseData);
-    console.log('success');
+    console.log('success \n'+responseData);
   });
 });
 

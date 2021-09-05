@@ -67,14 +67,32 @@ function sandAjax(url) {
 
   oReq.addEventListener('load', function() {
     var result = JSON.parse(oReq.responseText);
+    console.log(result);
+
     var A01 = result.A01;
+    var A02 = result.A02;
+    var A03 = result.A03;
+
     var comp_data = data.datasets[0].data;
+    var comp_data1 = data.datasets[1].data;
+    var comp_data2 = data.datasets[2].data;
 
     for (var i = 0; i < comp_data.length; i++) {
       comp_data[i] = A01[i];
     }
 
+    for (var i = 0; i < comp_data.length; i++) {
+      comp_data1[i] = A02[i];
+    }
+
+    for (var i = 0; i < comp_data.length; i++) {
+      comp_data2[i] = A03[i];
+    }
+
     data.datasets[0].data = comp_data;
+    data.datasets[1].data = comp_data1;
+    data.datasets[2].data = comp_data2;
+
     ProduceChart.update();
   })
 }
