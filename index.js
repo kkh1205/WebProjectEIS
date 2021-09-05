@@ -36,7 +36,7 @@ app.get('/', function(req,res){ // req(요청),res(응답) '/'는 서버에서�
 app.post('/', function(req,res){ // 포스트방식으로 데이터쿼리 전송
   var responseData = {}; // 객체 선언
 
-  var query = db.query('SELECT A01,A02,A03 FROM production', function(err,rows){
+  var query = db.query('SELECT A01,A02,A03 FROM production ', function(err,rows){
     responseData.A01 = [];
     responseData.A02 = [];
     responseData.A03 = [];
