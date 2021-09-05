@@ -15,7 +15,7 @@ var connection = mysql.createConnection({
     port     : '3306',
     user     : 'root',
     password :'123456789',
-    database : 'JHDB'
+    database : 'eisprojectdb'
 })
 connection.connect();
 
@@ -32,9 +32,10 @@ app.get('/', function(req,res){
 app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날리기!
   var responseData = {};
 
-  var query =  connection.query('select product,score from Y2021_product', function(err,rows){
+  var query =  connection.query('select product,score,nonscore from Y2021_Sales_JH', function(err,rows){
     responseData.score = [];
     responseData.product = [];
+    responseData.nonscore = [];
     if(err) throw err;
     if(rows[0]){
       responseData.result = "ok";
@@ -48,11 +49,17 @@ app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날�
         
       })
 
+      rows.forEach(function(val){
+        responseData.nonscore.push(val.nonscore); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
     }
     else{
       responseData.result = "none";
       responseData.score = "";
       responseData.product = "";
+      responseData.nonscore = "";
 
     }
     res.json(responseData);

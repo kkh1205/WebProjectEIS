@@ -37,7 +37,7 @@ var data1 = {
     },
     {
         label: '미수금(억)',
-        data: chart1_1arr,
+        data: [0,0,0,0,0,0,0,0,0,0,0,0],
         backgroundColor: [
             'rgba(255, 99, 132, 0.2)'
             
@@ -234,8 +234,10 @@ function sendAjax(url) {
        
         var product = result.product;
         var score = result.score;
+        var nonscore = result.nonscore;
         var comp_data = data.datasets[0].data;
         var comp_data1 = data1.datasets[0].data;
+        var comp_data2 = data1.datasets[1].data;
 
         for (var i = 0; i < comp_data.length; i++) {
             comp_data[i] = product[i];
@@ -245,9 +247,14 @@ function sendAjax(url) {
             comp_data1[i] = score[i];
         }
 
+        for (var i = 0; i < comp_data1.length; i++) {
+            comp_data2[i] = nonscore[i];
+        }
+
 
         data.datasets[0].data = comp_data;
         data1.datasets[0].data = comp_data1;
+        data1.datasets[1].data = comp_data2;
         myChart_1.update();
         myChart_2.update();
         
