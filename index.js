@@ -28,7 +28,7 @@ app.get('/', function(req,res){
 app.post('/produce.html', function(req, res){
   var responseData = {};
 
-  var query =  connection.query('SELECT proUtil.score, proUtil.uid, proTable.run, proTable.besh, proTable.nonstop FROM proUtil left JOIN proTable ON proUtil.uid = proTable.uid UNION ALL SELECT score, uid, NULL, NULL, NULL FROM proMonth UNION ALL SELECT score, uid, NULL, NULL, NULL FROM proPER', function(err,rows){
+  var querypro =  connection.query('SELECT proUtil.score, proUtil.uid, proTable.run, proTable.besh, proTable.nonstop FROM proUtil left JOIN proTable ON proUtil.uid = proTable.uid UNION ALL SELECT score, uid, NULL, NULL, NULL FROM proMonth UNION ALL SELECT score, uid, NULL, NULL, NULL FROM proPER', function(err,rows){
     responseData.score = [];
     responseData.uid = [];
     responseData.run = [];
