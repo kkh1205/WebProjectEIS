@@ -232,13 +232,22 @@ function sendAjax(url) {
     oReq.addEventListener('load', function() {
         var result = JSON.parse(oReq.responseText);
         var score = result.score;
+        var product = reslut.product;
         var comp_data = data.datasets[0].data;
+        var comp_data1 = data.datasets[1].data;
 
         for (var i = 0; i < comp_data.length; i++) {
             comp_data[i] = score[i];
         }
 
+        for (var i = 0; i < comp_data.length; i++) {
+            comp_data[i] = product[i];
+        }
+
         data.datasets[0].data = comp_data;
+        data.datasets[1].data = comp_data1;
+        myChart_1.update();
+
         myChart_2.update();
         
     })

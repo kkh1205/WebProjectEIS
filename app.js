@@ -32,22 +32,31 @@ app.get('/', function(req,res){
 app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날리기!
   var responseData = {};
 
-  var query =  connection.query('select score from Y2021_product where uid="ma"', function(err,rows){
+  var query =  connection.query('select product,score from Y2021_product', function(err,rows){
     responseData.score = [];
+    responseData.product = [];
     if(err) throw err;
     if(rows[0]){
       responseData.result = "ok";
       rows.forEach(function(val){
         responseData.score.push(val.score); // responseData에다가 배열로 저장을 시킴
-        console.log("array sucess!");
+        
       })
+
+      rows.forEach(function(val){
+        responseData.product.push(val.product); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
     }
     else{
       responseData.result = "none";
       responseData.score = "";
+      responseData.product = "";
+
     }
     res.json(responseData);
-    console.log("responce success!");
+    console.log("responce success!" + responseData);
 
   });
 
