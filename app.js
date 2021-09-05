@@ -50,4 +50,6 @@ app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날�
     console.log("responce success!");
 
   });
+
+  
 });

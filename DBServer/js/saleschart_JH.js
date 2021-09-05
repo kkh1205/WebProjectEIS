@@ -240,6 +240,7 @@ function sendAjax(url) {
 
         data.datasets[0].data = comp_data;
         myChart_2.update();
+        
     })
 }
 
