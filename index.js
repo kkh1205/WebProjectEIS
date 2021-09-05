@@ -55,6 +55,56 @@ app.post("/produce.html", function (req, res) {
                 responseData.nonstop2021.push(val.nonstop2021);
             });
 
+            responseData.score2020 = [];
+            responseData.run2020 = [];
+            responseData.besh2020 = [];
+            responseData.nonstop2020 = [];
+
+            rows.forEach(function (val) {
+                responseData.uid.push(val.uid);
+            });
+
+            rows.forEach(function (val) {
+                responseData.score2020.push(val.score2020);
+            });
+
+            rows.forEach(function (val) {
+                responseData.run2020.push(val.run2020);
+            });
+
+            rows.forEach(function (val) {
+                responseData.besh2020.push(val.besh2020);
+            });
+
+            rows.forEach(function (val) {
+                responseData.nonstop2020.push(val.nonstop2020);
+            });
+
+            responseData.score2019 = [];
+            responseData.run2019 = [];
+            responseData.besh2019 = [];
+            responseData.nonstop2019 = [];
+
+            rows.forEach(function (val) {
+                responseData.uid.push(val.uid);
+            });
+
+            rows.forEach(function (val) {
+                responseData.score2019.push(val.score2019);
+            });
+
+            rows.forEach(function (val) {
+                responseData.run2019.push(val.run2019);
+            });
+
+            rows.forEach(function (val) {
+                responseData.besh2019.push(val.besh2019);
+            });
+
+            rows.forEach(function (val) {
+                responseData.nonstop2019.push(val.nonstop2019);
+            });
+
             res.json(responseData);
             console.log(responseData);
         }

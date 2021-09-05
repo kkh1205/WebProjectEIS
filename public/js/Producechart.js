@@ -268,6 +268,21 @@ var myChart_4 = new Chart(ctx, {
 window.onload = function () {
     sendAjax2021("http://localhost:3000/produce.html");
 };
+var onclick2021 = document.querySelector("#y2021");
+var onclick2020 = document.getElementById("y2020");
+var onclick2019 = document.getElementById("y2019");
+
+onclick2021.addEventListener("click", console.log("call"));
+onclick2020.addEventListener(
+    "click",
+    sendAjax2020("http://localhost:3000/produce.html")
+);
+onclick2019.addEventListener(
+    "click",
+    sendAjax2019("http://localhost:3000/produce.html")
+);
+
+document.querySelector;
 
 function sendAjax2021(url) {
     var oReq = new XMLHttpRequest();
@@ -286,8 +301,8 @@ function sendAjax2021(url) {
         var run2021 = result.run2021;
         var besh2021 = result.besh2021;
         var nonstop2021 = result.nonstop2021;
-        var comp_data2 = data2.datasets[0].data;
 
+        var comp_data2 = data2.datasets[0].data;
         var comp_data3 = data3.datasets[0].data;
         var comp_data1 = data1.datasets[0].data;
         var comp_data4 = data4.datasets[0].data;
@@ -350,6 +365,176 @@ function sendAjax2021(url) {
             console.log(nonstop2021[i]);
             document.querySelector(`#no${i + 1}`).innerHTML =
                 nonstop2021[i] + " %";
+        }
+    });
+}
+
+function sendAjax2020(url) {
+    var oReq = new XMLHttpRequest();
+
+    oReq.open("POST", url);
+    oReq.setRequestHeader("Content-Type", "application/json"); // json 형태로 보낸다
+    oReq.send();
+
+    oReq.addEventListener("load", function () {
+        var result = JSON.parse(oReq.responseText);
+        console.log(result);
+
+        var score2020 = result.score2020;
+        console.log(score2020[0]);
+        var uid = result.uid;
+        var run2020 = result.run2020;
+        var besh2020 = result.besh2020;
+        var nonstop2020 = result.nonstop2020;
+
+        var comp_data2 = data2.datasets[0].data;
+        var comp_data3 = data3.datasets[0].data;
+        var comp_data1 = data1.datasets[0].data;
+        var comp_data4 = data4.datasets[0].data;
+        var name_data2 = data2.labels;
+        var name_data3 = data3.labels;
+        var name_data1 = data1.labels;
+        var name_data4 = data4.labels;
+
+        for (var i = 0; i < 6; i++) {
+            comp_data2[i] = score2020[i];
+            name_data2[i] = uid[i];
+            console.log("2 :" + score2020[i]);
+        }
+        for (var i = 6; i < 12; i++) {
+            comp_data3[i - 6] = score2020[i];
+            name_data3[i - 6] = uid[i];
+
+            console.log("3 :" + score2020[i]);
+        }
+        for (var i = 12; i < 24; i++) {
+            comp_data1[i - 12] = score2020[i];
+            name_data1[i - 12] = uid[i];
+
+            console.log("1 :" + score2020[i]);
+        }
+        for (var i = 24; i < 30; i++) {
+            comp_data4[i - 24] = score2020[i];
+            name_data4[i - 24] = uid[i];
+
+            console.log("4 :" + score2020[i]);
+        }
+
+        data2.datasets[0].data = comp_data2;
+        data3.datasets[0].data = comp_data3;
+        data1.datasets[0].data = comp_data1;
+        data4.datasets[0].data = comp_data4;
+        data2.labels = name_data2;
+        data3.labels = name_data3;
+        data1.labels = name_data1;
+        data4.labels = name_data4;
+
+        myChart_2.update();
+        myChart_3.update();
+        myChart_1.update();
+        myChart_4.update();
+
+        for (var i = 0; i < 12; i++) {
+            console.log(uid[i]);
+            document.querySelector(`#n${i + 1}`).innerHTML = uid[i];
+        }
+        for (var i = 0; i < 12; i++) {
+            console.log(run2020[i]);
+            document.querySelector(`#r${i + 1}`).innerHTML = run2020[i] + " %";
+        }
+        for (var i = 0; i < 12; i++) {
+            console.log(besh2020[i]);
+            document.querySelector(`#b${i + 1}`).innerHTML = besh2020[i] + " %";
+        }
+        for (var i = 0; i < 12; i++) {
+            console.log(nonstop2020[i]);
+            document.querySelector(`#no${i + 1}`).innerHTML =
+                nonstop2020[i] + " %";
+        }
+    });
+}
+
+function sendAjax2019(url) {
+    var oReq = new XMLHttpRequest();
+
+    oReq.open("POST", url);
+    oReq.setRequestHeader("Content-Type", "application/json"); // json 형태로 보낸다
+    oReq.send();
+
+    oReq.addEventListener("load", function () {
+        var result = JSON.parse(oReq.responseText);
+        console.log(result);
+
+        var score2019 = result.score2019;
+        console.log(score2019[0]);
+        var uid = result.uid;
+        var run2019 = result.run2019;
+        var besh2019 = result.besh2019;
+        var nonstop2019 = result.nonstop2019;
+
+        var comp_data2 = data2.datasets[0].data;
+        var comp_data3 = data3.datasets[0].data;
+        var comp_data1 = data1.datasets[0].data;
+        var comp_data4 = data4.datasets[0].data;
+        var name_data2 = data2.labels;
+        var name_data3 = data3.labels;
+        var name_data1 = data1.labels;
+        var name_data4 = data4.labels;
+
+        for (var i = 0; i < 6; i++) {
+            comp_data2[i] = score2019[i];
+            name_data2[i] = uid[i];
+            console.log("2 :" + score2019[i]);
+        }
+        for (var i = 6; i < 12; i++) {
+            comp_data3[i - 6] = score2019[i];
+            name_data3[i - 6] = uid[i];
+
+            console.log("3 :" + score2019[i]);
+        }
+        for (var i = 12; i < 24; i++) {
+            comp_data1[i - 12] = score2019[i];
+            name_data1[i - 12] = uid[i];
+
+            console.log("1 :" + score2019[i]);
+        }
+        for (var i = 24; i < 30; i++) {
+            comp_data4[i - 24] = score2019[i];
+            name_data4[i - 24] = uid[i];
+
+            console.log("4 :" + score2019[i]);
+        }
+
+        data2.datasets[0].data = comp_data2;
+        data3.datasets[0].data = comp_data3;
+        data1.datasets[0].data = comp_data1;
+        data4.datasets[0].data = comp_data4;
+        data2.labels = name_data2;
+        data3.labels = name_data3;
+        data1.labels = name_data1;
+        data4.labels = name_data4;
+
+        myChart_2.update();
+        myChart_3.update();
+        myChart_1.update();
+        myChart_4.update();
+
+        for (var i = 0; i < 12; i++) {
+            console.log(uid[i]);
+            document.querySelector(`#n${i + 1}`).innerHTML = uid[i];
+        }
+        for (var i = 0; i < 12; i++) {
+            console.log(run2019[i]);
+            document.querySelector(`#r${i + 1}`).innerHTML = run2019[i] + " %";
+        }
+        for (var i = 0; i < 12; i++) {
+            console.log(besh2019[i]);
+            document.querySelector(`#b${i + 1}`).innerHTML = besh2019[i] + " %";
+        }
+        for (var i = 0; i < 12; i++) {
+            console.log(nonstop2019[i]);
+            document.querySelector(`#no${i + 1}`).innerHTML =
+                nonstop2019[i] + " %";
         }
     });
 }
