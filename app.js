@@ -3,11 +3,7 @@ var app = express();
 
 var options = require('./src/option'); // option에 관한 부분 불러오기
 
-var loginData = {
-        host: options.storageConfig.HOST,
-        user: options.storageConfig.user,
-        password: options.storageConfig.password
-};
+
 
 var mysql = require('mysql'); // my sql에 저장된 데이터 가져오기
 var connection = mysql.createConnection({
@@ -26,7 +22,7 @@ app.listen(3005,function(){
 })
 
 app.get('/', function(req,res){
-  res.sendFile(__dirname+'/DBServer/sales.html');
+  res.sendFile(__dirname+'/DBServer/index.html');
 });
 
 app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날리기!
