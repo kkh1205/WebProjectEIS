@@ -36,7 +36,44 @@ app.get('/', function(req,res){ // req(요청),res(응답) '/'는 서버에서�
 app.post('/', function(req,res){ // 포스트방식으로 데이터쿼리 전송
   var responseData = {}; // 객체 선언
 
-  var query = db.query('SELECT A01,A02,A03 FROM production ', function(err,rows){
+  // SalesChart
+  var querySales = db.query('SELECT * FROM sales;', function(err,rows){
+    responseData.quarter1 = [];
+    responseData.quarter2 = [];
+    responseData.quarter3 = [];
+    responseData.quarter4 = [];
+
+    if(err) throw err;
+    if(rows[0]) {
+      responseData.result = 'ok';
+      rows.forEach(function(val){
+        responseData.quarter1.push(val.quarter1);
+      });
+
+      rows.forEach(function(val){
+        responseData.quarter2.push(val.quarter2);
+      });
+
+      rows.forEach(function(val){
+        responseData.quarter3.push(val.quarter3);
+      });
+
+      rows.forEach(function(val){
+        responseData.quarter4.push(val.quarter4);
+      });
+    }
+    else{
+      responseData.result = 'none';
+      responseData.quarter1 = '';
+      responseData.quarter2 = '';
+      responseData.quarter3 = '';
+      responseData.quarter4 = '';
+    }
+    return responseData;
+
+  });
+
+  var queryProduction = db.query('SELECT A01,A02,A03 FROM production ', function(err,rows){
     responseData.A01 = [];
     responseData.A02 = [];
     responseData.A03 = [];
@@ -62,8 +99,12 @@ app.post('/', function(req,res){ // 포스트방식으로 데이터쿼리 전송
       responseData.A02 = '';
       responseData.A03 = '';
     }
-    res.json(responseData);
-    console.log('success \n'+responseData);
+    return responseData;
+    
   });
+
+  res.json(responseData);
+  console.log('success \n'+responseData);
+
 });
 
