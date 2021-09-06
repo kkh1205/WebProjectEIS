@@ -141,6 +141,8 @@ var myChart_2 = new Chart(ctx, {
                 var myModal = new bootstrap.Modal(
                     document.getElementById("exampleModal")
                 ); //sm. 차트 클릭이벤트와 함께 모달 실행, 모달의 인스턴스 생상하여 모달의 아이디를 추적하여 저장
+                document.querySelector("#ModalLabel").innerHTML =
+                    label + " 가동률 지표";
                 myModal.show(); //sm. 모달 실행
             }
         },
@@ -205,6 +207,8 @@ var myChart_3 = new Chart(ctx, {
                 var myModal = new bootstrap.Modal(
                     document.getElementById("exampleModal")
                 ); //sm. 차트 클릭이벤트와 함께 모달 실행, 모달의 인스턴스 생상하여 모달의 아이디를 추적하여 저장
+                document.querySelector("#ModalLabel").innerHTML =
+                    label + " 가동률 지표";
                 myModal.show(); //sm. 모달 실행
             }
         },
@@ -268,21 +272,6 @@ var myChart_4 = new Chart(ctx, {
 window.onload = function () {
     sendAjax2021("http://localhost:3000/produce.html");
 };
-var onclick2021 = document.querySelector("#y2021");
-var onclick2020 = document.getElementById("y2020");
-var onclick2019 = document.getElementById("y2019");
-
-onclick2021.addEventListener("click", console.log("call"));
-onclick2020.addEventListener(
-    "click",
-    sendAjax2020("http://localhost:3000/produce.html")
-);
-onclick2019.addEventListener(
-    "click",
-    sendAjax2019("http://localhost:3000/produce.html")
-);
-
-document.querySelector;
 
 function sendAjax2021(url) {
     var oReq = new XMLHttpRequest();
@@ -366,6 +355,8 @@ function sendAjax2021(url) {
             document.querySelector(`#no${i + 1}`).innerHTML =
                 nonstop2021[i] + " %";
         }
+        document.querySelector("#allprice").innerHTML = "$ 40,000,000";
+        document.querySelector("#allpriceper").innerHTML = "$ 4,000,000";
     });
 }
 
@@ -537,4 +528,32 @@ function sendAjax2019(url) {
                 nonstop2019[i] + " %";
         }
     });
+}
+
+function yearSelect(year) {
+    switch (year) {
+        case "2021":
+            console.log("좀돼라");
+            sendAjax2021("http://localhost:3000/produce.html");
+            document.querySelector("#allprice").innerHTML = "$ 40,000,000";
+            document.querySelector("#allpriceper").innerHTML = "$ 4,000,000";
+
+            break;
+        case "2020":
+            console.log("좀돼라");
+            document.querySelector("#allprice").innerHTML = "$ 25,152,000";
+            document.querySelector("#allpriceper").innerHTML = "$ 2,351,000";
+
+            sendAjax2020("http://localhost:3000/produce.html");
+            break;
+        case "2019":
+            console.log("좀돼라");
+            document.querySelector("#allprice").innerHTML = "$ 64,232,000";
+            document.querySelector("#allpriceper").innerHTML = "$ 3,474,500";
+
+            sendAjax2019("http://localhost:3000/produce.html");
+            break;
+        default:
+            console.log("안된다");
+    }
 }

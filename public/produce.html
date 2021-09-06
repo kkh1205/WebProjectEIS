@@ -217,15 +217,15 @@
             <ul class="navbar-nav me-auto">
 
 
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                  aria-haspopup="true" aria-expanded="false">연도선택</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#" id="y2021">2021년</a>
-                  <a class="dropdown-item" href="#" id="y2020">2020년</a>
-                  <a class="dropdown-item" href="#" id="y2019">2019년</a>
-                </div>
-              </li>
+              <select id="salesTypeList"  onchange="yearSelect(this.value)">
+
+                <option value="2021" >2021</option>
+       
+                      <option value="2020" >2020</option>
+       
+                      <option value="2019" >2019</option>
+       
+         </select>
             </ul>
             <form class="d-flex">
               <input class="form-control me-sm-2" type="text" placeholder="검색">
@@ -249,7 +249,7 @@
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                     총 생산액</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">$ 40,000,000</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800" id="allprice"></div>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -266,7 +266,7 @@
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                     원가 대비 총 순익</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">$ 4,000,000</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800" id="allpriceper"></div>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -731,7 +731,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">A-12 라인 관련 생산지표</h5>
+        <h5 class="modal-title" id="ModalLabel">A-12 라인 관련 생산지표</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
