@@ -28,10 +28,17 @@ app.get('/', function(req,res){
 app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날리기!
   var responseData = {};
 
-  var query =  connection.query('select product,score,nonscore from Y2021_Sales_JH', function(err,rows){
+  var query =  connection.query('select product,score,nonscore,reducer,Nreducer,a380,c550,kf_21,circle from Y2021_Sales_JH', function(err,rows){
     responseData.score = [];
     responseData.product = [];
     responseData.nonscore = [];
+    responseData.reducer = [];
+    responseData.Nreducer = [];
+    responseData.a380 = [];
+    responseData.c550 = [];
+    responseData.kf_21 = [];
+    responseData.circle = [];
+
     if(err) throw err;
     if(rows[0]){
       responseData.result = "ok";
@@ -50,14 +57,60 @@ app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날�
         
       })
 
+      rows.forEach(function(val){
+        responseData.reducer.push(val.reducer); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.Nreducer.push(val.Nreducer); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.a380.push(val.a380); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.c550.push(val.c550); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.kf_21.push(val.kf_21); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.circle.push(val.circle); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
     }
     else{
       responseData.result = "none";
       responseData.score = "";
       responseData.product = "";
       responseData.nonscore = "";
+      responseData.reducer = "";
+      responseData.Nreducer = "";
+      responseData.a380 = "";
+      responseData.c550 = "";
+      responseData.kf_21 = "";
+      responseData.circle = "";
 
     }
+    console.log(responseData.product);
+    console.log(responseData.score);
+    console.log(responseData.nonscore);
+    console.log(responseData.reducer);
+    console.log(responseData.Nreducer);
+    console.log(responseData.a380);
+    console.log(responseData.c550);
+    console.log(responseData.kf_21);
+    console.log(responseData.circle);
+
     res.json(responseData);
     console.log("responce success!" + responseData);
 

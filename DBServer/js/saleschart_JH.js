@@ -216,50 +216,29 @@ var myChart_2 = new Chart(ctx, {
 });
 
 
-
-window.onload = function(){
-    sendAjax('http://localhost:3005');
-}
-
-
-function sendAjax(url) {
-    var oReq = new XMLHttpRequest();
-
-    oReq.open('POST', url); // http 메서드 지정 및 접속할 url 입력
-    oReq.setRequestHeader('Content-Type', "application/json") // 컨텐츠 타입, json 이라고  알려주는거임
-    oReq.send();// 그걸 보냄.
-
-    oReq.addEventListener('load', function() {
-        var result = JSON.parse(oReq.responseText);
-       
-        var product = result.product;
-        var score = result.score;
-        var nonscore = result.nonscore;
-        var comp_data = data.datasets[0].data;
-        var comp_data1 = data1.datasets[0].data;
-        var comp_data2 = data1.datasets[1].data;
-
-        for (var i = 0; i < comp_data.length; i++) {
-            comp_data[i] = product[i];
-        }
-
-        for (var i = 0; i < comp_data1.length; i++) {
-            comp_data1[i] = score[i];
-        }
-
-        for (var i = 0; i < comp_data1.length; i++) {
-            comp_data2[i] = nonscore[i];
-        }
-
-
-        data.datasets[0].data = comp_data;
-        data1.datasets[0].data = comp_data1;
-        data1.datasets[1].data = comp_data2;
-        myChart_1.update();
-        myChart_2.update();
+var data3 =  {
+    labels: ["감속기","NICO 감속기","전자레버", "탄성커플링", "PTO"],
+    datasets: [{
         
-        
-    })
+        data: chart4arr,
+        backgroundColor: [
+            'rgba(240,157,157, 0.5)', //감속기
+            'rgba(101,75,190, 0.5)',  //NICO 감속기
+            'rgba(174,217,113, 0.5)',  //전자레버
+            'rgba(226,135,173, 0.5)',  //탄성커플링
+            'rgba(111,211,109, 0.5)' //PTO
+            
+        ],
+        borderColor: [
+            'rgba(240,157,157, 1)', //감속기
+            'rgba(101,75,190, 1)',  //NICO 감속기
+            'rgba(174,217,113, 1)',  //전자레버
+            'rgba(226,135,173, 1)',  //탄성커플링
+            'rgba(111,211,109, 1)' //PTO
+            
+        ],
+        borderWidth: 1
+    }]
 }
 
 
@@ -272,30 +251,7 @@ var ctx = document.getElementById("myChart5").getContext('2d');
 
 var myChart_5 = new Chart(ctx, {
     type: 'doughnut',
-    data: {
-        labels: ["감속기","NICO 감속기","전자레버", "탄성커플링", "PTO"],
-        datasets: [{
-            
-            data: chart4arr,
-            backgroundColor: [
-                'rgba(240,157,157, 0.5)', //감속기
-                'rgba(101,75,190, 0.5)',  //NICO 감속기
-                'rgba(174,217,113, 0.5)',  //전자레버
-                'rgba(226,135,173, 0.5)',  //탄성커플링
-                'rgba(111,211,109, 0.5)' //PTO
-                
-            ],
-            borderColor: [
-                'rgba(240,157,157, 1)', //감속기
-                'rgba(101,75,190, 1)',  //NICO 감속기
-                'rgba(174,217,113, 1)',  //전자레버
-                'rgba(226,135,173, 1)',  //탄성커플링
-                'rgba(111,211,109, 1)' //PTO
-                
-            ],
-            borderWidth: 1
-        }]
-    },
+    data:data3,
     options: {
         
         plugins: {
@@ -326,68 +282,68 @@ var myChart_5 = new Chart(ctx, {
 
 // 라인차트
 
+var data2 = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'August', 'September', 'October', 'November', 'December'],
+    datasets: [
+        {
+        
+        label: '감속기',
+        data: [0,0,0,0,0,0,0,0,0,0,0,0],
+        fill: false,
+        borderColor: 'rgb(240,157,157)',
+        tension: 0.1,
+        backgroundColor: 'rgb(240,157,157, 0.5)' //감속기
+           
+    },
+    {
+       
+        label: 'NICO 감속기',
+        data: [0,0,0,0,0,0,0,0,0,0,0,0],
+        fill: false,
+        borderColor: 'rgb(101,75,190)',
+        tension: 0.1,
+        backgroundColor: 'rgb(101,75,190, 0.5)' //NICO 감속기
 
+    },
+    {
+       
+        label: '전자레버',
+        data: [0,0,0,0,0,0,0,0,0,0,0,0],
+        fill: false,
+        borderColor: 'rgb(174,217,113)',
+        tension: 0.1,
+        backgroundColor: 'rgb(174,217,113, 0.5)' //전자레버
+
+    },
+    {
+       
+        label: '탄성커플링',
+        data: [0,0,0,0,0,0,0,0,0,0,0,0],
+        fill: false,
+        borderColor: 'rgb(226,135,173)',
+        tension: 0.1,
+        backgroundColor: 'rgb(226,135,173, 0.5)' //탄성커플링
+
+    },
+    {
+       
+        label: 'PTO',
+        data: [0,0,0,0,0,0,0,0,0,0,0,0],
+        fill: false,
+        borderColor: 'rgb(111,211,109)',
+        tension: 0.1,
+        backgroundColor: 'rgb(111,211,109, 0.5)' //PTO
+
+    }
+   
+    
+]
+}
 var ctx = document.getElementById("myChart6").getContext('2d');
 
 var myChart_6 = new Chart(ctx, {
     type: 'line',
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'August', 'September', 'October', 'November', 'December'],
-        datasets: [
-            {
-            
-            label: '감속기',
-            data: chart5arr,
-            fill: false,
-            borderColor: 'rgb(240,157,157)',
-            tension: 0.1,
-            backgroundColor: 'rgb(240,157,157, 0.5)' //감속기
-               
-        },
-        {
-           
-            label: 'NICO 감속기',
-            data: chart6arr,
-            fill: false,
-            borderColor: 'rgb(101,75,190)',
-            tension: 0.1,
-            backgroundColor: 'rgb(101,75,190, 0.5)' //NICO 감속기
-
-        },
-        {
-           
-            label: '전자레버',
-            data: chart7arr,
-            fill: false,
-            borderColor: 'rgb(174,217,113)',
-            tension: 0.1,
-            backgroundColor: 'rgb(174,217,113, 0.5)' //전자레버
-
-        },
-        {
-           
-            label: '탄성커플링',
-            data: chart8arr,
-            fill: false,
-            borderColor: 'rgb(226,135,173)',
-            tension: 0.1,
-            backgroundColor: 'rgb(226,135,173, 0.5)' //탄성커플링
-
-        },
-        {
-           
-            label: 'PTO',
-            data: chart9arr,
-            fill: false,
-            borderColor: 'rgb(111,211,109)',
-            tension: 0.1,
-            backgroundColor: 'rgb(111,211,109, 0.5)' //PTO
-
-        }
-       
-        
-    ]
-    },
+    data:data2,
     options: {
         
         plugins: {
@@ -417,6 +373,7 @@ var myChart_6 = new Chart(ctx, {
                 ticks: {
                     color: "black",
                     fontSize: 14,
+                    beginAtZero: true
                 }
             }
 
@@ -427,3 +384,85 @@ var myChart_6 = new Chart(ctx, {
     }
 });
 
+
+
+window.onload = function(){
+    sendAjax('http://localhost:3005');
+}
+
+
+function sendAjax(url) {
+    var oReq = new XMLHttpRequest();
+
+    oReq.open('POST', url); // http 메서드 지정 및 접속할 url 입력
+    oReq.setRequestHeader('Content-Type', "application/json") // 컨텐츠 타입, json 이라고  알려주는거임
+    oReq.send();// 그걸 보냄.
+
+    oReq.addEventListener('load', function() {
+        var result = JSON.parse(oReq.responseText);
+       
+        var product = result.product;
+        var score = result.score;
+        var nonscore = result.nonscore;
+        var reducer = result.reducer;
+        var Nreducer = result.Nreducer;
+        var a380 = result.a380;
+        var c550 = result.c550;
+        var kf_21 = result.kf_21;
+        var comp_data = data.datasets[0].data;
+        var comp_data1 = data1.datasets[0].data;
+        var comp_data2 = data1.datasets[1].data;
+        var comp_data3 = data2.datasets[0].data;
+        var comp_data4 = data2.datasets[1].data;
+        var comp_data5 = data2.datasets[2].data;
+        var comp_data6 = data2.datasets[3].data;
+        var comp_data7 = data2.datasets[4].data;
+
+        for (var i = 0; i < comp_data.length; i++) {
+            comp_data[i] = product[i];
+        }
+
+        for (var i = 0; i < comp_data1.length; i++) {
+            comp_data1[i] = score[i];
+        }
+
+        for (var i = 0; i < comp_data2.length; i++) {
+            comp_data2[i] = nonscore[i];
+        }
+
+        for (var i = 0; i < comp_data3.length; i++) {
+            comp_data3[i] = reducer[i];
+        }
+
+        for (var i = 0; i < comp_data4.length; i++) {
+            comp_data4[i] = Nreducer[i];
+        }
+
+        for (var i = 0; i < comp_data5.length; i++) {
+            comp_data5[i] = a380[i];
+        }
+
+        for (var i = 0; i < comp_data6.length; i++) {
+            comp_data6[i] = c550[i];
+        }
+
+        for (var i = 0; i < comp_data7.length; i++) {
+            comp_data7[i] = kf_21[i];
+        }
+
+
+        data.datasets[0].data = comp_data;
+        data1.datasets[0].data = comp_data1;
+        data1.datasets[1].data = comp_data2;
+        data2.datasets[0].data = comp_data3;
+        data2.datasets[1].data = comp_data4;
+        data2.datasets[2].data = comp_data5;
+        data2.datasets[3].data = comp_data6;
+        data2.datasets[4].data = comp_data7;
+        myChart_1.update();
+        myChart_2.update();
+        myChart_6.update();
+        
+        
+    })
+}
