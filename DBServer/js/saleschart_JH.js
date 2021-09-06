@@ -220,7 +220,8 @@ var data3 =  {
     labels: ["감속기","NICO 감속기","전자레버", "탄성커플링", "PTO"],
     datasets: [{
         
-        data: chart4arr,
+        data: [0,0,0,0,0],
+        
         backgroundColor: [
             'rgba(240,157,157, 0.5)', //감속기
             'rgba(101,75,190, 0.5)',  //NICO 감속기
@@ -237,7 +238,9 @@ var data3 =  {
             'rgba(111,211,109, 1)' //PTO
             
         ],
-        borderWidth: 1
+        
+        
+        
     }]
 }
 
@@ -250,7 +253,7 @@ var data3 =  {
 var ctx = document.getElementById("myChart5").getContext('2d');
 
 var myChart_5 = new Chart(ctx, {
-    type: 'doughnut',
+    type: 'polarArea',
     data:data3,
     options: {
         
@@ -268,7 +271,7 @@ var myChart_5 = new Chart(ctx, {
             yAxes: {
                 ticks: {
                     color: "black",
-                    fontSize: 10,
+                    fontSize: 5,
                 }
             }
 
@@ -409,6 +412,7 @@ function sendAjax(url) {
         var a380 = result.a380;
         var c550 = result.c550;
         var kf_21 = result.kf_21;
+        var circle = result.circle;
         var comp_data = data.datasets[0].data;
         var comp_data1 = data1.datasets[0].data;
         var comp_data2 = data1.datasets[1].data;
@@ -417,6 +421,8 @@ function sendAjax(url) {
         var comp_data5 = data2.datasets[2].data;
         var comp_data6 = data2.datasets[3].data;
         var comp_data7 = data2.datasets[4].data;
+        var comp_data8 = data3.datasets[0].data;
+        
 
         for (var i = 0; i < comp_data.length; i++) {
             comp_data[i] = product[i];
@@ -450,6 +456,10 @@ function sendAjax(url) {
             comp_data7[i] = kf_21[i];
         }
 
+        for (var i = 0; i < comp_data7.length; i++) {
+            comp_data8[i] = circle[i];
+        }
+
 
         data.datasets[0].data = comp_data;
         data1.datasets[0].data = comp_data1;
@@ -459,9 +469,11 @@ function sendAjax(url) {
         data2.datasets[2].data = comp_data5;
         data2.datasets[3].data = comp_data6;
         data2.datasets[4].data = comp_data7;
+        data3.datasets[0].data = comp_data8;
         myChart_1.update();
         myChart_2.update();
         myChart_6.update();
+        myChart_5.update();
         
         
     })
