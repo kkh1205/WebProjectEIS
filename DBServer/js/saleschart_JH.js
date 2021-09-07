@@ -393,7 +393,10 @@ window.onload = function(){
     sendAjax2021('http://localhost:3005');
 }
 
-
+var button = document.getElementById("sendAjax2021")
+button.addEventListener("click", function(){
+    sendAjax2021('http://localhost:3005')
+})
 function sendAjax2021(url) {
     var oReq = new XMLHttpRequest();
 
@@ -480,7 +483,10 @@ function sendAjax2021(url) {
 }
 
 
-
+var button1 = document.getElementById("sendAjax2020")
+button1.addEventListener("click", function(){
+    sendAjax2020('http://localhost:3005')
+})
 function sendAjax2020(url) {
     var oReq = new XMLHttpRequest();
 
