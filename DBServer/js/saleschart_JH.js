@@ -456,7 +456,7 @@ function sendAjax(url) {
             comp_data7[i] = kf_21[i];
         }
 
-        for (var i = 0; i < comp_data7.length; i++) {
+        for (var i = 0; i < 5; i++) {
             comp_data8[i] = circle[i];
         }
 
