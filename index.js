@@ -16,7 +16,7 @@ connection.connect();
 app.use(express.static("public"));
 
 app.listen(3000, function () {
-    console.log("server start on port 3000!");
+    console.log("서버가동 삼천번");
 });
 
 app.get("/", function (req, res) {
