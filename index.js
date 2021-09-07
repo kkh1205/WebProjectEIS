@@ -36,75 +36,36 @@ app.get('/', function(req,res){ // req(요청),res(응답) '/'는 서버에서�
 app.post('/', function(req,res){ // 포스트방식으로 데이터쿼리 전송
   var responseData = {}; // 객체 선언
 
-  // SalesChart
-  var querySales = db.query('SELECT * FROM sales;', function(err,rows){
-    responseData.quarter1 = [];
-    responseData.quarter2 = [];
-    responseData.quarter3 = [];
-    responseData.quarter4 = [];
+  var query = db.query('SELECT production.quarter,A01P,A02P,A03P,A01Q,A02Q,A03Q,quarterlySales,operatingProfit,NULL,NULL,NULL,NULL FROM production JOIN quality ON production.quarter = quality.quarter JOIN quarterlySales_operatingProfit ON quality.quarter = quarterlySales_operatingProfit.quarter UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,quarter1,quarter2,quarter3,quarter4 FROM sales ', function(err,rows){
+    responseData.A01P = [];
+    responseData.A02P = [];
+    responseData.A03P = [];
 
     if(err) throw err;
     if(rows[0]) {
       responseData.result = 'ok';
       rows.forEach(function(val){
-        responseData.quarter1.push(val.quarter1);
+        responseData.A01P.push(val.A01P);
       });
 
       rows.forEach(function(val){
-        responseData.quarter2.push(val.quarter2);
+        responseData.A02P.push(val.A02P);
       });
 
       rows.forEach(function(val){
-        responseData.quarter3.push(val.quarter3);
-      });
-
-      rows.forEach(function(val){
-        responseData.quarter4.push(val.quarter4);
+        responseData.A03P.push(val.A03P);
       });
     }
     else{
       responseData.result = 'none';
-      responseData.quarter1 = '';
-      responseData.quarter2 = '';
-      responseData.quarter3 = '';
-      responseData.quarter4 = '';
+      responseData.A01P = '';
+      responseData.A02P = '';
+      responseData.A03P = '';
     }
-    return responseData;
+    res.json(responseData);
+    console.log('success \n'+responseData);
 
   });
-
-  var queryProduction = db.query('SELECT A01,A02,A03 FROM production ', function(err,rows){
-    responseData.A01 = [];
-    responseData.A02 = [];
-    responseData.A03 = [];
-
-    if(err) throw err;
-    if(rows[0]) {
-      responseData.result = 'ok';
-      rows.forEach(function(val){
-        responseData.A01.push(val.A01);
-      });
-
-      rows.forEach(function(val){
-        responseData.A02.push(val.A02);
-      });
-
-      rows.forEach(function(val){
-        responseData.A03.push(val.A03);
-      });
-    }
-    else{
-      responseData.result = 'none';
-      responseData.A01 = '';
-      responseData.A02 = '';
-      responseData.A03 = '';
-    }
-    return responseData;
-    
-  });
-
-  res.json(responseData);
-  console.log('success \n'+responseData);
-
+  
 });
 
