@@ -30,14 +30,14 @@
     }
     td{
       text-align: center;
-      font-size: medium;
+      font-size: 0.7rem;
 
 
     }
     img{
       border-radius: 50%;
       display: inline;
-      width: 1.5rem;
+      width: 1rem;
     }
   </style>
 
@@ -217,7 +217,7 @@
             <ul class="navbar-nav me-auto">
 
 
-              <select id="salesTypeList"  onchange="yearSelect(this.value)">
+              <select id="allTypeList"  onchange="yearSelect(this.value)">
 
                 <option value="2021" >2021</option>
        
@@ -320,7 +320,7 @@
 
 
 
-      <!--sm. 가동률 정보 차트 그리드 시작-->
+      <!--sm. 수율 정보 차트 그리드 시작-->
       <div style="margin: 1vh; padding: 1vh;" class="card text-black bg-light">
         <div id="theFirstHalf2" class="row animate__animated animate__pulse">
           <h3 class="text-center">2021년 라인별 지표 현황</h3>
@@ -600,11 +600,11 @@
             </div>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-            <table class="table table-hover" style="font-size: 1rem;">
+            <table class="table table-hover" style="font-size: 0.7rem;">
               <thead>
                 <tr class="table-primary"> 
                   <th scope="col"></th>
-                  <th scope="col">가동률</th>
+                  <th scope="col">수율</th>
                   <th scope="col">조업도</th>
                   <th scope="col">무정지율</th>
                 </tr>
@@ -686,9 +686,9 @@
             </table>
           
           </div>
-          <!--sm. 설비별 가동률 조업도 무정지율 표 작성 시작-->
+          <!--sm. 설비별 수율 조업도 무정지율 표 작성 시작-->
      
-          <!--sm. 설비별 가동률 조업도 무정지율 표 작성 끗-->
+          <!--sm. 설비별 수율 조업도 무정지율 표 작성 끗-->
 
         </div>
         <div class="row">
@@ -722,7 +722,7 @@
 
 
       </div>
-      <!--sm. 가동률 정보 차트 그리드 종료-->
+      <!--sm. 수율 정보 차트 그리드 종료-->
 
 <!--sm. 모달창 작업 시작-->
 
@@ -731,13 +731,32 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="ModalLabel">A-12 라인 관련 생산지표</h5>
+        <h5 class="modal-title" id="ModalLabel"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
 
         <div>
           <canvas id="myChart5"></canvas>
+          <p>&nbsp;</p>
+          <table class="table table-hover" style="font-size: 1.2rem;">
+            <thead>
+              <tr class="table-primary"> 
+                <th scope="col"></th>
+                <th scope="col" style="font-size: 1.2rem;">수율</th>
+                <th scope="col"style="font-size: 1.2rem;">조업도</th>
+                <th scope="col"style="font-size: 1.2rem;">무정지율</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-light">
+                <th scope="row" id="nn"></th>
+                <td id="rr"style="font-size: 1.2rem;"></td>
+                <td id="bb"style="font-size: 1.2rem;"></td>
+                <td id="nono"style="font-size: 1.2rem;"></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 

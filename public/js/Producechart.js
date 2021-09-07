@@ -1,30 +1,17 @@
-<<<<<<< HEAD
+var statUid = [];
+var statRun2021 = [];
+var statBesh2021 = [];
+var statNonstop2021 = [];
+
+var statRun2020 = [];
+var statBesh2020 = [];
+var statNonstop2020 = [];
+
+var statRun2019 = [];
+var statBesh2019 = [];
+var statNonstop2019 = [];
 
 
-var data1 = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'],
-    datasets: [{
-        label: '월별 생산액(억 원)',
-        backgroundColor: "#4e73df",
-        hoverBackgroundColor: "#2e59d9",
-        borderColor: "#4e73df",
-        data: [0, 0, 0, 0, 0, 0,0],
-        fill: false
-    }]
-};
-
-
-var data2 = {
-    labels: ["A-12", "A-41", "BB-03", "BG-304", "BG-306", "BG-098"],
-    datasets: [{
-        label: '가동률(%)',
-        data: [0,0,0,0,0,0],
-        backgroundColor: "#4e73df",
-        hoverBackgroundColor: "#2e59d9",
-        borderColor: "#4e73df",
-        borderWidth: 1
-    }]
-=======
 var data1 = {
     labels: [
         "January",
@@ -64,21 +51,10 @@ var data2 = {
             borderWidth: 1,
         },
     ],
->>>>>>> f06f3d0d7e734839ce48b416e3b54701f714fe8c
 };
 
 var data3 = {
     labels: ["B-15", "YUH-31", "POP-10", "KPO-01", "BZO-123", "BPD-12"],
-<<<<<<< HEAD
-    datasets: [{
-        label: '가동률(%)',
-        data: [0, 0, 0, 0, 0, 0],
-        backgroundColor: "#4e73df",
-        hoverBackgroundColor: "#2e59d9",
-        borderColor: "#4e73df",
-        borderWidth: 1
-    }]
-=======
     datasets: [
         {
             label: "가동률(%)",
@@ -89,28 +65,10 @@ var data3 = {
             borderWidth: 1,
         },
     ],
->>>>>>> f06f3d0d7e734839ce48b416e3b54701f714fe8c
 };
 
 var data4 = {
     labels: ["B-15", "A-12", "BB-03", "BG-304", "BG-306", "BG-098"],
-<<<<<<< HEAD
-    datasets: [{
-        label: '비율',
-        data: [0, 0, 0, 0, 0, 0],
-        backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-        hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-        hoverBorderColor: "rgba(234, 236, 244, 1)",
-        borderWidth: 1
-    }]
-};
-
-
-   
-
-//직선그래프//
-
-=======
     datasets: [
         {
             label: "비율",
@@ -124,21 +82,12 @@ var data4 = {
 };
 
 //직선그래프//
->>>>>>> f06f3d0d7e734839ce48b416e3b54701f714fe8c
 
 var ctx = document.getElementById("myChart1");
 var myChart_1 = new Chart(ctx, {
     type: "line",
 
-<<<<<<< HEAD
-    type: 'line',
-
-
     data: data1,
-
-=======
-    data: data1,
->>>>>>> f06f3d0d7e734839ce48b416e3b54701f714fe8c
 
     options: {
         plugins: {
@@ -182,11 +131,7 @@ var ctx = document.getElementById("myChart2").getContext("2d");
 */
 
 var myChart_2 = new Chart(ctx, {
-<<<<<<< HEAD
-    type: 'bar',
-=======
     type: "bar",
->>>>>>> f06f3d0d7e734839ce48b416e3b54701f714fe8c
     data: data2,
     options: {
         onClick: function clickHandler(evt) {
@@ -205,6 +150,34 @@ var myChart_2 = new Chart(ctx, {
                     myChart_2.data.datasets[firstPoint.datasetIndex].data[
                         firstPoint.index
                     ]; //sm. 차트의 바를 클릭했을때 그 데이터값을 가져오기
+
+                var seqcence = myChart_2.data.labels.indexOf(label);
+                console.log(seqcence);
+                document.querySelector('#nn').innerHTML = statUid[seqcence];
+                document.querySelector('#rr').innerHTML = statRun2021[seqcence];
+                document.querySelector('#bb').innerHTML = statBesh2021[seqcence];
+                document.querySelector('#nono').innerHTML = statNonstop2021[seqcence];
+                var valueee = document.getElementById('allTypeList').value;
+                console.log(valueee);
+                switch (valueee) {
+                    case "2021":
+                        document.querySelector('#rr').innerHTML = statRun2021[seqcence];
+                        document.querySelector('#bb').innerHTML = statBesh2021[seqcence];
+                        document.querySelector('#nono').innerHTML = statNonstop2021[seqcence];
+                        break;
+                    case "2020":
+                        document.querySelector('#rr').innerHTML = statRun2020[seqcence];
+                        document.querySelector('#bb').innerHTML = statBesh2020[seqcence];
+                        document.querySelector('#nono').innerHTML = statNonstop2020[seqcence];
+                        break;
+                    case "2019":
+                        document.querySelector('#rr').innerHTML = statRun2019[seqcence];
+                        document.querySelector('#bb').innerHTML = statBesh2019[seqcence];
+                        document.querySelector('#nono').innerHTML = statNonstop2019[seqcence];
+                        break;
+
+                }
+
                 console.log(label); //sm. 콘솔로 값이 제대로 가져와지는지 확인
                 console.log(value);
                 var myModal = new bootstrap.Modal(
@@ -252,11 +225,7 @@ var ctx = document.getElementById("myChart3").getContext("2d");
 - 두번째 argument로 그림을 그릴때 필요한 요소들을 모두 넘겨줍
 */
 var myChart_3 = new Chart(ctx, {
-<<<<<<< HEAD
-    type: 'bar',
-=======
     type: "bar",
->>>>>>> f06f3d0d7e734839ce48b416e3b54701f714fe8c
     data: data3,
     options: {
         onClick: function clickHandler(evt) {
@@ -275,6 +244,33 @@ var myChart_3 = new Chart(ctx, {
                     myChart_3.data.datasets[firstPoint.datasetIndex].data[
                         firstPoint.index
                     ]; //sm. 차트의 바를 클릭했을때 그 데이터값을 가져오기
+
+                    var seqcence = myChart_3.data.labels.indexOf(label);
+                    console.log(seqcence);
+                    document.querySelector('#nn').innerHTML = statUid[seqcence+6];
+                    document.querySelector('#rr').innerHTML = statRun2021[seqcence+6];
+                    document.querySelector('#bb').innerHTML = statBesh2021[seqcence+6];
+                    document.querySelector('#nono').innerHTML = statNonstop2021[seqcence+6];
+                    var valueee = document.getElementById('allTypeList').value;
+                    console.log(valueee);
+                    switch (valueee) {
+                        case "2021":
+                            document.querySelector('#rr').innerHTML = statRun2021[seqcence+6];
+                            document.querySelector('#bb').innerHTML = statBesh2021[seqcence+6];
+                            document.querySelector('#nono').innerHTML = statNonstop2021[seqcence+6];
+                            break;
+                        case "2020":
+                            document.querySelector('#rr').innerHTML = statRun2020[seqcence+6];
+                            document.querySelector('#bb').innerHTML = statBesh2020[seqcence+6];
+                            document.querySelector('#nono').innerHTML = statNonstop2020[seqcence+6];
+                            break;
+                        case "2019":
+                            document.querySelector('#rr').innerHTML = statRun2019[seqcence+6];
+                            document.querySelector('#bb').innerHTML = statBesh2019[seqcence+6];
+                            document.querySelector('#nono').innerHTML = statNonstop2019[seqcence+6];
+                            break;
+    
+                    }
                 console.log(label); //sm. 콘솔로 값이 제대로 가져와지는지 확인
                 console.log(value);
                 var myModal = new bootstrap.Modal(
@@ -319,11 +315,7 @@ var myChart_3 = new Chart(ctx, {
 var ctx = document.getElementById("myChart4").getContext("2d");
 
 var myChart_4 = new Chart(ctx, {
-<<<<<<< HEAD
-    type: 'radar',
-=======
     type: "radar",
->>>>>>> f06f3d0d7e734839ce48b416e3b54701f714fe8c
     data: data4,
     options: {
         plugins: {
@@ -367,6 +359,11 @@ function sendAjax2021(url) {
         var run2021 = result.run2021;
         var besh2021 = result.besh2021;
         var nonstop2021 = result.nonstop2021;
+
+        statUid = uid;
+        statRun2021 = run2021;
+        statBesh2021 = besh2021;
+        statNonstop2021 = nonstop2021;
 
         var comp_data2 = data2.datasets[0].data;
         var comp_data3 = data3.datasets[0].data;
@@ -455,6 +452,14 @@ function sendAjax2020(url) {
         var besh2020 = result.besh2020;
         var nonstop2020 = result.nonstop2020;
 
+        statRun2020 = run2020;
+        statBesh2020 = besh2020;
+        statNonstop2020 = nonstop2020;
+
+
+
+        
+
         var comp_data2 = data2.datasets[0].data;
         var comp_data3 = data3.datasets[0].data;
         var comp_data1 = data1.datasets[0].data;
@@ -539,6 +544,10 @@ function sendAjax2019(url) {
         var run2019 = result.run2019;
         var besh2019 = result.besh2019;
         var nonstop2019 = result.nonstop2019;
+
+        statRun2019 = run2019;
+        statBesh2019 = besh2019;
+        statNonstop2019 = nonstop2019;
 
         var comp_data2 = data2.datasets[0].data;
         var comp_data3 = data3.datasets[0].data;
@@ -633,35 +642,4 @@ function yearSelect(year) {
         default:
             console.log("안된다");
     }
-<<<<<<< HEAD
-});
-
-
-window.onload = function() {
-    sendAjax('http://localhost:3000/');
-};
-
-function sendAjax(url) {
-    var oReq = new XMLHttpRequest();
-
-    oReq.open('POST', url);
-    oReq.setRequestHeader('Content-Type', "application/json") // json 형태로 보낸다
-    oReq.send();
-
-    oReq.addEventListener('load', function() {
-        var result = JSON.parse(oReq.responseText);
-        var score = result.score;
-        var comp_data = data2.datasets[0].data;
-
-        for (var i = 0; i < comp_data.length; i++) {
-            comp_data[i] = score[i];
-            console.log(score[i]);
-        }
-
-        data2.datasets[0].data = comp_data;
-        myChart_2.update();
-    })
 }
-=======
-}
->>>>>>> f06f3d0d7e734839ce48b416e3b54701f714fe8c

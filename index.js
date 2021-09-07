@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-var express = require('express');
-var app = express();
-
-var options = require('./src/option');
-
-=======
 var express = require("express");
 var app = express();
 
@@ -19,47 +12,9 @@ var connection = mysql.createConnection({
     database: "eisprojectdb",
 });
 connection.connect();
->>>>>>> f06f3d0d7e734839ce48b416e3b54701f714fe8c
 
 app.use(express.static("public"));
 
-<<<<<<< HEAD
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-  host: 'database-1.chaokiahnhcd.us-east-2.rds.amazonaws.com',
-  port:3306,
-  user: 'root',
-  password:'123456789',
-  database:'eisprojectdb'
-})
-connection.connect();
-
-app.use(express.static('public'));
-
-app.listen(3000,function(){
-  console.log("server start on port 3000!");
-})
-
-app.get('/', function(req,res){
-  res.sendFile(__dirname+'/public/main.html');
-});
-
-app.post('/', function(req, res){
-  var responseData = {};
-
-  var query =  connection.query('select score from proUtil', function(err,rows){
-    responseData.score = [];
-    if(err) throw err;
-    responseData.result = "ok";
-    rows.forEach(function(val){
-    responseData.score.push(val.score);
-    })
-    
-
-    res.json(responseData);
-  });
-});
-=======
 app.listen(3000, function () {
     console.log("server start on port 3000!");
 });
@@ -155,4 +110,3 @@ app.post("/produce.html", function (req, res) {
         }
     );
 });
->>>>>>> f06f3d0d7e734839ce48b416e3b54701f714fe8c
