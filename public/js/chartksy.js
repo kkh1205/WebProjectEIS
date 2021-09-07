@@ -259,7 +259,7 @@ var options = {
 
   
   var ctx = document.getElementById('chartsy1').getContext('2d');
-  var ProduceChart = new Chart(ctx, {
+  var chartsy_1 = new Chart(ctx, {
     type: 'line',
     data: data,
     options: options
@@ -267,7 +267,7 @@ var options = {
 
 // 해당 창이 켜질 때, sandAjax를 호출.
 window.onload = function(){
-    sandAjax('http://localhost:3002/');
+    sandAjax('http://localhost:3000/quality.html');
   }
   
   function sandAjax(url) {
@@ -281,7 +281,8 @@ window.onload = function(){
       var result = JSON.parse(oReq.responseText);
       console.log(result);
   
-      var cost = result.cost;
+      var cost2021 = result.cost2021;
+      console.log(cost2021[0]);
     //   var A02 = result.A02;
     //   var A03 = result.A03;
   
@@ -290,7 +291,7 @@ window.onload = function(){
     //   var comp_data3 = data1.datasets[2].data;
   
       for (var i = 0; i < comp_data.length; i++) {
-        comp_data[i] = cost[i];
+        comp_data[i] = cost2021[i];
       }
   
     //   for (var i = 0; i < comp_data.length; i++) {
@@ -305,7 +306,7 @@ window.onload = function(){
     //   data1.datasets[1].data = comp_data2;
     //   data1.datasets[2].data = comp_data3;
 
-      ProduceChart.update();
+      chartsy_1.update();
     })
   }
 

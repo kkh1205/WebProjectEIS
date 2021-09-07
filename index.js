@@ -25,19 +25,19 @@ db.connect(); // 생성된 db 연결
 
 app.use(express.static('public')); // public을 쓰겠다.
 
-app.listen(3002,function(){
-  console.log("server start on port 3002.");
+app.listen(3000,function(){
+  console.log("server start on port 3000.");
 }) // 서버를 리스닝 한다. 나는 3001번을 리스닝했다.
 
 app.get('/', function(req,res){ // req(요청),res(응답) '/'는 서버에서의 경로, function은 라우트가 일치할 때 실행되는 함수.
   res.sendFile(__dirname+'/public/quality.html');
 })
 
-app.post('/', function(req,res){ // 포스트방식으로 데이터쿼리 전송
+app.post('/quality.html', function(req,res){ // 포스트방식으로 데이터쿼리 전송
   var responseData = {}; // 객체 선언
 
-  var query = db.query('SELECT cost FROM quaYear ', function(err,rows){
-    responseData.cost = [];
+  var query = db.query('SELECT cost2021 FROM quaYear ', function(err,rows){
+    responseData.cost2021 = [];
     // responseData.A02 = [];
     // responseData.A03 = [];
 
@@ -45,7 +45,7 @@ app.post('/', function(req,res){ // 포스트방식으로 데이터쿼리 전송
     if(rows[0]) {
       responseData.result = 'ok';
       rows.forEach(function(val){
-        responseData.cost.push(val.cost);
+        responseData.cost2021.push(val.cost2021);
       });
 
     //   rows.forEach(function(val){
@@ -58,7 +58,7 @@ app.post('/', function(req,res){ // 포스트방식으로 데이터쿼리 전송
     }
     else{
       responseData.result = 'none';
-      responseData.cost = '';
+      responseData.cost2021 = '';
     //   responseData.A02 = '';
     //   responseData.A03 = '';
     }
