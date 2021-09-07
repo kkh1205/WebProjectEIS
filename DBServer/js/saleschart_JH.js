@@ -390,13 +390,10 @@ var myChart_6 = new Chart(ctx, {
 
 
 window.onload = function(){
-    sendAjax2021('http://localhost:3005');
+    sendAjax2021('http://localhost:3005/sales.html');
 }
 
-var button = document.getElementById("sendAjax2021")
-button.addEventListener("click", function(){
-    sendAjax2021('http://localhost:3005')
-})
+
 function sendAjax2021(url) {
     var oReq = new XMLHttpRequest();
 
@@ -483,10 +480,6 @@ function sendAjax2021(url) {
 }
 
 
-var button1 = document.getElementById("sendAjax2020")
-button1.addEventListener("click", function(){
-    sendAjax2020('http://localhost:3005')
-})
 function sendAjax2020(url) {
     var oReq = new XMLHttpRequest();
 
@@ -584,15 +577,15 @@ function sendAjax2019(url) {
     oReq.addEventListener('load', function() {
         var result = JSON.parse(oReq.responseText);
        
-        var product1 = result.product1;
-        var score1 = result.score1;
-        var nonscore1 = result.nonscore1;
-        var reducer1 = result.reducer1;
-        var Nreducer1 = result.Nreducer1;
-        var a3801 = result.a3801;
-        var c5501 = result.c5501;
-        var kf_211 = result.kf_211;
-        var circle1 = result.circle1;
+        var product2 = result.product2;
+        var score2 = result.score2;
+        var nonscore2 = result.nonscore2;
+        var reducer2 = result.reducer2;
+        var Nreducer2 = result.Nreducer2;
+        var a3802 = result.a3802;
+        var c5502 = result.c5502;
+        var kf_212 = result.kf_212;
+        var circle2 = result.circle2;
         var comp_data = data.datasets[0].data;
         var comp_data1 = data1.datasets[0].data;
         var comp_data2 = data1.datasets[1].data;
@@ -605,39 +598,39 @@ function sendAjax2019(url) {
         
 
         for (var i = 0; i < comp_data.length; i++) {
-            comp_data[i] = product1[i];
+            comp_data[i] = product2[i];
         }
 
         for (var i = 0; i < comp_data1.length; i++) {
-            comp_data1[i] = score1[i];
+            comp_data1[i] = score2[i];
         }
 
         for (var i = 0; i < comp_data2.length; i++) {
-            comp_data2[i] = nonscore1[i];
+            comp_data2[i] = nonscore2[i];
         }
 
         for (var i = 0; i < comp_data3.length; i++) {
-            comp_data3[i] = reducer1[i];
+            comp_data3[i] = reducer2[i];
         }
 
         for (var i = 0; i < comp_data4.length; i++) {
-            comp_data4[i] = Nreducer1[i];
+            comp_data4[i] = Nreducer2[i];
         }
 
         for (var i = 0; i < comp_data5.length; i++) {
-            comp_data5[i] = a3801[i];
+            comp_data5[i] = a3802[i];
         }
 
         for (var i = 0; i < comp_data6.length; i++) {
-            comp_data6[i] = c5501[i];
+            comp_data6[i] = c5502[i];
         }
 
         for (var i = 0; i < comp_data7.length; i++) {
-            comp_data7[i] = kf_211[i];
+            comp_data7[i] = kf_212[i];
         }
 
         for (var i = 0; i < 5; i++) {
-            comp_data8[i] = circle1[i];
+            comp_data8[i] = circle2[i];
         }
 
 
@@ -657,4 +650,23 @@ function sendAjax2019(url) {
         
         
     })
+}
+
+function yearSelect(year) {
+    switch (year) {
+        case "2021":          
+            sendAjax2021("http://localhost:3005/sales.html");           
+            break;
+
+        case "2020":
+            sendAjax2020("http://localhost:3005/sales.html");
+            break;
+
+        case "2019":
+            sendAjax2019("http://localhost:3005/sales.html");
+            break;
+            
+        default:
+            
+    }
 }

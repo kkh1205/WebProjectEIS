@@ -25,7 +25,7 @@ app.get('/', function(req,res){
   res.sendFile(__dirname+'/DBServer/index.html');
 });
 
-app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날리기!
+app.post('/sales.html', function(req, res){ //포스트방식으로 데이터 쿼리 날리기!
   var responseData = {};
 
   var query =  connection.query('select * from Y2021_Sales_JH RIGHT JOIN Y2020_Sales_JH ON Y2021_Sales_JH.`월별`=Y2020_Sales_JH.`월별` RIGHT JOIN Y2019_Sales_JH ON Y2020_Sales_JH.`월별` = Y2019_Sales_JH.`월별`', function(err,rows){
