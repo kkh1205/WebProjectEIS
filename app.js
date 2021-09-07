@@ -28,7 +28,8 @@ app.get('/', function(req,res){
 app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날리기!
   var responseData = {};
 
-  var query =  connection.query('select product,score,nonscore,reducer,Nreducer,a380,c550,kf_21,circle,product1,score1,nonscore1,reducer1,Nreducer1,a3801,c5501,kf_211,circle1 from Y2021_Sales_JH INNER JOIN Y2020_Sales_JH ON Y2021_Sales_JH.`월별`=Y2020_Sales_JH.`월별`', function(err,rows){
+  var query =  connection.query('select * from Y2021_Sales_JH RIGHT JOIN Y2020_Sales_JH ON Y2021_Sales_JH.`월별`=Y2020_Sales_JH.`월별` RIGHT JOIN Y2019_Sales_JH ON Y2020_Sales_JH.`월별` = Y2019_Sales_JH.`월별`', function(err,rows){
+    //2021
     responseData.score = [];
     responseData.product = [];
     responseData.nonscore = [];
@@ -38,7 +39,7 @@ app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날�
     responseData.c550 = [];
     responseData.kf_21 = [];
     responseData.circle = [];
-
+    //2020
     responseData.score1 = [];
     responseData.product1 = [];
     responseData.nonscore1 = [];
@@ -48,7 +49,16 @@ app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날�
     responseData.c5501 = [];
     responseData.kf_211 = [];
     responseData.circle1 = [];
-
+    //2019
+    responseData.score2 = [];
+    responseData.product2 = [];
+    responseData.nonscore2 = [];
+    responseData.reducer2 = [];
+    responseData.Nreducer2 = [];
+    responseData.a3802 = [];
+    responseData.c5502 = [];
+    responseData.kf_212 = [];
+    responseData.circle2 = [];
     if(err) throw err;
     if(rows[0]){
       responseData.result = "ok";
@@ -148,6 +158,55 @@ app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날�
         
       })
 
+
+      // 2019
+
+
+      rows.forEach(function(val){
+        responseData.score2.push(val.score2); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.product2.push(val.product2); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.nonscore2.push(val.nonscore2); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.reducer2.push(val.reducer2); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.Nreducer2.push(val.Nreducer2); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.a3802.push(val.a3802); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.c5502.push(val.c5502); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.kf_212.push(val.kf_212); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.circle2.push(val.circle2); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
     }
     else{
       responseData.result = "none";
@@ -171,6 +230,15 @@ app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날�
       responseData.kf_211 = "";
       responseData.circle1 = "";
 
+      responseData.score2 = "";
+      responseData.product2 = "";
+      responseData.nonscore2 = "";
+      responseData.reducer2 = "";
+      responseData.Nreducer2 = "";
+      responseData.a3802 = "";
+      responseData.c5502 = "";
+      responseData.kf_212 = "";
+      responseData.circle2 = "";
     }
     console.log(responseData.product);
     console.log(responseData.score);
@@ -192,6 +260,16 @@ app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날�
     console.log(responseData.c5501);
     console.log(responseData.kf_211);
     console.log(responseData.circle1);
+
+    console.log(responseData.product2);
+    console.log(responseData.score2);
+    console.log(responseData.nonscore2);
+    console.log(responseData.reducer2);
+    console.log(responseData.Nreducer2);
+    console.log(responseData.a3802);
+    console.log(responseData.c5502);
+    console.log(responseData.kf_212);
+    console.log(responseData.circle2);
 
     res.json(responseData);
     console.log("response success!" + responseData);
