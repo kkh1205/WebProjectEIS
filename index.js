@@ -9,10 +9,10 @@ var mysql = require('mysql'); // mysql 사용시 쓰는 모듈
 // 새 연결 db생성.
 var db = mysql.createConnection({
   host: 'database-1.chaokiahnhcd.us-east-2.rds.amazonaws.com',
-  port : 3306,
-  user : 'root',
-  password : '123456789',
-  database : 'kkhPractice'
+  port: 3306,
+  user: 'root',
+  password: '123456789',
+  database: 'kkhPractice'
 })
 
 db.connect(); // 생성된 db 연결
@@ -25,47 +25,121 @@ db.connect(); // 생성된 db 연결
 
 app.use(express.static('public')); // public을 쓰겠다.
 
-app.listen(3001,function(){
+app.listen(3001, function () {
   console.log("server start on port 3001.");
 }) // 서버를 리스닝 한다. 나는 3001번을 리스닝했다.
 
-app.get('/', function(req,res){ // req(요청),res(응답) '/'는 서버에서의 경로, function은 라우트가 일치할 때 실행되는 함수.
-  res.sendFile(__dirname+'/public/main.html');
+app.get('/', function (req, res) { // req(요청),res(응답) '/'는 서버에서의 경로, function은 라우트가 일치할 때 실행되는 함수.
+  res.sendFile(__dirname + '/public/main.html');
 })
 
-app.post('/', function(req,res){ // 포스트방식으로 데이터쿼리 전송
+app.post('/', function (req, res) { // 포스트방식으로 데이터쿼리 전송
   var responseData = {}; // 객체 선언
-
-  var query = db.query('SELECT production.quarter,A01P,A02P,A03P,A01Q,A02Q,A03Q,quarterlySales,operatingProfit,NULL,NULL,NULL,NULL FROM production JOIN quality ON production.quarter = quality.quarter JOIN quarterlySales_operatingProfit ON quality.quarter = quarterlySales_operatingProfit.quarter UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,quarter1,quarter2,quarter3,quarter4 FROM sales ', function(err,rows){
+  /* KH. 데이터 가지고 오는 쿼리문. 좀 가라로 했습니다. */
+  var query = db.query('SELECT production.quarter,A01P,A02P,A03P,A01Q,A02Q,A03Q,quarterlySales,operatingProfit,quarter1,quarter2,quarter3,quarter4,country,e2021,e2020,e2019 FROM production left JOIN quality ON production.quarter = quality.quarter left JOIN quarterlySales_operatingProfit ON quality.quarter = quarterlySales_operatingProfit.quarter UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,quarter1,quarter2,quarter3,quarter4,NULL,NULL,NULL,NULL FROM sales UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,country,e2021,e2020,e2019 FROM exportWorld; ', function (err, rows) {
+    /* KH. 생산 */
     responseData.A01P = [];
     responseData.A02P = [];
     responseData.A03P = [];
+    /* KH. 매출 */
+    responseData.quarter1 = [];
+    responseData.quarter2 = [];
+    responseData.quarter3 = [];
+    responseData.quarter4 = [];
+    /* KH. 품질 */
+    responseData.A01Q = [];
+    responseData.A02Q = [];
+    responseData.A03Q = [];
+    /* KH. 매출액 & 영업이익 */
+    responseData.quarterlySales = [];
+    responseData.operatingProfit = [];
+    /* KH. 수출현황 */
+    responseData.e2021 = [];
+    responseData.e2020 = [];
+    responseData.e2019 = [];
 
-    if(err) throw err;
-    if(rows[0]) {
+    if (err) throw err;
+    if (rows[0]) {
       responseData.result = 'ok';
-      rows.forEach(function(val){
+      /* KH. 생산 */
+      rows.forEach(function (val) {
         responseData.A01P.push(val.A01P);
       });
 
-      rows.forEach(function(val){
+      rows.forEach(function (val) {
         responseData.A02P.push(val.A02P);
       });
 
-      rows.forEach(function(val){
+      rows.forEach(function (val) {
         responseData.A03P.push(val.A03P);
       });
-    }
-    else{
+      /* KH.매출 */
+      rows.forEach(function (val) {
+        responseData.quarter1.push(val.quarter1);
+      });
+      rows.forEach(function (val) {
+        responseData.quarter2.push(val.quarter2);
+      });
+      rows.forEach(function (val) {
+        responseData.quarter3.push(val.quarter3);
+      });
+      rows.forEach(function (val) {
+        responseData.quarter4.push(val.quarter4);
+      });
+      /* KH.품질 */
+      rows.forEach(function (val) {
+        responseData.A01Q.push(val.A01Q);
+      });
+      rows.forEach(function (val) {
+        responseData.A02Q.push(val.A02Q);
+      });
+      rows.forEach(function (val) {
+        responseData.A03Q.push(val.A03Q);
+      });
+      /* KH.매출액 & 영업이익 */
+      rows.forEach(function (val) {
+        responseData.quarterlySales.push(val.quarterlySales);
+      });
+      rows.forEach(function (val) {
+        responseData.operatingProfit.push(val.operatingProfit);
+      });
+      /* KH.수출현황 */
+      rows.forEach(function (val) {
+        responseData.e2021.push(val.e2021);
+      });
+      rows.forEach(function (val) {
+        responseData.e2020.push(val.e2020);
+      });
+      rows.forEach(function (val) {
+        responseData.e2019.push(val.e2019);
+      });
+    } else {
       responseData.result = 'none';
+      /* KH.생산 */
       responseData.A01P = '';
       responseData.A02P = '';
       responseData.A03P = '';
+      /* KH.매출 */
+      responseData.quarter1 = '';
+      responseData.quarter2 = '';
+      responseData.quarter3 = '';
+      responseData.quarter4 = '';
+      /* KH.품질 */
+      responseData.A01Q = '';
+      responseData.A02Q = '';
+      responseData.A03Q = '';
+      /* KH.매출액 & 영업이익 */
+      responseData.quarterlySales = '';
+      responseData.operatingProfit = '';
+      /* KH.수출 현황 */
+      responseData.e2021 = '';
+      responseData.e2020 = '';
+      responseData.e2019 = '';
     }
+    /* responseData를 json으로 응답함. */
     res.json(responseData);
-    console.log('success \n'+responseData);
+    console.log('success \n' + responseData);
 
   });
-  
-});
 
+});
