@@ -16,6 +16,8 @@
 
     <!-- sy. 참조될 라이브러리들(css) -->
     <link rel="stylesheet" href="css/animateksy.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <!-- sy. 참조될 라이브러리들(css) -->
     
     <style>
@@ -248,15 +250,12 @@
 
               <!-- sy. 버튼 -->
               <div>
-                <button type="button" class="btn btn-primary">검사계획</button>
-                <button type="button" class="btn btn-secondary">품질이력</button>
-                <button type="button" class="btn btn-success">품질검사</button>
-                <button type="button" class="btn btn-info">정보</button>
-                <button type="button" class="btn btn-warning">불량분석</button>
-                <button type="button" class="btn btn-danger">전체 결과표</button>
+                <a href="javascript:window.scrollTo( 0, 1500 );">
+                  <button type="button" class="btn btn-info">전체 결과표</button>
+                </a>
+                
                 <button type="button" class="btn btn-light">Light 모드</button>
                 <button type="button" class="btn btn-dark">Dark 모드</button>
-                <button type="button" class="btn btn-link">Link</button>
               </div>
           </div>
         </div>
@@ -264,49 +263,48 @@
         <p>&nbsp;</p>
        
           
-            <h4>품질 데이터 분석 - 모니터링</h4>
+            <h4>품질 데이터 분석 모니터링</h4>
 &nbsp;
           <div class="row">
        
                 <!-- Area Chart -->
-                
-                <div class="card col-sm-4 col-md-4 col-lg-5" style="width: 40rem;">
+                <div class="card col-sm-4 col-md-4 col-lg-5" style="width: 35rem;">
                   <div class="card shadow mb-4">
                   <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">검사계획</h6>
+                    <h4 class="m-0 font-weight-bold text-primary">검사계획</h4>
                   </div>
                   <canvas id="chartsy1"></canvas>
                   <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                      <code>/js/demo/chart-area-demo.js</code> file.
+                    <p class="card-text">
+                      <code>/chartksy.js</code> file.
                     </p>
                   </div>
                 </div>
               </div>
-                 <!-- 도넛 Chart -->
-              <div class="card col-sm-4 col-md-4 col-lg-4" style="width: 30rem;">
+                 <!-- Bar Chart -->
+              <div class="card col-sm-4 col-md-4 col-lg-4" style="width: 35rem;">
                 <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">품질이력</h6>
+                  <h4 class="m-0 font-weight-bold text-primary">품질이력</h4>
                 </div>
-                <canvas id="chartsy3"></canvas>
+                <canvas id="chartsy3" ></canvas>
                 <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                    <code>/js/demo/chart-area-demo.js</code> file.
+                  <p class="card-text">
+                    <code>/chartksy.js</code> file.
                   </p>
                 </div>
               </div>
             </div>
-              <!-- Bar Chart -->
-              <div class="card col-sm-4 col-md-4 col-lg-3" style="width: 40rem;">
+              <!-- 도넛 Chart -->
+              <div class="card col-sm-4 col-md-4 col-lg-3" style="width: 25rem;">
                 <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">품질검사</h6>
+                  <h4 class="m-0 font-weight-bold text-primary">품질검사<small class="text-muted">&nbsp;가동율</small> </h4>
                 </div>
                 <canvas id="chartsy2"></canvas>
                 <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                    <code>/js/demo/chart-area-demo.js</code> file.
+                  <p class="card-text">
+                    <code>/chartksy.js</code>QI: quality inspection(품질검사)
                   </p>
                 </div>
               </div>
@@ -316,54 +314,154 @@
          
         <p>&nbsp;</p>         
         <p>&nbsp;</p>
+        
+        <h4>품질 불량 분석</h4>
+        <p>&nbsp;</p>
     
         <div class="row">
-              <!-- 가동율 -->
-              <h4>정보</h4>
-              <div class="accordion col-sm-5 col-lg-4" id="accordionExample">
-                <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                       A-01
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                  </div>
+                <div class="col-xs-6 col-md-6 col-lg-6" >
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">품질불량율</th>
+                        <th scope="col">수입불량율</th>
+                        <th scope="col">공정불량율</th>
+                        <th scope="col">공정불량율</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="table-active">
+                        <th scope="row" style="font-size: 20px; color: rgb(38, 124, 221);">월간</th>
+                        <td>1,400PPM</td>
+                        <td>380PPM</td>
+                        <td>3,100PPM</td>
+                        <td>720PPM</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="font-size: 20px; color: rgb(108, 30, 128);">주간</th>
+                        <td>2,187PPM</td>
+                        <td>730PPM</td>
+                        <td>5,250PPM</td>
+                        <td>580PPM</td>
+                      </tr>
+                      <tr class="table-primary">
+                        <th scope="row" style="font-size: 20px; color: rgb(221, 38, 151);">일일</th>
+                        <td>1,583PPM</td>
+                        <td>320PPM</td>
+                        <td>4,220PPM</td>
+                        <td>210PPM</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      A-02
-                    </button>
-                  </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                     A-03
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-            
-                <div class="col-sm-2 col-lg-2">
+                 
+                  <div class="col-xs-6 col-md-6 col-lg-6" >
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">품질비용합계</th>
+                        <th scope="col">품질예상비용</th>
+                        <th scope="col">품질평가비용</th>
+                        <th scope="col">품질실패비용</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="table-active">
+                        <th scope="row" style="font-size: 20x; color: rgb(38, 124, 221);">월간</th>
+                        <td>7100만원</td>
+                        <td>880만원</td>
+                        <td>3000만원</td>
+                        <td>1700만원</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="font-size: 20px; color: rgb(108, 30, 128);">주간</th>
+                        <td>1600만원</td>
+                        <td>180만원</td>
+                        <td>1000만원</td>
+                        <td>300만원</td>
+                      </tr>
+                      <tr class="table-primary">
+                        <th scope="row" style="font-size: 20px; color: rgb(221, 38, 151);">일일</th>
+                        <td>300만원</td>
+                        <td>39만원</td>
+                        <td>200만원</td>
+                        <td>80만원</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
                 </div>
         </div>
+
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        
+       
+          <h4>품질 데이터 분석 전체 결과</h4>
+         
+        <div class="row" style="background-color: rgba(123, 211, 233, 0.1);">
+          <div class="col-xs-6 col-md-6 col-lg-6" >
+            <canvas id="chartsy4"></canvas>
+          </div>
+          
+          <div class="col-xs-6 col-md-6 col-lg-6" >
+            <p>&nbsp;</p>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">제품</th>
+                  <th scope="col">A-01</th>
+                  <th scope="col">A-02</th>
+                  <th scope="col">A-03</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr class="table-success">
+                  <th scope="row">성공</th>
+                  <td>80%</td>
+                  <td>85%</td>
+                  <td>90%</td>
+                </tr>
+                <tr class="table-danger">
+                  <th scope="row">위험</th>
+                  <td>5%</td>
+                  <td>3%</td>
+                  <td>2%</td>
+                </tr>
+                <tr class="table-warning">
+                  <th scope="row">경고</th>
+                  <td>15%</td>
+                  <td>12%</td>
+                  <td>8%</td>
+                </tr>
+                <tr class="table-info">
+                  <th scope="row">정보</th>
+                  <td>검사 중지 3회</td>
+                  <td>작업율 증가</td>
+                  <td>불량율 감소</td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row">전년 대비이익</th>
+                  <td style="color: blue;">증가</td>
+                  <td style="color: red">하락</td>
+                  <td style="color: blue;">증가</td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row">향후 예상수익</th>
+                  <td>1000만원</td>
+                  <td>2500만원</td>
+                  <td>1500만원</td>
+                </tr>
+              </tbody>
+            </table>
+          
+          </div>
+         
+        </div>
+     
       </div>
   
 
@@ -377,25 +475,30 @@
 
 
 
-              
+      
+
+
+
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+
+
+          <footer>
+            <p>Copyright © 2021 EIS-SYSTEM.co.,Ltd. All rights reserved.</p>
+         
+          </footer>
+    
+
+        
           <!-- sy. End of Main Content -->
-
-
-
-
-
-
-
 
 
     </div>
 
+
       <!--이안에서 작업하면됨-->
 
       </main>
-
-
-
 
 
 

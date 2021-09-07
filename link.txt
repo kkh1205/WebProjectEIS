@@ -28,8 +28,8 @@ https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=builderruke&
 1. 그룹별 차트, 세로막대 그래프 
 https://eunyoe.tistory.com/60
 
-
-
+2. y값 출력
+https://v2_0_0--chartjs-plugin-datalabels.netlify.app/guide/formatting.html#data-transformation
 ===============================
 //소중 링크
 부트스트랩 예제
@@ -47,3 +47,4 @@ https://frhyme.github.io/javascript/chart_js_basic_and_canvas/
 
 ${}
 https://dololak.tistory.com/744
+

@@ -55,37 +55,54 @@
 // }});
 
 
-
-//품질검사 차트
-var ctx = document.getElementById('chartsy2').getContext('2d');
+// 품질이력 차트
+var ctx = document.getElementById('chartsy3').getContext('2d');
 var myChart = new Chart(ctx, {
+  plugins: [ChartDataLabels],
     type: 'bar',
     data: {
         labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
         datasets: [{
-            label: "품질검사",
-            data: [42, 53, 62, 78, 98, 100, 42, 53, 62, 78, 98, 100],
+            
+            data: [52, 53, 62, 78, 98, 100,52, 53, 62, 78, 98, 100],
+              datalabels:{
+                align: 'end',
+                anchor: 'start'
+              }
+              ,
+              
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+              'rgba(36, 192, 209)',
+              'rgba(36, 192, 209)',
+              'rgba(36, 192, 209)',
+             
+
+              'rgba(36, 151, 209)',
+              'rgba(36, 151, 209)',
+              'rgba(36, 151, 209)',
+            
+              
+              'rgba(82, 36, 209)',
+              'rgba(82, 36, 209)',
+              'rgba(82, 36, 209)',
+             
+
+               'rgba(172, 36, 209)',
+               'rgba(172, 36, 209)',
+               'rgba(172, 36, 209)',
+             
+             
             ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+            
+           
+        }
+       
+      ]
     },
     options: {
+      
         scales: {
+         
             y: {
                 suggestedMin: 0,
                 suggestedMax: 100,
@@ -95,40 +112,49 @@ var myChart = new Chart(ctx, {
                         return value + '%'; 
                     }
 
+            },
+        
+            plugins: {
+              datalabels: {
+                formatter: function(value, context) {
+                  return context.chart.data.labels[context.dataIndex];
+                }
+              }
+            }, 
+          }
+    }, 
+            plugins: {
+                 legend: {
+                  display: false
+              },
             }
-        }
-    },
-        title: {
-            display: true,
-            text: 'Chart.js Line Chart - Cubic interpolation mode'
-        }
+        
     }
 });
 
-
-var ctx = document.getElementById('chartsy3').getContext('2d');
+// 품질이력 차트
+var ctx = document.getElementById('chartsy2').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['QI01', 'QI02', 'QI03', 'QI04'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12, 19, 3, 5],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(36, 192, 209)',
+                'rgba(36, 151, 209)',
+                'rgba(82, 36, 209)',
+                
+               
+                'rgba(172, 36, 209)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+              'rgba(36, 192, 209)',
+                'rgba(36, 151, 209)',
+                'rgba(82, 36, 209)',
+                'rgba(114, 36, 209)',
+                'rgba(154, 36, 209)',
+                'rgba(172, 36, 209)'
             ],
             borderWidth: 1,
         }]
@@ -139,10 +165,7 @@ var myChart = new Chart(ctx, {
           legend: {
             position: 'top',
           },
-          title: {
-            display: true,
-            text: 'Chart.js Doughnut Chart'
-          }
+          
         }, 
         
     },
@@ -205,10 +228,7 @@ var data = {
 var options = {
     responsive: true,
     plugins: {
-    title: {
-        display: true,
-        text: 'Chart.js Line Chart - Cubic interpolation mode'
-    },
+    
 },
     interaction: {
     intersect: false,
@@ -236,13 +256,7 @@ var options = {
 },
 }
 
-//   var options = {
-//       scales: {
-//         y: {
-//           beginAtZero: true
-//         }
-//       }
-//     }
+
   
   var ctx = document.getElementById('chartsy1').getContext('2d');
   var ProduceChart = new Chart(ctx, {
@@ -294,3 +308,36 @@ window.onload = function(){
       ProduceChart.update();
     })
   }
+
+
+
+var ctx = document.getElementById('chartsy4').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+    datasets: [
+      {
+        label: 'Dataset',
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        borderColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: 'rgba(255, 99, 132, 1)',
+        fill: false
+      }
+    ]
+  },
+  options: {
+    plugins: {
+      filler: {
+        propagate: false,
+      },
+      title: {
+        display: true,
+      }
+    },
+    interaction: {
+      intersect: false,
+    }
+  }
+});
+
