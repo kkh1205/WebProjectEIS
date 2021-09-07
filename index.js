@@ -136,6 +136,7 @@ app.post('/', function (req, res) { // 포스트방식으로 데이터쿼리 전
       responseData.e2020 = '';
       responseData.e2019 = '';
     }
+
     /* responseData를 json으로 응답함. */
     res.json(responseData);
     console.log('success \n' + responseData);
