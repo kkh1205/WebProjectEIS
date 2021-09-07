@@ -28,7 +28,7 @@ app.get('/', function(req,res){
 app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날리기!
   var responseData = {};
 
-  var query =  connection.query('select product,score,nonscore,reducer,Nreducer,a380,c550,kf_21,circle from Y2021_Sales_JH', function(err,rows){
+  var query =  connection.query('select product,score,nonscore,reducer,Nreducer,a380,c550,kf_21,circle,product1,score1,nonscore1,reducer1,Nreducer1,a3801,c5501,kf_211,circle1 from Y2021_Sales_JH INNER JOIN Y2020_Sales_JH ON Y2021_Sales_JH.`월별`=Y2020_Sales_JH.`월별`', function(err,rows){
     responseData.score = [];
     responseData.product = [];
     responseData.nonscore = [];
@@ -39,9 +39,21 @@ app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날�
     responseData.kf_21 = [];
     responseData.circle = [];
 
+    responseData.score1 = [];
+    responseData.product1 = [];
+    responseData.nonscore1 = [];
+    responseData.reducer1 = [];
+    responseData.Nreducer1 = [];
+    responseData.a3801 = [];
+    responseData.c5501 = [];
+    responseData.kf_211 = [];
+    responseData.circle1 = [];
+
     if(err) throw err;
     if(rows[0]){
       responseData.result = "ok";
+
+      //2021
       rows.forEach(function(val){
         responseData.score.push(val.score); // responseData에다가 배열로 저장을 시킴
         
@@ -87,6 +99,55 @@ app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날�
         
       })
 
+
+      // 2020
+
+
+      rows.forEach(function(val){
+        responseData.score1.push(val.score1); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.product1.push(val.product1); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.nonscore1.push(val.nonscore1); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.reducer1.push(val.reducer1); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.Nreducer1.push(val.Nreducer1); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.a3801.push(val.a3801); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.c5501.push(val.c5501); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.kf_211.push(val.kf_211); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
+      rows.forEach(function(val){
+        responseData.circle1.push(val.circle1); // responseData에다가 배열로 저장을 시킴
+        
+      })
+
     }
     else{
       responseData.result = "none";
@@ -100,6 +161,16 @@ app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날�
       responseData.kf_21 = "";
       responseData.circle = "";
 
+      responseData.score1 = "";
+      responseData.product1 = "";
+      responseData.nonscore1 = "";
+      responseData.reducer1 = "";
+      responseData.Nreducer1 = "";
+      responseData.a3801 = "";
+      responseData.c5501 = "";
+      responseData.kf_211 = "";
+      responseData.circle1 = "";
+
     }
     console.log(responseData.product);
     console.log(responseData.score);
@@ -111,8 +182,19 @@ app.post('/', function(req, res){ //포스트방식으로 데이터 쿼리 날�
     console.log(responseData.kf_21);
     console.log(responseData.circle);
 
+
+    console.log(responseData.product1);
+    console.log(responseData.score1);
+    console.log(responseData.nonscore1);
+    console.log(responseData.reducer1);
+    console.log(responseData.Nreducer1);
+    console.log(responseData.a3801);
+    console.log(responseData.c5501);
+    console.log(responseData.kf_211);
+    console.log(responseData.circle1);
+
     res.json(responseData);
-    console.log("responce success!" + responseData);
+    console.log("response success!" + responseData);
 
   });
 
