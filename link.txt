@@ -23,6 +23,11 @@ http://smart.moatt.co.kr/images/pdf/moatt_mes.pdf
 7. 연락처 db자료
 https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=builderruke&logNo=221323869382
 
+
+
+
+
+
 // 차트 참고 링크
 
 1. 그룹별 차트, 세로막대 그래프 
@@ -36,6 +41,10 @@ https://getbootstrap.com/docs/4.0/content/tables/
 
 4. API
 https://www.chartjs.org/docs/next/developers/api.html
+
+
+
+
 
 ===============================
 //소중 링크
@@ -60,3 +69,6 @@ https://gocoder.tistory.com/51
 
 innerhtml
 https://meaningone.tistory.com/316
+
+color
+https://htmlcolors.com/google-color-picker

@@ -217,8 +217,8 @@
                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                   aria-haspopup="true" aria-expanded="false">연도선택</a>
                 <div class="dropdown-menu">
-                  <select name="allTypeList" id="allTypeList">
-                  <option value="2021" selected>2021년</option>
+                  <select name="allTypeList" id="allTypeList" onchange="yearSelect(this.value)">
+                  <option value="2021">2021년</option>
                   <option value="2020">2020년</option>
                   <option value="2019">2019년</option>
                   </select>
@@ -327,32 +327,28 @@
                       <tr>
                         <th scope="col"></th>
                         <th scope="col">품질불량율</th>
-                        <th scope="col">수입불량율</th>
                         <th scope="col">공정불량율</th>
-                        <th scope="col">공정불량율</th>
+                        <th scope="col">출하불량율</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr class="table-active">
                         <th scope="row" style="font-size: 20px; color: rgb(38, 124, 221);">월간</th>
-                        <td>1,400PPM</td>
-                        <td>380PPM</td>
-                        <td>3,100PPM</td>
-                        <td>720PPM</td>
+                        <td id="k1"></td>
+                        <td id="s1"></td>
+                        <td id="y1"></td>
                       </tr>
                       <tr>
                         <th scope="row" style="font-size: 20px; color: rgb(108, 30, 128);">주간</th>
-                        <td>2,187PPM</td>
-                        <td>730PPM</td>
-                        <td>5,250PPM</td>
-                        <td>580PPM</td>
+                        <td id="k2"></td>
+                        <td id="s2"></td>
+                        <td id="y2"></td>
                       </tr>
                       <tr class="table-primary">
                         <th scope="row" style="font-size: 20px; color: rgb(221, 38, 151);">일일</th>
-                        <td>1,583PPM</td>
-                        <td>320PPM</td>
-                        <td>4,220PPM</td>
-                        <td>210PPM</td>
+                        <td id="k3"></td>
+                        <td id="s3"></td>
+                        <td id="y3"></td>
                       </tr>
                     </tbody>
                   </table>
@@ -363,8 +359,7 @@
                     <thead>
                       <tr>
                         <th scope="col"></th>
-                        <th scope="col">품질비용합계</th>
-                        <th scope="col">품질예상비용</th>
+                        <th scope="col">품질예방비용</th>
                         <th scope="col">품질평가비용</th>
                         <th scope="col">품질실패비용</th>
                       </tr>
@@ -372,24 +367,21 @@
                     <tbody>
                       <tr class="table-active">
                         <th scope="row" style="font-size: 20x; color: rgb(38, 124, 221);">월간</th>
-                        <td>7100만원</td>
-                        <td>880만원</td>
-                        <td>3000만원</td>
-                        <td>1700만원</td>
+                        <td id="k4"></td>
+                        <td id="s4"></td>
+                        <td id="y4"></td>
                       </tr>
                       <tr>
                         <th scope="row" style="font-size: 20px; color: rgb(108, 30, 128);">주간</th>
-                        <td>1600만원</td>
-                        <td>180만원</td>
-                        <td>1000만원</td>
-                        <td>300만원</td>
+                        <td id="k5"></td>
+                        <td id="s5"></td>
+                        <td id="y5"></td>
                       </tr>
                       <tr class="table-primary">
                         <th scope="row" style="font-size: 20px; color: rgb(221, 38, 151);">일일</th>
-                        <td>300만원</td>
-                        <td>39만원</td>
-                        <td>200만원</td>
-                        <td>80만원</td>
+                        <td id="k6"></td>
+                        <td id="s6"></td>
+                        <td id="y6"></td>
                       </tr>
                       
                     </tbody>
@@ -423,21 +415,21 @@
                 
                 <tr class="table-success">
                   <th scope="row">성공</th>
-                  <td>80%</td>
-                  <td>85%</td>
-                  <td>90%</td>
+                  <td id="k7"></td>
+                  <td id="s7"></td>
+                  <td id="y7"></td>
                 </tr>
                 <tr class="table-danger">
                   <th scope="row">위험</th>
-                  <td>5%</td>
-                  <td>3%</td>
-                  <td>2%</td>
+                  <td id="k8"></td>
+                  <td id="s8"></td>
+                  <td id="y8"></td>
                 </tr>
                 <tr class="table-warning">
                   <th scope="row">경고</th>
-                  <td>15%</td>
-                  <td>12%</td>
-                  <td>8%</td>
+                  <td id="k9"></td>
+                  <td id="s9"></td>
+                  <td id="y9"></td>
                 </tr>
                 <tr class="table-info">
                   <th scope="row">정보</th>
@@ -453,9 +445,9 @@
                 </tr>
                 <tr class="table-light">
                   <th scope="row">향후 예상수익</th>
-                  <td>1000만원</td>
-                  <td>2500만원</td>
-                  <td>1500만원</td>
+                  <td id="k10"></td>
+                  <td id="s10"></td>
+                  <td id="y10"></td>
                 </tr>
               </tbody>
             </table>
@@ -497,12 +489,15 @@
 
     </div>
 
-    <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+   
+
+
+      <!-- 도넛 차트 모달 -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="ModalLabel1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="ModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="ModalLabel1">Modal title</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -520,21 +515,21 @@
             <tbody>
               <tr>
                 <th scope="row" style="color: rgb(0, 19, 128);">수율</th>
-                <td id="rr"style="font-size: 1.2rem;"></td>
-                <td id="bb"style="font-size: 1.2rem;"></td>
-                <td id="nono"style="font-size: 1.2rem;"></td>
+                <td id="kk1"style="font-size: 1.2rem;"></td>
+                <td id="ss1"style="font-size: 1.2rem;"></td>
+                <td id="yy1"style="font-size: 1.2rem;"></td>
               </tr>
               <tr>
                 <th scope="row"  style="color: rgb(77, 0, 128);">조업도</th>
-                <td id="rr"style="font-size: 1.2rem;"></td>
-                <td id="bb"style="font-size: 1.2rem;"></td>
-                <td id="nono"style="font-size: 1.2rem;"></td>
+                <td id="kk2"style="font-size: 1.2rem;"></td>
+                <td id="ss2"style="font-size: 1.2rem;"></td>
+                <td id="yy2"style="font-size: 1.2rem;"></td>
               </tr>
               <tr>
                 <th scope="row"  style="color: rgb(128, 0, 85);">무정지율</th>
-                <td id="rr"style="font-size: 1.2rem;"></td>
-                <td id="bb"style="font-size: 1.2rem;"></td>
-                <td id="nono"style="font-size: 1.2rem;"></td>
+                <td id="kk3"style="font-size: 1.2rem;"></td>
+                <td id="ss3"style="font-size: 1.2rem;"></td>
+                <td id="yy3"style="font-size: 1.2rem;"></td>
               </tr>
             </tbody>
           </table>
@@ -548,6 +543,60 @@
       </div>
     </div>
   </div>
+
+
+<!-- 막대 차트 모달 -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="ModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel2">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <canvas id="chartsy2"></canvas>
+          <table class="table table-bordered" style="font-size: 1rem; border: 1rem;">
+            <thead>
+              <tr style="background-color: bisque;">  
+                <th scope="col"></th>
+                <th scope="col" style="font-size: 1.2rem;">A-01</th>
+                <th scope="col" style="font-size: 1.2rem;">A-02</th>
+                <th scope="col" style="font-size: 1.2rem;">A-03</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="color: rgb(9, 0, 128); background-color: rgba(68, 199, 216, 0.562);">A등급</th>
+                <td id="kk4"style="font-size: 1.2rem;"></td>
+                <td id="ss4"style="font-size: 1.2rem;"></td>
+                <td id="yy4"style="font-size: 1.2rem;"></td>
+              </tr>
+              <tr>
+                <th scope="row"  style="color: rgb(111, 32, 214); background-color: rgba(68, 199, 216, 0.562);">B등급</th>
+                <td id="kk5"style="font-size: 1.2rem;"></td>
+                <td id="ss5"style="font-size: 1.2rem;"></td>
+                <td id="yy5"style="font-size: 1.2rem;"></td>
+              </tr>
+              <tr>
+                <th scope="row"  style="color: rgb(198, 50, 228); background-color: rgba(68, 199, 216, 0.562);">C등급</th>
+                <td id="kk6"style="font-size: 1.2rem;"></td>
+                <td id="ss6"style="font-size: 1.2rem;"></td>
+                <td id="yy6"style="font-size: 1.2rem;"></td>
+              </tr>
+            </tbody>
+          </table>
+    
+
+        </div>        
+
+
+      </div>
+      
+      </div>
+    </div>
+  </div>
+
 
 
       <!--이안에서 작업하면됨-->
@@ -584,7 +633,7 @@
         <script src="js/bootstrap.js"></script>
         <script src="js/sidebars.js"></script>
         <script src="js/chart.js"></script>
-        <script src="js/Producechart.js"></script>
+       
       
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">

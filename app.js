@@ -36,32 +36,64 @@ app.get('/', function(req,res){ // req(요청),res(응답) '/'는 서버에서�
 app.post('/quality.html', function(req,res){ // 포스트방식으로 데이터쿼리 전송
   var responseData = {}; // 객체 선언
 
-  var query = db.query('SELECT cost2021 FROM quaYear ', function(err,rows){
-    responseData.cost2021 = [];
-    // responseData.A02 = [];
-    // responseData.A03 = [];
+  var queryqua = db.query('SELECT gid,val2021,val2020,val2019,per2021,per2020,per2019,bill2021,bill2020,bill2019 FROM quaYear UNION SELECT gid,val2021,val2020,val2019,null,null,null,bill2021,bill2020,bill2019 FROM quaTab', 
+  function(err,rows){
+    responseData.gid = [];
+    responseData.val2021 = [];
+    responseData.per2021 = [];
+    responseData.bill2021 = [];
 
-    if(err) throw err;
-    if(rows[0]) {
-      responseData.result = 'ok';
-      rows.forEach(function(val){
-        responseData.cost2021.push(val.cost2021);
-      });
+    rows.forEach(function (val) {
+      responseData.gid.push(val.gid);
+  });
 
-    //   rows.forEach(function(val){
-    //     responseData.A02.push(val.A02);
-    //   });
+  rows.forEach(function (val) {
+      responseData.val2021.push(val.val2021);
+  });
 
-    //   rows.forEach(function(val){
-    //     responseData.A03.push(val.A03);
-    //   });
-    }
-    else{
-      responseData.result = 'none';
-      responseData.cost2021 = '';
-    //   responseData.A02 = '';
-    //   responseData.A03 = '';
-    }
+  rows.forEach(function (val) {
+      responseData.per2021.push(val.per2021);
+  });
+
+  rows.forEach(function (val) {
+    responseData.bill2021.push(val.bill2021);
+});
+
+    responseData.val2020 = [];
+    responseData.per2020 = [];
+    responseData.bill2020 = [];
+
+  rows.forEach(function (val) {
+      responseData.val2020.push(val.val2020);
+  });
+
+  rows.forEach(function (val) {
+      responseData.per2020.push(val.per2020);
+  });
+
+  rows.forEach(function (val) {
+    responseData.bill2020.push(val.bill2020);
+});
+
+    responseData.val2019 = [];
+    responseData.per2019 = [];
+    responseData.bill2019 = [];
+
+    rows.forEach(function (val) {
+      responseData.val2019.push(val.val2019);
+    });
+
+    rows.forEach(function (val) {
+      responseData.per2019.push(val.per2019);
+    });
+
+    rows.forEach(function (val) {
+    responseData.bill2019.push(val.bill2019);
+    });
+
+
+
+
     res.json(responseData);
     console.log('success \n'+responseData);
   });
