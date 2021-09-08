@@ -474,6 +474,10 @@ function sendAjax2021(url) {
         myChart_2.update();
         myChart_6.update();
         myChart_5.update();
+        document.querySelector("#allprice").innerHTML = "$ 42,000,000";
+        document.querySelector("#allpriceper").innerHTML = "$ 2,300,000";  
+        document.querySelector("#allpriceper1").innerHTML = " 80 %";  
+        document.querySelector("#allpriceper2").innerHTML = "$ 300,000";  
         
         
     })
@@ -655,15 +659,25 @@ function sendAjax2019(url) {
 function yearSelect(year) {
     switch (year) {
         case "2021":          
-            sendAjax2021("http://localhost:3000/sales.html");           
+            sendAjax2021("http://localhost:3000/sales.html");  
+            document.querySelector("#allprice").innerHTML = "$ 42,000,000";
+            document.querySelector("#allpriceper").innerHTML = "$ 2,300,000";         
             break;
 
         case "2020":
             sendAjax2020("http://localhost:3000/sales.html");
+            document.querySelector("#allprice").innerHTML = "$ 51,424,000";
+            document.querySelector("#allpriceper").innerHTML = "$ 5,524,000";
+            document.querySelector("#allpriceper1").innerHTML = " 90 %";  
+            document.querySelector("#allpriceper2").innerHTML = "$ 100,000";  
             break;
 
         case "2019":
             sendAjax2019("http://localhost:3000/sales.html");
+            document.querySelector("#allprice").innerHTML = "$ 34,524,000";
+            document.querySelector("#allpriceper").innerHTML = "$ 7,754,000";
+            document.querySelector("#allpriceper1").innerHTML = " 100 %";  
+            document.querySelector("#allpriceper2").innerHTML = "$ 0";  
             break;
             
         default:
