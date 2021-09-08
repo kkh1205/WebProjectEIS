@@ -30,7 +30,14 @@
     }
     td{
       text-align: center;
+      font-size: 0.7rem;
 
+
+    }
+    img{
+      border-radius: 50%;
+      display: inline;
+      width: 1rem;
     }
   </style>
 
@@ -139,9 +146,8 @@
         </ul>
       </div>
     </div>
-    <!--sm. 모바일사이즈에서 등장하는 사이드바-->
-    <!--sm. 모바일사이즈에서 등장하는 사이드바-->
-    <div class="d-flex flex-column flex-shrink-0 bg-dark d-lg-none" style="width: 4.5rem;">
+     <!--sm. 모바일사이즈에서 등장하는 사이드바-->
+     <div class="d-flex flex-column flex-shrink-0 bg-dark d-lg-none" style="width: 4.5rem;">
       <a href="#" class="d-block p-3 link-dark text-decoration-none" title="Icon-only" data-bs-toggle="tooltip"
         data-bs-placement="right">
         <i class="bi bi-signpost-split" style="font-size: 1.7rem; color: lavender;"></i>
@@ -184,6 +190,7 @@
           id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
           <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
         </a>
+        <!-- KH. 이 드롭다운 메뉴는 어디있는거야? -->
         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
           <li><a class="dropdown-item" href="#">New project...</a></li>
           <li><a class="dropdown-item" href="#">Settings</a></li>
@@ -195,6 +202,8 @@
         </ul>
       </div>
     </div>
+  
+  
 
 
     <!--sm. 기훈이가 구성할 사이드바. 냅두면됨-->
@@ -219,15 +228,15 @@
             <ul class="navbar-nav me-auto">
 
 
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                  aria-haspopup="true" aria-expanded="false">연도선택</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">2021년</a>
-                  <a class="dropdown-item" href="#">2020년</a>
-                  <a class="dropdown-item" href="#">2019년</a>
-                </div>
-              </li>
+              <select id="allTypeList"  onchange="yearSelect(this.value)">
+
+                <option value="2021" >2021</option>
+       
+                      <option value="2020" >2020</option>
+       
+                      <option value="2019" >2019</option>
+       
+         </select>
             </ul>
             <form class="d-flex">
               <input class="form-control me-sm-2" type="text" placeholder="검색">
@@ -251,7 +260,7 @@
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                     총 생산액</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">$ 40,000,000</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800" id="allprice"></div>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -268,7 +277,7 @@
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                     원가 대비 총 순익</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">$ 4,000,000</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800" id="allpriceper"></div>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -287,7 +296,7 @@
                     연 생산 계획 달성율</div>
                   <div class="h5 mb-0 font-weight-bold text-gray-800">
                     <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">70%</div>
                       <div class="progress-bar bg-success" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
@@ -306,8 +315,8 @@
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                    8월 주요 일정</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">주주총회 2021-8-30(D-8)</div>
+                    9월 주요 일정</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">최종발표 2021-9-09(D-0)</div>
                 </div>
                 <div class="col-auto">
                   <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -322,103 +331,359 @@
 
 
 
-      <!--sm. 가동률 정보 차트 그리드 시작-->
-      <div style="margin: 1vh; padding: 1vh;" class="card text-white bg-dark">
+      <!--sm. 수율 정보 차트 그리드 시작-->
+      <div style="margin: 1vh; padding: 1vh;" class="card text-black bg-light">
         <div id="theFirstHalf2" class="row animate__animated animate__pulse">
           <h3 class="text-center">2021년 라인별 지표 현황</h3>
 
-          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+          <div  class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+            <div>
             <canvas id="myChart2"></canvas>
+            </div>
+            <div>
+              <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                #
+                            </th>
+                            <th style="width: 20%">
+                                생산과
+                            </th>
+                            <th style="width: 30%">
+                                출근자
+                            </th>
+                            <th>
+                                진행률
+                            </th>
+                            <th style="width: 8%" class="text-center">
+                                비고
+                            </th>
+                            <th style="width: 20%">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                #
+                            </td>
+                            <td>
+                                <a>
+                                    생산1과
+                                </a>
+                                <br/>
+                                
+                            </td>
+                            <td>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="img/avatar.png">
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="img/avatar3.png">
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="img/avatar4.png">
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="img/avatar5.png">
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="project_progress">
+                                <div class="progress progress-sm">
+                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
+                                    </div>
+                                </div>
+                                <small>
+                                    57% Complete
+                                </small>
+                            </td>
+                            <td class="project-state">
+                                <span class="badge badge-success">없음</span>
+                            </td>
+                            <td class="project-actions text-right">
+                                <a class="btn btn-primary btn-sm" href="#">
+                                    <i class="fas fa-folder">
+                                    </i>
+                                    통화
+                                </a>
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                #
+                            </td>
+                            <td>
+                                <a>
+                                    생산2과
+                                </a>
+                                <br/>
+                                
+                            </td>
+                            <td>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="img/avatar.png">
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="img/avatar3.png">
+                                    </li>
+                                </ul>
+                            </td>
+                            <td class="project_progress">
+                                <div class="progress progress-sm">
+                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100" style="width: 47%">
+                                    </div>
+                                </div>
+                                <small>
+                                    47% Complete
+                                </small>
+                            </td>
+                            <td class="project-state">
+                                <span class="badge badge-success">없음</span>
+                            </td>
+                            <td class="project-actions text-right">
+                                <a class="btn btn-primary btn-sm" href="#">
+                                    <i class="fas fa-folder">
+                                    </i>
+                                    통화
+                                </a>
+
+
+                            </td>
+                        </tr>
+
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+            </div>  
           </div>
-          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+          <div  class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+            <div>
             <canvas id="myChart3"></canvas>
+            </div>
+            <div>
+              <div>
+                <div class="card-body p-0">
+                  <table class="table table-striped projects">
+                      <thead>
+                          <tr>
+                              <th style="width: 1%">
+                                  #
+                              </th>
+                              <th style="width: 20%">
+                                  생산과
+                              </th>
+                              <th style="width: 30%">
+                                  출근자
+                              </th>
+                              <th>
+                                  진행률
+                              </th>
+                              <th style="width: 8%" class="text-center">
+                                  비고
+                              </th>
+                              <th style="width: 20%">
+                              </th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>
+                                  #
+                              </td>
+                              <td>
+                                  <a>
+                                      생산3과
+                                  </a>
+                                  <br/>
+
+                              </td>
+                              <td>
+                                  <ul class="list-inline">
+                                      <li class="list-inline-item">
+                                          <img alt="Avatar" class="table-avatar" src="img/avatar.png">
+                                      </li>
+                                      <li class="list-inline-item">
+                                          <img alt="Avatar" class="table-avatar" src="img/avatar3.png">
+                                      </li>
+                                      <li class="list-inline-item">
+                                          <img alt="Avatar" class="table-avatar" src="img/avatar4.png">
+                                      </li>
+                                      <li class="list-inline-item">
+                                          <img alt="Avatar" class="table-avatar" src="img/avatar5.png">
+                                      </li>
+                                  </ul>
+                              </td>
+                              <td class="project_progress">
+                                  <div class="progress progress-sm">
+                                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
+                                      </div>
+                                  </div>
+                                  <small>
+                                      57% Complete
+                                  </small>
+                              </td>
+                              <td class="project-state">
+                                  <span class="badge badge-success">없음</span>
+                              </td>
+                              <td class="project-actions text-right">
+                                  <a class="btn btn-primary btn-sm" href="#">
+                                      <i class="fas fa-folder">
+                                      </i>
+                                      통화
+                                  </a>
+                                  
+  
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  #
+                              </td>
+                              <td>
+                                  <a>
+                                      생산4과
+                                  </a>
+                                  <br/>
+
+                              </td>
+                              <td>
+                                  <ul class="list-inline">
+                                      <li class="list-inline-item">
+                                          <img alt="Avatar" class="table-avatar" src="img/avatar.png">
+                                      </li>
+                                      <li class="list-inline-item">
+                                          <img alt="Avatar" class="table-avatar" src="img/avatar3.png">
+                                      </li>
+                                  </ul>
+                              </td>
+                              <td class="project_progress">
+                                  <div class="progress progress-sm">
+                                      <div class="progress-bar bg-green" role="progressbar" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100" style="width: 47%">
+                                      </div>
+                                  </div>
+                                  <small>
+                                      47% Complete
+                                  </small>
+                              </td>
+                              <td class="project-state">
+                                  <span class="badge badge-success">없음</span>
+                              </td>
+                              <td class="project-actions text-right">
+                                  <a class="btn btn-primary btn-sm" href="#">
+                                      <i class="fas fa-folder">
+                                      </i>
+                                      통화
+                                  </a>
+                                  
+  
+                              </td>
+                          </tr>
+  
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+              </div>  
+            </div>
           </div>
-          <!--sm. 설비별 가동률 조업도 무정지율 표 작성 시작-->
-          <table class="table table-hover">
-            <thead>
-              <tr class="table-primary"> 
-                <th scope="col"></th>
-                <th scope="col">가동률</th>
-                <th scope="col">조업도</th>
-                <th scope="col">무정지율</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="table-light">
-                <th scope="row">A-12</th>
-                <td>80 %</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="table-light">
-                <th scope="row">A-41</th>
-                <td>88 %</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="table-light">
-                <th scope="row">BB-03</th>
-                <td>95 %</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="table-light">
-                <th scope="row">BG-304</th>
-                <td>90 %</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="table-light">
-                <th scope="row">BG-306</th>
-                <td>86 %</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="table-light">
-                <th scope="row">BG-098</th>
-                <td>99 %</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="table-light">
-                <th scope="row">B-15</th>
-                <td>80 %</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="table-light">
-                <th scope="row">YUH-31</th>
-                <td>70 %</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="table-light">
-                <th scope="row">POP-10</th>
-                <td>89 %</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="table-light">
-                <th scope="row">KPO-01</th>
-                <td>96 %</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="table-light">
-                <th scope="row">BZO-123</th>
-                <td>95 %</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr class="table-light">
-                <th scope="row">BPD-12</th>
-                <td>98 %</td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-          <!--sm. 설비별 가동률 조업도 무정지율 표 작성 끗-->
+          <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+            <table class="table table-hover" style="font-size: 0.7rem;">
+              <thead>
+                <tr class="table-primary"> 
+                  <th scope="col"></th>
+                  <th scope="col">수율</th>
+                  <th scope="col">조업도</th>
+                  <th scope="col">무정지율</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-light">
+                  <th scope="row" id="n1"></th>
+                  <td id="r1"></td>
+                  <td id="b1"></td>
+                  <td id="no1"></td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row" id="n2"></th>
+                  <td  id="r2"></td>
+                  <td  id="b2"></td>
+                  <td  id="no2"></td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row" id="n3"></th>
+                  <td  id="r3"></td>
+                  <td  id="b3"></td>
+                  <td  id="no3"></td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row" id="n4"></th>
+                  <td  id="r4"></td>
+                  <td id="b4"></td>
+                  <td id="no4"></td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row" id="n5"></th>
+                  <td  id="r5"></td>
+                  <td  id="b5"></td>
+                  <td  id="no5"></td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row" id="n6"></th>
+                  <td id="r6"></td>
+                  <td  id="b6"></td>
+                  <td  id="no6"></td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row" id="n7"></th>
+                  <td id="r7"></td>
+                  <td id="b7"></td>
+                  <td id="no7"></td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row" id="n8"></th>
+                  <td id="r8"></td>
+                  <td id="b8"></td>
+                  <td id="no8"></td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row" id="n9"></th>
+                  <td id="r9"></td>
+                  <td id="b9"></td>
+                  <td id="no9"></td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row" id="n10"></th>
+                  <td id="r10"></td>
+                  <td id="b10"></td>
+                  <td id="no10"></td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row" id="n11"></th>
+                  <td id="r11"></td>
+                  <td id="b11"></td>
+                  <td id="no11"></td>
+                </tr>
+                <tr class="table-light">
+                  <th scope="row" id="n12"></th>
+                  <td id="r12"></td>
+                  <td id="b12"></td>
+                  <td id="no12"></td>
+                </tr>
+              </tbody>
+            </table>
+          
+          </div>
+          <!--sm. 설비별 수율 조업도 무정지율 표 작성 시작-->
+     
+          <!--sm. 설비별 수율 조업도 무정지율 표 작성 끗-->
 
         </div>
         <div class="row">
@@ -429,12 +694,12 @@
       </div>
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-          <div style="margin: 0.5vh; padding: 1vh;" class="card bg-dark">
+          <div style="margin: 0.5vh; padding: 1vh;" class="card bg-light">
             <canvas id="myChart1"></canvas>
           </div>
         </div>
         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-          <div style="margin: 0.5vh; padding: 1vh;" class="card bg-dark">
+          <div style="margin: 0.5vh; padding: 1vh;" class="card bg-light">
             <div class="row">
 
               <div class="col-3"></div>
@@ -452,7 +717,7 @@
 
 
       </div>
-      <!--sm. 가동률 정보 차트 그리드 종료-->
+      <!--sm. 수율 정보 차트 그리드 종료-->
 
 <!--sm. 모달창 작업 시작-->
 
@@ -461,13 +726,49 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">A-12 라인 관련 생산지표</h5>
+        <h5 class="modal-title" id="ModalLabel"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
 
         <div>
           <canvas id="myChart5"></canvas>
+          <p>&nbsp;</p>
+          <table class="table table-hover" style="font-size: 1.2rem;">
+            <thead>
+              <tr class="table-primary"> 
+                <th scope="col"></th>
+                <th scope="col" style="font-size: 1.2rem;">수율</th>
+                <th scope="col"style="font-size: 1.2rem;">조업도</th>
+                <th scope="col"style="font-size: 1.2rem;">무정지율</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-light">
+                <th scope="row" id="nn"></th>
+                <td id="rr"style="font-size: 1.2rem;"></td>
+                <td id="bb"style="font-size: 1.2rem;"></td>
+                <td id="nono"style="font-size: 1.2rem;"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <table class="table table-hover" style="font-size: 1.2rem;">
+            <thead>
+              <tr class="table-primary"> 
+                <th scope="col"></th>
+                <th scope="col"style="font-size: 1.2rem;">특이사항</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table-light">
+                <th scope="row" >내용</th>
+                <td id="th"style="font-size: 1.2rem;">---</td>
+
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -543,9 +844,9 @@
   <script src="js/bootstrap.js"></script>
   <script src="js/sidebars.js"></script>
   <script src="js/chart.js"></script>
-
   <script src="js/Producechart.js"></script>
-  <script src="js/ProducechartModal.js"></script>
+
+  </script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <!-- sm. 참조될 라이브러리들(js)  -->
 
