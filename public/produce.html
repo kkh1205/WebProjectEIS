@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <!--부트스트랩 테마 적용(cosmo 테마)-->
   <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/sidebars.css">
+  <link rel="stylesheet" href="css/sideStyle.css">
   <link rel="stylesheet" href="css/lsm.css">
   <!-- sm. 참조될 라이브러리들(css)  -->
   <style>
@@ -51,159 +51,64 @@
 <body>
 
 
-  <main>
-    <!--메인임-->
-    <!--sm. 기훈이가 구성할 사이드바. 냅두면됨-->
-    <!--sm. lg사이즈 이상에서의 사이드바-->
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark d-none d-lg-block" style="width: 280px;">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <svg class="bi me-2" width="40" height="32">
-          <use xlink:href="#bootstrap" />
-        </svg>
-        <i class="bi bi-signpost-split" style=" color: lavender;"></i>
-        <span class="fs-4">&nbsp; EIS-SYSTEM</span>
-      </a>
-      <hr>
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-          <a href="main.html" class="nav-link">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#home" />
-            </svg>
-            <i class="bi bi-house-door">&nbsp;</i>
-            메인
+  <aside class="sidebar">
+    <div class="toggle">
+      <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
+            <span></span>
           </a>
-        </li>
-        <li>
-          <a href="produce.html" class="nav-link active">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#speedometer2" />
-            </svg>
-            <i class="bi bi-minecart-loaded">&nbsp;</i>
-            생산
-          </a>
-        </li>
-        <li>
-          <a href="sales.html" class="nav-link">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#table" />
-            </svg>
-            <i class="bi bi-tags">&nbsp;</i>
+    </div>
+    <div class="side-inner">
 
-            매출
-          </a>
-        </li>
-        <li>
-          <a href="quality.html" class="nav-link">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#grid" />
-            </svg>
-            <i class="bi bi-shield">&nbsp;</i>
-
-            품질
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#people-circle" />
-            </svg>
-            <i class="bi bi-lightbulb">&nbsp;</i>
-
-            관련정보
-          </a>
-        </li>
-      </ul>
+      <div class="logo">
+        <span>E</span>
+      </div>
       
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <p>&nbsp;</p>
-      <hr>
-      <div class="dropdown">
-        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
-          data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-          <strong>admin</strong>
-        </a>
-        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-          <li><a class="dropdown-item" href="#">계정 정보</a></li>
-          <li><a class="dropdown-item" href="#">설정</a></li>
-          <li><a class="dropdown-item" href="#">로그아웃</a></li>
-          <li>
-            <hr class="dropdown-divider">
+      <div class="nav-menu">
+        <ul>
+          <li><a href="main.html">메인</a></li>
+          <li><a href="produce.html">생산</a></li>
+          <li><a href="sales.html">매출</a></li>
+          <li><a href="quality.html">품질</a></li>
+        </ul>
+      </div>
+
+      <div class="featured-users">
+        <h3>연락처</h3>
+        <ul>
+          <li class="person">
+            <a href="#" class="d-flex align-items-center">
+              <img src="img/person_1.jpg" alt="Image" class="img-fluid mr-3">
+              <span class="user-name">팀장 김기훈</span>
+            </a>
           </li>
-          <li><a class="dropdown-item" href="#">Sign out</a></li>
+          <li class="person">
+            <a href="#" class="d-flex align-items-center">
+              <img src="img/person_2.jpg" alt="Image" class="img-fluid mr-3">
+              <span class="user-name">생산 이성민</span>
+            </a>
+          </li>
+          <li class="person">
+            <a href="#" class="d-flex align-items-center">
+              <img src="img/person_3.jpg" alt="Image" class="img-fluid mr-3">
+              <span class="user-name">매출 정현</span>
+            </a>
+          </li>
+          <li class="person">
+            <a href="#" class="d-flex align-items-center">
+              <img src="img/person_4.jpg" alt="Image" class="img-fluid mr-3">
+              <span class="user-name">품질 김소연</span>
+            </a>
+          </li>
+
+
         </ul>
       </div>
     </div>
-     <!--sm. 모바일사이즈에서 등장하는 사이드바-->
-     <div class="d-flex flex-column flex-shrink-0 bg-dark d-lg-none" style="width: 4.5rem;">
-      <a href="#" class="d-block p-3 link-dark text-decoration-none" title="Icon-only" data-bs-toggle="tooltip"
-        data-bs-placement="right">
-        <i class="bi bi-signpost-split" style="font-size: 1.7rem; color: lavender;"></i>
-      </a>
-      <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-        <li class="nav-item">
-          <a href="main.html" class="nav-link py-3 border-bottom" aria-current="page" title="Home"
-            data-bs-toggle="tooltip" data-bs-placement="right">
-            <i class="bi bi-house-door" style="font-size: 2rem;"></i>
-          </a>
-        </li>
-        <li>
-          <a href="produce.html" class="nav-link active py-3 border-bottom" title="Produce" data-bs-toggle="tooltip"
-            data-bs-placement="right">
-            <i class="bi bi-minecart-loaded" style="font-size: 2rem;"></i>
-          </a>
-        </li>
-        <li>
-          <a href="sales.html" class="nav-link py-3 border-bottom" title="Sales" data-bs-toggle="tooltip"
-            data-bs-placement="right">
-            <i class="bi bi-tags" style="font-size: 2rem;"></i>
-          </a>
-        </li>
-        <li>
-          <a href="quality.html" class="nav-link py-3 border-bottom" title="Quality" data-bs-toggle="tooltip"
-            data-bs-placement="right">
-            <i class="bi bi-shield" style="font-size: 2rem;"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link py-3 border-bottom" title="Infomation" data-bs-toggle="tooltip"
-            data-bs-placement="right">
-            <i class="bi bi-lightbulb" style="font-size: 2rem;"></i>
-          </a>
-        </li>
-      </ul>
-      <div class="dropdown border-top">
-        <a href="#"
-          class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle"
-          id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
-        </a>
-        <!-- KH. 이 드롭다운 메뉴는 어디있는거야? -->
-        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-          <li><a class="dropdown-item" href="#">New project...</a></li>
-          <li><a class="dropdown-item" href="#">Settings</a></li>
-          <li><a class="dropdown-item" href="#">Profile</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li><a class="dropdown-item" href="#">Sign out</a></li>
-        </ul>
-      </div>
-    </div>
-  
-  
+    
+  </aside>
+
+  <main>
+
 
 
     <!--sm. 기훈이가 구성할 사이드바. 냅두면됨-->
@@ -218,7 +123,7 @@
       <!--sm. 네브바 시작-->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">연도별 생산지표</a>
+          <a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;연도별 생산지표</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03"
             aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -842,7 +747,7 @@
   <!-- sm. 참조될 라이브러리들(js)  -->
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="js/bootstrap.js"></script>
-  <script src="js/sidebars.js"></script>
+  <script src="js/sidebar.js"></script>
   <script src="js/chart.js"></script>
   <script src="js/Producechart.js"></script>
 
