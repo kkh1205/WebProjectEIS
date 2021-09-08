@@ -110,13 +110,14 @@
         </aside>
 
         <main>
+            <p>&nbsp;</p>
             <div class="container-fluid">
                 <!--sm. 네브바 시작-->
 
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="#"
-                            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;메인연도별
+                            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;연도별
                             품질지표</a
                         >
                         <button
@@ -136,28 +137,15 @@
                             id="navbarColor03"
                         >
                             <ul class="navbar-nav me-auto">
-                                <li class="nav-item dropdown">
-                                    <a
-                                        class="nav-link dropdown-toggle"
-                                        data-bs-toggle="dropdown"
-                                        href="#"
-                                        role="button"
-                                        aria-haspopup="true"
-                                        aria-expanded="false"
-                                        >연도선택</a
-                                    >
-                                    <div class="dropdown-menu">
-                                        <select
-                                            name="allTypeList"
-                                            id="allTypeList"
-                                            onchange="yearSelect(this.value)"
-                                        >
-                                            <option value="2021">2021년</option>
-                                            <option value="2020">2020년</option>
-                                            <option value="2019">2019년</option>
-                                        </select>
-                                    </div>
-                                </li>
+                                <select
+                                    name="allTypeList"
+                                    id="allTypeList"
+                                    onchange="yearSelect(this.value)"
+                                >
+                                    <option value="2021">2021년</option>
+                                    <option value="2020">2020년</option>
+                                    <option value="2019">2019년</option>
+                                </select>
                             </ul>
                             <form class="d-flex">
                                 <input
@@ -194,13 +182,7 @@
                                     >①품질효율(품질비용)최적화, ②품질불량
                                     최소화, ③품질능력향상, ④품질 예측 및
                                     사전예방</span
-                                >을 할 수 있도록 지원합니다. &nbsp; please visit
-                                the
-                                <a
-                                    target="_blank"
-                                    href="https://www.chartjs.org/docs/latest/"
-                                    >official Chart.jsdocumentation</a
-                                >.
+                                >을 할 수 있도록 지원합니다.
                             </p>
                             <p>&nbsp;</p>
 
@@ -213,13 +195,6 @@
                                         전체 결과표
                                     </button>
                                 </a>
-
-                                <button type="button" class="btn btn-light">
-                                    Light 모드
-                                </button>
-                                <button type="button" class="btn btn-dark">
-                                    Dark 모드
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -248,9 +223,7 @@
                                 </div>
                                 <canvas id="chartsy1"></canvas>
                                 <div class="card-body">
-                                    <p class="card-text">
-                                        <code>/chartksy.js</code> file.
-                                    </p>
+                                    <p class="card-text"></p>
                                 </div>
                             </div>
                         </div>
@@ -273,9 +246,7 @@
                                 </div>
                                 <canvas id="chartsy2"></canvas>
                                 <div class="card-body">
-                                    <p class="card-text">
-                                        <code>/chartksy.js</code> file.
-                                    </p>
+                                    <p class="card-text"></p>
                                 </div>
                             </div>
                         </div>
@@ -300,10 +271,7 @@
                                 </div>
                                 <canvas id="chartsy3"></canvas>
                                 <div class="card-body">
-                                    <p class="card-text">
-                                        <code>/chartksy.js</code>QI: quality
-                                        inspection(품질검사)
-                                    </p>
+                                    <p class="card-text"></p>
                                 </div>
                             </div>
                         </div>
@@ -501,9 +469,9 @@
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
 
-                <footer>
+                <footer style="text-align: center">
                     <p>
-                        Copyright © 2021 EIS-SYSTEM.co.,Ltd. All rights
+                        Copyright © 2021 GNU EIS-SYSTEM.co.,Ltd. All rights
                         reserved.
                     </p>
                 </footer>
