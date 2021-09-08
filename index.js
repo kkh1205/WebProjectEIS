@@ -337,7 +337,7 @@ app.post("/quality.html", function (req, res) {
     // 포스트방식으로 데이터쿼리 전송
     var responseData = {}; // 객체 선언
 
-    var queryqua = db.query(
+    var queryqua = connection.query(
         "SELECT gid,val2021,val2020,val2019,per2021,per2020,per2019,bill2021,bill2020,bill2019 FROM quaYear UNION SELECT gid,val2021,val2020,val2019,null,null,null,bill2021,bill2020,bill2019 FROM quaTab",
         function (err, rows) {
             responseData.gid = [];
