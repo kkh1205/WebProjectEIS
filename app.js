@@ -25,6 +25,9 @@ app.get('/', function(req,res){
   res.sendFile(__dirname+'/DBServer/index.html');
 });
 
+
+
+
 app.post('/sales.html', function(req, res){ //포스트방식으로 데이터 쿼리 날리기!
   var responseData = {};
 
@@ -278,3 +281,4 @@ app.post('/sales.html', function(req, res){ //포스트방식으로 데이터 �
 
   
 });
+

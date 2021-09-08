@@ -44,15 +44,15 @@
                                         <p>&nbsp;</p>
                                         <h1 class="h4 text-gray-900 mb-4">GNU EIS SYSTEM</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" name="frm">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                            <input type="text" class="form-control form-control-user"
+                                                name="loginId" aria-describedby="emailHelp"
                                                 placeholder="아이디 입력">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="비밀번호">
+                                                name="loginPass" placeholder="비밀번호">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -63,13 +63,12 @@
                                     <hr>
 
                                         <div class="d-grid gap-2 col-6 mx-auto">
-                                            <a href="main.html" class="btn btn-primary ">
-                                                Login
-                                            </a>
+                                            <input type="button" onclick="submitForm()" value="로그인">
 
                                         </div>
                                        
                                     </form>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -93,7 +92,7 @@
   <script src="js/Producechart.js"></script>
   <script src="js/ProducechartModal.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  
+  <script src="js/login.js"></script>
   <!-- sm. 참조될 라이브러리들(js)  -->
 
 </body>
