@@ -33,10 +33,10 @@ app.get('/', function (req, res) { // req(요청),res(응답) '/'는 서버에�
   res.sendFile(__dirname + '/public/main.html');
 })
 
-app.post('/', function (req, res) { // 포스트방식으로 데이터쿼리 전송
+app.post('/main.html', function (req, res) { // 포스트방식으로 데이터쿼리 전송
   var responseData = {}; // 객체 선언
   /* KH. 데이터 가지고 오는 쿼리문. 좀 가라로 했습니다. */
-  var query = db.query('SELECT production.quarter,A01P,A02P,A03P,A01Q,A02Q,A03Q,quarterlySales,operatingProfit,quarter1,quarter2,quarter3,quarter4 FROM production left JOIN quality ON production.quarter = quality.quarter left JOIN quarterlySales_operatingProfit ON quality.quarter = quarterlySales_operatingProfit.quarter UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,quarter1,quarter2,quarter3,quarter4 FROM sales', function (err, rows) {
+  var query = db.query('SELECT production.quarter,A01P,A02P,A03P,A01Q,A02Q,A03Q,quarterlySales,operatingProfit,quarter1,quarter2,quarter3,quarter4 FROM production left JOIN quality ON production.quarter = quality.quarter left JOIN quarterlySales_operatingProfit ON quality.quarter = quarterlySales_operatingProfit.quarter UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,quarter1,quarter2,quarter3,quarter4 FROM sales UNION ALL SELECT production_2020.quarter,A01P,A02P,A03P,A01Q,A02Q,A03Q,quarterlySales,operatingProfit,quarter1,quarter2,quarter3,quarter4 FROM production_2020 left JOIN quality_2020 ON production_2020.quarter = quality_2020.quarter left JOIN quarterlySales_operatingProfit_2020 ON quality_2020.quarter = quarterlySales_operatingProfit_2020.quarter UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,quarter1,quarter2,quarter3,quarter4 FROM sales_2020 UNION ALL SELECT production_2019.quarter,A01P,A02P,A03P,A01Q,A02Q,A03Q,quarterlySales,operatingProfit,quarter1,quarter2,quarter3,quarter4 FROM production_2019 left JOIN quality_2019 ON production_2019.quarter = quality_2019.quarter left JOIN quarterlySales_operatingProfit_2019 ON quality_2019.quarter = quarterlySales_operatingProfit_2019.quarter UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,quarter1,quarter2,quarter3,quarter4 FROM sales_2019;', function (err, rows) {
     /* KH. 생산 */
     responseData.A01P = [];
     responseData.A02P = [];
