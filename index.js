@@ -12,7 +12,7 @@ var db = mysql.createConnection({
   port: 3306,
   user: 'root',
   password: '123456789',
-  database: 'kkhPractice'
+  database: 'eisprojectdb'
 })
 
 db.connect(); // 생성된 db 연결
@@ -36,7 +36,7 @@ app.get('/', function (req, res) { // req(요청),res(응답) '/'는 서버에�
 app.post('/', function (req, res) { // 포스트방식으로 데이터쿼리 전송
   var responseData = {}; // 객체 선언
   /* KH. 데이터 가지고 오는 쿼리문. 좀 가라로 했습니다. */
-  var query = db.query('SELECT production.quarter,A01P,A02P,A03P,A01Q,A02Q,A03Q,quarterlySales,operatingProfit,quarter1,quarter2,quarter3,quarter4,country,e2021,e2020,e2019 FROM production left JOIN quality ON production.quarter = quality.quarter left JOIN quarterlySales_operatingProfit ON quality.quarter = quarterlySales_operatingProfit.quarter UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,quarter1,quarter2,quarter3,quarter4,NULL,NULL,NULL,NULL FROM sales UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,country,e2021,e2020,e2019 FROM exportWorld; ', function (err, rows) {
+  var query = db.query('SELECT production.quarter,A01P,A02P,A03P,A01Q,A02Q,A03Q,quarterlySales,operatingProfit,quarter1,quarter2,quarter3,quarter4 FROM production left JOIN quality ON production.quarter = quality.quarter left JOIN quarterlySales_operatingProfit ON quality.quarter = quarterlySales_operatingProfit.quarter UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,quarter1,quarter2,quarter3,quarter4 FROM sales', function (err, rows) {
     /* KH. 생산 */
     responseData.A01P = [];
     responseData.A02P = [];
@@ -53,10 +53,6 @@ app.post('/', function (req, res) { // 포스트방식으로 데이터쿼리 전
     /* KH. 매출액 & 영업이익 */
     responseData.quarterlySales = [];
     responseData.operatingProfit = [];
-    /* KH. 수출현황 */
-    responseData.e2021 = [];
-    responseData.e2020 = [];
-    responseData.e2019 = [];
 
     if (err) throw err;
     if (rows[0]) {
@@ -103,16 +99,6 @@ app.post('/', function (req, res) { // 포스트방식으로 데이터쿼리 전
       rows.forEach(function (val) {
         responseData.operatingProfit.push(val.operatingProfit);
       });
-      /* KH.수출현황 */
-      rows.forEach(function (val) {
-        responseData.e2021.push(val.e2021);
-      });
-      rows.forEach(function (val) {
-        responseData.e2020.push(val.e2020);
-      });
-      rows.forEach(function (val) {
-        responseData.e2019.push(val.e2019);
-      });
     } else {
       responseData.result = 'none';
       /* KH.생산 */
@@ -131,10 +117,6 @@ app.post('/', function (req, res) { // 포스트방식으로 데이터쿼리 전
       /* KH.매출액 & 영업이익 */
       responseData.quarterlySales = '';
       responseData.operatingProfit = '';
-      /* KH.수출 현황 */
-      responseData.e2021 = '';
-      responseData.e2020 = '';
-      responseData.e2019 = '';
     }
 
     /* responseData를 json으로 응답함. */

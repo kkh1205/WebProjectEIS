@@ -367,13 +367,7 @@ function sandAjax(url) {
     /* KH. 매출액 & 영업이익 */
     var quarterlySales = result.quarterlySales;
     var operatingProfit = result.operatingProfit;
-    /* KH. 수출 현황 */
-    var e2021 = result.e2021;
-    var e2020 = result.e2020;
-    var e2019 = result.e2019;
     
-    /* null값 제거 */
-
     /* null값 제거 */
     quarter1  = quarter1.filter(function(item) {
     return item !== null && item !== undefined && item !== '';
@@ -394,6 +388,8 @@ function sandAjax(url) {
     operatingProfit  = operatingProfit.filter(function(item) {
     return item !== null && item !== undefined && item !== '';
     });
+
+
     /* KH. null값 제거확인 */
     console.log(quarter1);
     console.log(quarter2);
@@ -495,5 +491,19 @@ function sandAjax(url) {
     SalesChart4.update();
     QualityChart.update();
     PerformanceChart.update();
+
+    var year = '2021';
+
+    document.getElementById("YP").innerHTML = year+"년도 총 생산량";
+    document.getElementById("YS").innerHTML = year+"년도 부서별 분기매출";
+    document.getElementById("YQ").innerHTML = year+"년도 분기별 불량률";
+    document.getElementById("YPP").innerHTML = year+" 분기별 매출액 & 영업이익";
+    document.getElementById("YE").innerHTML = year+"년도 수출 현황";
+    document.getElementById("exampleModalLabelAmerica").innerHTML = year+" 미국";
+    document.getElementById("exampleModalLabelSouthAmerica").innerHTML = year+" 남미";  
+    document.getElementById("exampleModalLabelEurope").innerHTML = year+" 유럽";  
+    document.getElementById("exampleModalLabelAfrica").innerHTML = year+" 아프리카";  
+    document.getElementById("exampleModalLabelAsia").innerHTML = year+" 아시아";  
+    document.getElementById("exampleModalLabelAust").innerHTML = year+" 호주";  
   })
 }
