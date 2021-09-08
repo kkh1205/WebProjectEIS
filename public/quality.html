@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EIS SYS</title>
+
+        <!-- sm. 참조될 라이브러리들(css)  -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/sideStyle.css" />
+        <link rel="stylesheet" href="css/sideStyle.css" />
+
+        <!--부트스트랩 테마 적용(cosmo 테마)-->
+        <link rel="stylesheet" href="css/animate.css" />
+        <!-- sm. 참조될 라이브러리들(css)  -->
+
+        <!-- sy. 참조될 라이브러리들(css) -->
+        <link rel="stylesheet" href="css/animateksy.css" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.0/dist/chart.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+        <!-- sy. 참조될 라이브러리들(css) -->
+
+        <style>
+            @font-face {
+                font-family: "IBMPlexSansKR-Medium";
+                src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Medium.woff")
+                    format("woff");
+                font-weight: normal;
+                font-style: normal;
+            }
+            body {
+                font-family: "IBMPlexSansKR-Medium";
+            }
+        </style>
+    </head>
+
+    <body>
+        <aside class="sidebar">
+            <div class="toggle">
+                <a
+                    href="#"
+                    class="burger js-menu-toggle"
+                    data-toggle="collapse"
+                    data-target="#main-navbar"
+                >
+                    <span></span>
+                </a>
+            </div>
+            <div class="side-inner">
+                <div class="logo">
+                    <span>E</span>
+                </div>
+
+                <div class="nav-menu">
+                    <ul>
+                        <li><a href="main.html">메인</a></li>
+                        <li><a href="produce.html">생산</a></li>
+                        <li><a href="sales.html">매출</a></li>
+                        <li><a href="quality.html">품질</a></li>
+                    </ul>
+                </div>
+
+                <div class="featured-users">
+                    <h3>연락처</h3>
+                    <ul>
+                        <li class="person">
+                            <a href="#" class="d-flex align-items-center">
+                                <img
+                                    src="img/person_1.jpg"
+                                    alt="Image"
+                                    class="img-fluid mr-3"
+                                />
+                                <span class="user-name">팀장 김기훈</span>
+                            </a>
+                        </li>
+                        <li class="person">
+                            <a href="#" class="d-flex align-items-center">
+                                <img
+                                    src="img/person_2.jpg"
+                                    alt="Image"
+                                    class="img-fluid mr-3"
+                                />
+                                <span class="user-name">생산 이성민</span>
+                            </a>
+                        </li>
+                        <li class="person">
+                            <a href="#" class="d-flex align-items-center">
+                                <img
+                                    src="img/person_3.jpg"
+                                    alt="Image"
+                                    class="img-fluid mr-3"
+                                />
+                                <span class="user-name">매출 정현</span>
+                            </a>
+                        </li>
+                        <li class="person">
+                            <a href="#" class="d-flex align-items-center">
+                                <img
+                                    src="img/person_4.jpg"
+                                    alt="Image"
+                                    class="img-fluid mr-3"
+                                />
+                                <span class="user-name">품질 김소연</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <div class="container-fluid">
+                <!--sm. 네브바 시작-->
+
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#">연도별 품질지표</a>
+                        <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarColor03"
+                            aria-controls="navbarColor03"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                        >
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div
+                            class="collapse navbar-collapse"
+                            id="navbarColor03"
+                        >
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item dropdown">
+                                    <a
+                                        class="nav-link dropdown-toggle"
+                                        data-bs-toggle="dropdown"
+                                        href="#"
+                                        role="button"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                        >연도선택</a
+                                    >
+                                    <div class="dropdown-menu">
+                                        <select
+                                            name="allTypeList"
+                                            id="allTypeList"
+                                            onchange="yearSelect(this.value)"
+                                        >
+                                            <option value="2021">2021년</option>
+                                            <option value="2020">2020년</option>
+                                            <option value="2019">2019년</option>
+                                        </select>
+                                    </div>
+                                </li>
+                            </ul>
+                            <form class="d-flex">
+                                <input
+                                    class="form-control me-sm-2"
+                                    type="text"
+                                    placeholder="검색"
+                                />
+                                <button
+                                    class="btn btn-secondary my-2 my-sm-0"
+                                    type="submit"
+                                >
+                                    Search
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+                <!--sm. 네브바 종료-->
+
+                <!--sy. Begin Main Content -->
+                <!-- Page Heading -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-lg-12">
+                            <p>&nbsp;</p>
+                            <h1 class="h3 mb-2 text-gray-800">품질관리</h1>
+                            <p class="mb-4">
+                                <strong
+                                    >품질 관리 과정에서 발생된 데이터를 수집 및
+                                    분석</strong
+                                >하여
+                                <span class="text-info"
+                                    >①품질효율(품질비용)최적화, ②품질불량
+                                    최소화, ③품질능력향상, ④품질 예측 및
+                                    사전예방</span
+                                >을 할 수 있도록 지원합니다. &nbsp; please visit
+                                the
+                                <a
+                                    target="_blank"
+                                    href="https://www.chartjs.org/docs/latest/"
+                                    >official Chart.jsdocumentation</a
+                                >.
+                            </p>
+                            <p>&nbsp;</p>
+
+                            <!-- sy. 버튼 -->
+                            <div>
+                                <a
+                                    href="javascript:window.scrollTo( 0, 1500 );"
+                                >
+                                    <button type="button" class="btn btn-info">
+                                        전체 결과표
+                                    </button>
+                                </a>
+
+                                <button type="button" class="btn btn-light">
+                                    Light 모드
+                                </button>
+                                <button type="button" class="btn btn-dark">
+                                    Dark 모드
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>&nbsp;</p>
+
+                    <h4>품질 데이터 분석 모니터링</h4>
+                    &nbsp;
+                    <div class="row">
+                        <!-- Area Chart -->
+                        <div
+                            class="card col-sm-4 col-md-4 col-lg-5"
+                            style="width: 35rem"
+                        >
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h4
+                                        class="
+                                            m-0
+                                            font-weight-bold
+                                            text-primary
+                                        "
+                                    >
+                                        검사계획
+                                    </h4>
+                                </div>
+                                <canvas id="chartsy1"></canvas>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <code>/chartksy.js</code> file.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Bar Chart -->
+                        <div
+                            class="card col-sm-4 col-md-4 col-lg-4"
+                            style="width: 35rem"
+                        >
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h4
+                                        class="
+                                            m-0
+                                            font-weight-bold
+                                            text-primary
+                                        "
+                                    >
+                                        품질이력
+                                    </h4>
+                                </div>
+                                <canvas id="chartsy2"></canvas>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <code>/chartksy.js</code> file.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 도넛 Chart -->
+                        <div
+                            class="card col-sm-4 col-md-4 col-lg-3"
+                            style="width: 25rem"
+                        >
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h4
+                                        class="
+                                            m-0
+                                            font-weight-bold
+                                            text-primary
+                                        "
+                                    >
+                                        품질검사<small class="text-muted"
+                                            >&nbsp;가동율</small
+                                        >
+                                    </h4>
+                                </div>
+                                <canvas id="chartsy3"></canvas>
+                                <div class="card-body">
+                                    <p class="card-text">
+                                        <code>/chartksy.js</code>QI: quality
+                                        inspection(품질검사)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+
+                    <h4>품질 불량 분석</h4>
+                    <p>&nbsp;</p>
+
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6 col-lg-6">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">품질불량율</th>
+                                        <th scope="col">공정불량율</th>
+                                        <th scope="col">출하불량율</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-active">
+                                        <th
+                                            scope="row"
+                                            style="
+                                                font-size: 20px;
+                                                color: rgb(38, 124, 221);
+                                            "
+                                        >
+                                            월간
+                                        </th>
+                                        <td id="k1"></td>
+                                        <td id="s1"></td>
+                                        <td id="y1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th
+                                            scope="row"
+                                            style="
+                                                font-size: 20px;
+                                                color: rgb(108, 30, 128);
+                                            "
+                                        >
+                                            주간
+                                        </th>
+                                        <td id="k2"></td>
+                                        <td id="s2"></td>
+                                        <td id="y2"></td>
+                                    </tr>
+                                    <tr class="table-primary">
+                                        <th
+                                            scope="row"
+                                            style="
+                                                font-size: 20px;
+                                                color: rgb(221, 38, 151);
+                                            "
+                                        >
+                                            일일
+                                        </th>
+                                        <td id="k3"></td>
+                                        <td id="s3"></td>
+                                        <td id="y3"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="col-xs-6 col-md-6 col-lg-6">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">품질예방비용</th>
+                                        <th scope="col">품질평가비용</th>
+                                        <th scope="col">품질실패비용</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-active">
+                                        <th
+                                            scope="row"
+                                            style="
+                                                font-size: 20x;
+                                                color: rgb(38, 124, 221);
+                                            "
+                                        >
+                                            월간
+                                        </th>
+                                        <td id="k4"></td>
+                                        <td id="s4"></td>
+                                        <td id="y4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th
+                                            scope="row"
+                                            style="
+                                                font-size: 20px;
+                                                color: rgb(108, 30, 128);
+                                            "
+                                        >
+                                            주간
+                                        </th>
+                                        <td id="k5"></td>
+                                        <td id="s5"></td>
+                                        <td id="y5"></td>
+                                    </tr>
+                                    <tr class="table-primary">
+                                        <th
+                                            scope="row"
+                                            style="
+                                                font-size: 20px;
+                                                color: rgb(221, 38, 151);
+                                            "
+                                        >
+                                            일일
+                                        </th>
+                                        <td id="k6"></td>
+                                        <td id="s6"></td>
+                                        <td id="y6"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+
+                    <h4>품질 데이터 분석 전체 결과</h4>
+
+                    <div
+                        class="row"
+                        style="background-color: rgba(123, 211, 233, 0.1)"
+                    >
+                        <div class="col-xs-6 col-md-6 col-lg-6">
+                            <canvas id="chartsy4"></canvas>
+                        </div>
+
+                        <div class="col-xs-6 col-md-6 col-lg-6">
+                            <p>&nbsp;</p>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">제품</th>
+                                        <th scope="col">A-01</th>
+                                        <th scope="col">A-02</th>
+                                        <th scope="col">A-03</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-success">
+                                        <th scope="row">성공</th>
+                                        <td id="k7"></td>
+                                        <td id="s7"></td>
+                                        <td id="y7"></td>
+                                    </tr>
+                                    <tr class="table-danger">
+                                        <th scope="row">위험</th>
+                                        <td id="k8"></td>
+                                        <td id="s8"></td>
+                                        <td id="y8"></td>
+                                    </tr>
+                                    <tr class="table-warning">
+                                        <th scope="row">경고</th>
+                                        <td id="k9"></td>
+                                        <td id="s9"></td>
+                                        <td id="y9"></td>
+                                    </tr>
+                                    <tr class="table-info">
+                                        <th scope="row">정보</th>
+                                        <td>검사 중지 3회</td>
+                                        <td>작업율 증가</td>
+                                        <td>불량율 감소</td>
+                                    </tr>
+                                    <tr class="table-light">
+                                        <th scope="row">전년 대비이익</th>
+                                        <td style="color: blue">증가</td>
+                                        <td style="color: red">하락</td>
+                                        <td style="color: blue">증가</td>
+                                    </tr>
+                                    <tr class="table-light">
+                                        <th scope="row">향후 예상수익</th>
+                                        <td id="k10"></td>
+                                        <td id="s10"></td>
+                                        <td id="y10"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+
+                <footer>
+                    <p>
+                        Copyright © 2021 EIS-SYSTEM.co.,Ltd. All rights
+                        reserved.
+                    </p>
+                </footer>
+
+                <!-- sy. End of Main Content -->
+            </div>
+
+            <!-- 도넛 차트 모달 -->
+            <div
+                class="modal fade"
+                id="exampleModal1"
+                tabindex="-1"
+                aria-labelledby="ModalLabel1"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel1">
+                                Modal title
+                            </h5>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <canvas id="chartsy3"></canvas>
+                                <table
+                                    class="table table-bordered"
+                                    style="font-size: 1rem; border: 1rem"
+                                >
+                                    <thead>
+                                        <tr style="background-color: bisque">
+                                            <th scope="col"></th>
+                                            <th
+                                                scope="col"
+                                                style="font-size: 1.2rem"
+                                            >
+                                                A-01
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                style="font-size: 1.2rem"
+                                            >
+                                                A-02
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                style="font-size: 1.2rem"
+                                            >
+                                                A-03
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th
+                                                scope="row"
+                                                style="color: rgb(0, 19, 128)"
+                                            >
+                                                수율
+                                            </th>
+                                            <td
+                                                id="kk1"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                            <td
+                                                id="ss1"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                            <td
+                                                id="yy1"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                        </tr>
+                                        <tr>
+                                            <th
+                                                scope="row"
+                                                style="color: rgb(77, 0, 128)"
+                                            >
+                                                조업도
+                                            </th>
+                                            <td
+                                                id="kk2"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                            <td
+                                                id="ss2"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                            <td
+                                                id="yy2"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                        </tr>
+                                        <tr>
+                                            <th
+                                                scope="row"
+                                                style="color: rgb(128, 0, 85)"
+                                            >
+                                                무정지율
+                                            </th>
+                                            <td
+                                                id="kk3"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                            <td
+                                                id="ss3"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                            <td
+                                                id="yy3"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 막대 차트 모달 -->
+            <div
+                class="modal fade"
+                id="exampleModal2"
+                tabindex="-1"
+                aria-labelledby="ModalLabel2"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel2">
+                                Modal title
+                            </h5>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            <div>
+                                <canvas id="chartsy2"></canvas>
+                                <table
+                                    class="table table-bordered"
+                                    style="font-size: 1rem; border: 1rem"
+                                >
+                                    <thead>
+                                        <tr style="background-color: bisque">
+                                            <th scope="col"></th>
+                                            <th
+                                                scope="col"
+                                                style="font-size: 1.2rem"
+                                            >
+                                                A-01
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                style="font-size: 1.2rem"
+                                            >
+                                                A-02
+                                            </th>
+                                            <th
+                                                scope="col"
+                                                style="font-size: 1.2rem"
+                                            >
+                                                A-03
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th
+                                                scope="row"
+                                                style="
+                                                    color: rgb(9, 0, 128);
+                                                    background-color: rgba(
+                                                        68,
+                                                        199,
+                                                        216,
+                                                        0.562
+                                                    );
+                                                "
+                                            >
+                                                A등급
+                                            </th>
+                                            <td
+                                                id="kk4"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                            <td
+                                                id="ss4"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                            <td
+                                                id="yy4"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                        </tr>
+                                        <tr>
+                                            <th
+                                                scope="row"
+                                                style="
+                                                    color: rgb(111, 32, 214);
+                                                    background-color: rgba(
+                                                        68,
+                                                        199,
+                                                        216,
+                                                        0.562
+                                                    );
+                                                "
+                                            >
+                                                B등급
+                                            </th>
+                                            <td
+                                                id="kk5"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                            <td
+                                                id="ss5"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                            <td
+                                                id="yy5"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                        </tr>
+                                        <tr>
+                                            <th
+                                                scope="row"
+                                                style="
+                                                    color: rgb(198, 50, 228);
+                                                    background-color: rgba(
+                                                        68,
+                                                        199,
+                                                        216,
+                                                        0.562
+                                                    );
+                                                "
+                                            >
+                                                C등급
+                                            </th>
+                                            <td
+                                                id="kk6"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                            <td
+                                                id="ss6"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                            <td
+                                                id="yy6"
+                                                style="font-size: 1.2rem"
+                                            ></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--이안에서 작업하면됨-->
+        </main>
+
+        <!-- sm. 참조될 라이브러리들(js)  -->
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/chart.js"></script>
+        <script src="js/sidebar.js"></script>
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+        />
+
+        <!-- sm. 참조될 라이브러리들(js)  -->
+
+        <!-- sy. 참조될 라이브러리들(js) -->
+
+        <!-- sy. Page level custom scripts -->
+        <script src="js/chartksy.js"></script>
+    </body>
+</html>

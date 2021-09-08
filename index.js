@@ -332,3 +332,69 @@ app.post("/produce.html", function (req, res) {
         }
     );
 });
+
+app.post("/quality.html", function (req, res) {
+    // 포스트방식으로 데이터쿼리 전송
+    var responseData = {}; // 객체 선언
+
+    var queryqua = db.query(
+        "SELECT gid,val2021,val2020,val2019,per2021,per2020,per2019,bill2021,bill2020,bill2019 FROM quaYear UNION SELECT gid,val2021,val2020,val2019,null,null,null,bill2021,bill2020,bill2019 FROM quaTab",
+        function (err, rows) {
+            responseData.gid = [];
+            responseData.val2021 = [];
+            responseData.per2021 = [];
+            responseData.bill2021 = [];
+
+            rows.forEach(function (val) {
+                responseData.gid.push(val.gid);
+            });
+
+            rows.forEach(function (val) {
+                responseData.val2021.push(val.val2021);
+            });
+
+            rows.forEach(function (val) {
+                responseData.per2021.push(val.per2021);
+            });
+
+            rows.forEach(function (val) {
+                responseData.bill2021.push(val.bill2021);
+            });
+
+            responseData.val2020 = [];
+            responseData.per2020 = [];
+            responseData.bill2020 = [];
+
+            rows.forEach(function (val) {
+                responseData.val2020.push(val.val2020);
+            });
+
+            rows.forEach(function (val) {
+                responseData.per2020.push(val.per2020);
+            });
+
+            rows.forEach(function (val) {
+                responseData.bill2020.push(val.bill2020);
+            });
+
+            responseData.val2019 = [];
+            responseData.per2019 = [];
+            responseData.bill2019 = [];
+
+            rows.forEach(function (val) {
+                responseData.val2019.push(val.val2019);
+            });
+
+            rows.forEach(function (val) {
+                responseData.per2019.push(val.per2019);
+            });
+
+            rows.forEach(function (val) {
+                responseData.bill2019.push(val.bill2019);
+            });
+
+            res.json(responseData);
+            console.log("success \n" + responseData);
+        }
+    );
+});
