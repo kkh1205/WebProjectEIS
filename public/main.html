@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EIS SYS</title>
-
+  <title></title>
+  <!--KH. JQuery 적용 (다른 라이브러리보다 먼저 적용해야 된다고 함.) -->
+  <script src="js/jquery-3.6.0.min.js"></script>
 
   <!-- sm. 참조될 라이브러리들(css)  -->
   <link rel="stylesheet" href="css/bootstrap.css">
@@ -13,16 +14,19 @@
   <!--부트스트랩 테마 적용(cosmo 테마)-->
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/sideStyle.css">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
   <!-- sm. 참조될 라이브러리들(css)  -->
+  <link rel="stylesheet" href="css/KKHstyle.css">
   <style>
     @font-face {
-    font-family: 'IBMPlexSansKR-Medium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Medium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+      font-family: 'IBMPlexSansKR-Medium';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Medium.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
     }
+
     body {
       font-family: 'IBMPlexSansKR-Medium';
     }
@@ -31,7 +35,6 @@
 </head>
 
 <body>
-
 
   <aside class="sidebar">
     <div class="toggle">
@@ -88,103 +91,98 @@
     </div>
     
   </aside>
+
+
+
   <main>
 
 
 
-
-    <!--sm. 기훈이가 구성할 사이드바. 냅두면됨-->
-    <!--sm.이아래에서부터 작업시작하면됨 main이라는 틀 안에서 작업하는것에 주의할 것-->
-
-
     <!--이안에서 작업하면됨-->
-      <!-- KH. NAV BAR -->
+    <!-- KH. NAV BAR -->
     <div class="container-fluid">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
 
-          <a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;메인</a>
+          <a class="navbar-brand" href="#">메인</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <!-- KH. 드롭다운바 -->
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            
             <ul class="navbar-nav me-auto">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  연도별
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">2021</a></li>
-                  <li><a class="dropdown-item" href="#">2020</a></li>
-                  <li><a class="dropdown-item" href="#">2019</a></li>
-                </ul>
+              <li class="nav-item dropdown"></li>
+                연도별 &nbsp;&nbsp;
+                <select id="Yselect" onchange="Yselecter(this.value);">
+                  <option class="dropdown-item" value="2021">2021</option>
+                  <option class="dropdown-item" value="2020">2020</option>
+                  <option class="dropdown-item" value="2019">2019</option>
+                </select>
               </li>
             </ul>
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="검색" aria-label="Search">
               <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
             </form>
-            
+
           </div>
 
         </div>
       </nav>
 
 
-    <!-------- KH. 차트데이터 섹션 시작. ----------->
+      <!-------- KH. 차트데이터 섹션 시작. ----------->
       <div class="row">
 
-        <!-- KH. 얘들아 차트가 안그려져 살려줘 -->
-
-    <!-- KH. 생산 차트  -->
+        <!-- KH. 생산 차트  -->
         <div class="col-md-4">
-          <h3 style="text-align: center; margin-top: 5%;"><a href="#" style="text-decoration: none; color: #000;">생산</a></h3>
+          <h3 style="text-align: center; margin-top: 5%;"><a href="produce.html"
+              style="text-decoration: none; color: #000;">생산</a></h3>
           <div class="card">
-            <div class="card-header">
+            <div id="YP" class="card-header">
               2021년도 총 생산량
             </div>
             <div class="card-body">
               <div class="chart-area">
-                <canvas id="ProduceChart"></canvas>
+                <canvas id="ProduceChart" height="300em"></canvas>
               </div>
             </div>
           </div>
 
-    <!-- KH. 생산 테이블 -->
+          <!-- KH. 생산 테이블 -->
           <table class="table table-hover" style="margin-top: 5%;">
             <thead class="table-light">
               <tr>
                 <th scope="col"></th>
-                <th scope="col">A-01</th>
-                <th scope="col">A-02</th>
-                <th scope="col">A-03</th>
+                <th scope="col" style="font-size: .8em;">A-01</th>
+                <th scope="col" style="font-size: .8em;">A-02</th>
+                <th scope="col" style="font-size: .8em;">A-03</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1분기</th>
+                <th scope="row" style="text-align: center;">1분기</th>
                 <td>2500</td>
                 <td>3000</td>
                 <td>1500</td>
               </tr>
               <tr>
-                <th scope="row">2분기</th>
+                <th scope="row" style="text-align: center;">2분기</th>
                 <td>2000</td>
                 <td>2500</td>
                 <td>2000</td>
               </tr>
               <tr>
-                <th scope="row">3분기</th>
+                <th scope="row" style="text-align: center;">3분기</th>
                 <td>3000</td>
                 <td>2500</td>
                 <td>2500</td>
               </tr>
               <tr>
-                <th scope="row">4분기</th>
+                <th scope="row" style="text-align: center;">4분기</th>
                 <td>2800</td>
                 <td>3200</td>
                 <td>2800</td>
@@ -194,109 +192,164 @@
 
 
         </div>
-    <!-- KH. 매출 차트 -->
+        <!-- KH. 매출 차트 -->
         <div class="col-md-4">
-          <h3 style="text-align: center; margin-top: 5%;"><a href="#" style="text-decoration: none; color: #000;">매출</a>
+          <h3 style="text-align: center; margin-top: 5%;"><a href="sales.html"
+              style="text-decoration: none; color: #000;">매출</a>
           </h3>
-          <div class="card">
-            <div class="card-header text-white bg-secondary">
-              2021년도 부서별 분기매출 탭 슬라이드로 바꿀 예정 아니면 그냥 바 차트로
-            </div>
-            <div class="card-body">
-              <div class="chart-area">
-                <canvas id="SalesChart"></canvas>
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="card">
+                  <div id="YS" class="card-header text-white bg-secondary">
+                    2021년도 부서별 분기매출
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-area">
+                      <canvas id="SalesChart" height="300em"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div id="YS" class="card-header text-white bg-secondary">
+                    2021년도 부서별 분기매출
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-area">
+                      <canvas id="SalesChart2" height="300em"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div id="YS" class="card-header text-white bg-secondary">
+                    2021년도 부서별 분기매출
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-area">
+                      <canvas id="SalesChart3" height="300em"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card">
+                  <div id="YS" class="card-header text-white bg-secondary">
+                    2021년도 부서별 분기매출
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-area">
+                      <canvas id="SalesChart4" height="300em"></canvas>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
 
 
-    <!-- KH. 매출 테이블 -->
+
+          <!-- KH. 매출 테이블 -->
           <table class="table table-hover" style="margin-top: 5%;">
             <thead class="table-secondary">
               <tr>
                 <th scope="col"></th>
-                <th scope="col" style="font-size: 1em;">기술영업</th>
-                <th scope="col" style="font-size: 1em;">소프트웨어</th>
-                <th scope="col" style="font-size: 1em;">해외영업</th>
+                <th scope="col" style="font-size: .7em; text-align: center;">기술영업</th>
+                <th scope="col" style="font-size: .7em; text-align: center;">소프트웨어</th>
+                <th scope="col" style="font-size: .7em; text-align: center;">해외영업</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1분기</th>
-                  <td style="text-align: center;">80</td>
-                  <td style="text-align: center;">100</td>
-                  <td style="text-align: center;">200</td>
+                <th scope="row" style="text-align: center;">1분기</th>
+                <td style="text-align: center;">80</td>
+                <td style="text-align: center;">100</td>
+                <td style="text-align: center;">200</td>
               </tr>
               <tr>
-                <th scope="row">2분기</th>
-                  <td style="text-align: center;">90</td>
-                  <td style="text-align: center;">50</td>
-                  <td style="text-align: center;">150</td>
+                <th scope="row" style="text-align: center;">2분기</th>
+                <td style="text-align: center;">50</td>
+                <td style="text-align: center;">100</td>
+                <td style="text-align: center;">170</td>
               </tr>
               <tr>
-                <th scope="row">3분기</th>
-                  <td style="text-align: center;">85</td>
-                  <td style="text-align: center;">75</td>
-                  <td style="text-align: center;">120</td>
+                <th scope="row" style="text-align: center;">3분기</th>
+                <td style="text-align: center;">150</td>
+                <td style="text-align: center;">40</td>
+                <td style="text-align: center;">70</td>
               </tr>
               <tr>
-                <th scope="row">4분기</th>
-                  <td style="text-align: center;">70</td>
-                  <td style="text-align: center;">90</td>
-                  <td style="text-align: center;">190</td>
+                <th scope="row" style="text-align: center;">4분기</th>
+                <td style="text-align: center;">80</td>
+                <td style="text-align: center;">60</td>
+                <td style="text-align: center;">180</td>
               </tr>
             </tbody>
           </table>
 
 
         </div>
-    <!-- KH. 품질 차트 -->
+        <!-- KH. 품질 차트 -->
         <div class="col-md-4">
-          <h3 style="text-align: center; margin-top: 5%;"><a href="#" style="text-decoration: none; color: #000;">품질</a>
+          <h3 style="text-align: center; margin-top: 5%;"><a href="quality.html"
+              style="text-decoration: none; color: #000;">품질</a>
           </h3>
           <div class="card">
-            <div class="card-header text-white bg-primary">
+            <div id="YQ" class="card-header text-white bg-primary">
               2021년도 분기별 불량률
             </div>
             <div class="card-body">
               <div class="chart-area">
-                <canvas id="QualityChart"></canvas>
+                <canvas id="QualityChart" height="300em"></canvas>
               </div>
             </div>
           </div>
 
 
-    <!-- KH. 품질 테이블 -->
+          <!-- KH. 품질 테이블 -->
           <table class="table table-hover" style="margin-top: 5%;">
             <thead class="table-primary">
               <tr>
                 <th scope="col"></th>
-                <th scope="col">A-01</th>
-                <th scope="col">A-02</th>
-                <th scope="col">A-03</th>
+                <th scope="col" style="font-size: .8em;">A-01</th>
+                <th scope="col" style="font-size: .8em;">A-02</th>
+                <th scope="col" style="font-size: .8em;">A-03</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1분기</th>
+                <th scope="row" style="text-align: center;">1분기</th>
                 <td>0.02</td>
                 <td>0.05</td>
                 <td>0.01</td>
               </tr>
               <tr>
-                <th scope="row">2분기</th>
+                <th scope="row" style="text-align: center;">2분기</th>
                 <td>0.03</td>
                 <td>0.02</td>
                 <td>0.04</td>
               </tr>
               <tr>
-                <th scope="row">3분기</th>
+                <th scope="row" style="text-align: center;">3분기</th>
                 <td>0.09</td>
                 <td>0.06</td>
                 <td>0.05</td>
               </tr>
               <tr>
-                <th scope="row">4분기</th>
+                <th scope="row" style="text-align: center;">4분기</th>
                 <td>0.07</td>
                 <td>0.09</td>
                 <td>0.05</td>
@@ -314,7 +367,7 @@
 
       <div class="card" style="margin-top: 4%;">
         <div class="card-header">
-          <h3 style="text-align: center;">2021 분기별 실적추이</h3>
+          <h3 id="YPP" style="text-align: center;">2021 분기별 매출액 & 영업이익</h3>
         </div>
         <div class="card-body">
           <div class="chart-area">
@@ -324,32 +377,399 @@
       </div>
 
       <!-- KH. 지도 보여주면서 각나라 수출 현황 -->
-      <!-- KH. 새벽4시임 ㅎㅎㅎㅎ -->
+      <!-- KH. 특정나라 클릭 시 수출현황 모달창 -->
 
       <hr style="margin-top: 3%;">
       <div class="card" style="margin-top: 3%">
         <div class="card-header text-white bg-secondary">
-          <h3 style="text-align: center;"> 2021년도 수출 현황 </h3>
+          <h3 id="YE" style="text-align: center;"> 2021년도 수출 현황 </h3>
         </div>
+
+        <!-- KH. 반응형 이미지맵 적용 -->
         <div class="card-body">
-          <img src="./img/worldmap.png" alt="WorldMap" style="max-width: 100%;">
+          <img id="worldmap" src="./img/worldmap.png" alt="World_Map" style="max-width: 100%;" usemap="#worldmap">
+          <!-- KH. usemap은 하위태크 map의 name속성을 적어야한다. -->
+
+          <map id="exportMap" name="worldmap">
+            <area target="_blank" alt="america" title="america" data-bs-toggle="modal" data-bs-target="#americaTable"
+              coords="110,153,43,177,48,139,85,114,110,109,134,98,146,111,199,111,219,91,260,80,319,72,513,73,477,118,490,118,484,144,445,141,402,152,376,148,361,136,345,148,342,164,365,193,353,212,301,223,280,232,267,248,242,266,239,287,274,306,274,319,253,324,231,312,215,312,223,338,214,360,199,347,187,337,167,331,148,326,141,289,132,303,118,290,105,260,107,205,119,198"
+              shape="poly">
+            <area target="_blank" alt="south_america" title="south_america" data-bs-toggle="modal"
+              data-bs-target="#south_americaTable"
+              coords="226,346,219,358,214,411,242,463,258,467,260,516,267,570,292,613,313,618,320,604,308,568,347,518,347,495,374,477,376,445,395,433,395,399,342,376,324,349,294,337,247,337"
+              shape="poly">
+            <area target="_blank" alt="europe" title="europe" data-bs-toggle="modal" data-bs-target="#europeTable"
+              coords="564,75,543,93,559,96,564,110,525,144,502,146,474,174,497,192,495,208,477,212,479,246,502,242,532,219,534,235,591,242,609,206,611,174,630,133,618,112,584,109,580,75"
+              shape="poly">
+            <area target="_blank" alt="africa" title="africa" data-bs-toggle="modal" data-bs-target="#africaTable"
+              coords="509,239,481,248,474,259,468,271,450,266,436,264,429,275,445,278,458,282,440,299,445,314,438,324,442,339,482,383,495,374,531,372,538,394,543,417,550,444,538,447,539,467,550,481,559,508,568,531,595,534,632,495,637,479,652,483,662,497,673,497,675,479,684,459,694,443,687,423,671,432,661,445,652,423,650,411,680,373,691,350,687,336,659,334,645,313,630,290,627,256,586,254,555,253,545,240"
+              shape="poly">
+            <area target="_blank" alt="asia" title="asia" data-bs-toggle="modal" data-bs-target="#asiaTable"
+              coords="645,121,602,242,621,244,636,256,634,283,671,327,694,333,723,310,716,287,751,308,760,335,773,363,794,370,805,358,791,333,817,306,830,335,849,352,839,367,842,381,883,429,953,434,956,420,953,342,936,299,928,262,949,272,981,253,985,210,945,178,929,164,951,164,963,157,965,174,985,192,990,158,1006,153,1027,142,1020,119,986,107,878,96,849,89,773,87,746,80,728,73,710,75,712,91,696,96,680,89,661,75,637,75"
+              shape="poly">
+            <area target="_blank" alt="australia" title="australia" data-bs-toggle="modal"
+              data-bs-target="#austTable"
+              coords="940,440,901,466,892,477,894,509,881,525,885,536,915,534,951,529,963,543,986,577,1038,513,1038,470,1022,456,1018,429,977,425"
+              shape="poly">
+          </map>
+
         </div>
 
       </div>
-      
+
+      <!-- KH. 모달창 -->
+
+      <!-- KH. 미국 -->
+      <div class="modal fade" id="americaTable" tabindex="-1" aria-labelledby="exampleModalLabelAmerica" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabelAmerica">2021 미국</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">분기별</th>
+                    <th scope="col">생산</th>
+                    <th scope="col">매출</th>
+                    <th scope="col">품질</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1분기</th>
+                    <td>100</td>
+                    <td>120</td>
+                    <td>80</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2분기</th>
+                    <td>80</td>
+                    <td>79</td>
+                    <td>128</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3분기</th>
+                    <td>75</td>
+                    <td>120</td>
+                    <td>138</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4분기</th>
+                    <td>97</td>
+                    <td>100</td>
+                    <td>155</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KH. 남미 -->
+      <div class="modal fade" id="south_americaTable" tabindex="-1" aria-labelledby="exampleModalLabelSouthAmerica" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabelSouthAmerica">2021 남미</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">분기별</th>
+                    <th scope="col">생산</th>
+                    <th scope="col">매출</th>
+                    <th scope="col">품질</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1분기</th>
+                    <td>100</td>
+                    <td>120</td>
+                    <td>80</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2분기</th>
+                    <td>80</td>
+                    <td>79</td>
+                    <td>128</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3분기</th>
+                    <td>75</td>
+                    <td>120</td>
+                    <td>138</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4분기</th>
+                    <td>97</td>
+                    <td>100</td>
+                    <td>155</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KH. 유럽 -->
+      <div class="modal fade" id="europeTable" tabindex="-1" aria-labelledby="exampleModalLabelEurope"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabelEurope">2021 유럽</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">분기별</th>
+                    <th scope="col">생산</th>
+                    <th scope="col">매출</th>
+                    <th scope="col">품질</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1분기</th>
+                    <td>100</td>
+                    <td>120</td>
+                    <td>80</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2분기</th>
+                    <td>80</td>
+                    <td>79</td>
+                    <td>128</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3분기</th>
+                    <td>75</td>
+                    <td>120</td>
+                    <td>138</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4분기</th>
+                    <td>97</td>
+                    <td>100</td>
+                    <td>155</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KH. 아프리카 -->
+      <div class="modal fade" id="africaTable" tabindex="-1" aria-labelledby="exampleModalLabelAfrica" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabelAfrica">2021 아프리카</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">분기별</th>
+                    <th scope="col">생산</th>
+                    <th scope="col">매출</th>
+                    <th scope="col">품질</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1분기</th>
+                    <td>100</td>
+                    <td>120</td>
+                    <td>80</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2분기</th>
+                    <td>80</td>
+                    <td>79</td>
+                    <td>128</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3분기</th>
+                    <td>75</td>
+                    <td>120</td>
+                    <td>138</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4분기</th>
+                    <td>97</td>
+                    <td>100</td>
+                    <td>155</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KH. 아시아 -->
+      <div class="modal fade" id="asiaTable" tabindex="-1" aria-labelledby="exampleModalLabelAsia" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabelAsia">2021 아시아</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">분기별</th>
+                    <th scope="col">생산</th>
+                    <th scope="col">매출</th>
+                    <th scope="col">품질</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1분기</th>
+                    <td>100</td>
+                    <td>120</td>
+                    <td>80</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2분기</th>
+                    <td>80</td>
+                    <td>79</td>
+                    <td>128</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3분기</th>
+                    <td>75</td>
+                    <td>120</td>
+                    <td>138</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4분기</th>
+                    <td>97</td>
+                    <td>100</td>
+                    <td>155</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KH. 호주 -->
+      <div class="modal fade" id="austTable" tabindex="-1" aria-labelledby="exampleModalLabelAust" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabelAust">2021 호주</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">분기별</th>
+                    <th scope="col">생산</th>
+                    <th scope="col">매출</th>
+                    <th scope="col">품질</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1분기</th>
+                    <td>100</td>
+                    <td>120</td>
+                    <td>80</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2분기</th>
+                    <td>80</td>
+                    <td>79</td>
+                    <td>128</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3분기</th>
+                    <td>75</td>
+                    <td>120</td>
+                    <td>138</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4분기</th>
+                    <td>97</td>
+                    <td>100</td>
+                    <td>155</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    
+
   </main>
+  
+  <!-- KH. 모달창 스크립트 -->
+  <script>
+    var myModal = document.getElementById('myModal')
+    var myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', function () {
+      myInput.focus();
+    })
+  </script>
+
+  <!-- KH. 반응형 이미지 맵 적용 -->
+  <script>
+    jQuery(document).ready(function ($) {
+      $('img[usemap]').rwdImageMaps();
+    });
+  </script>
+
 
   <!-- sm. 참조될 라이브러리들(js)  -->
-  <script src="js/jquery-3.6.0.min.js"></script>
+  <script src="js/rwdImageMaps.js"></script>
   <script src="js/bootstrap.js"></script>
-  <script src="js/sidebar.js"></script>
   <script src="js/chart.js"></script>
-  <script src="js/mainProduceChart.js"></script>
-  <script src="js/mainSalesChart.js"></script>
-  <script src="js/mainQualityChart.js"></script>
-  <script src="js/PerformanceChart.js"></script>
+  <script src="js/sidebar.js"></script>
+
+
+
+  <!-- KH. 적용차트들 -->
+  <script src="js/mainChart.js"></script>
 </body>
 
 </html>

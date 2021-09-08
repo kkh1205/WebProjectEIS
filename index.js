@@ -23,6 +23,102 @@ app.get("/", function (req, res) {
     res.sendFile(__dirname + "/public/index.html");
 });
 
+app.post("/main.html", function (req, res) {
+    // 포스트방식으로 데이터쿼리 전송
+    var responseData = {}; // 객체 선언
+    /* KH. 데이터 가지고 오는 쿼리문. 좀 가라로 했습니다. */
+    var query = connection.query(
+        "SELECT production.quarter,A01P,A02P,A03P,A01Q,A02Q,A03Q,quarterlySales,operatingProfit,quarter1,quarter2,quarter3,quarter4 FROM production left JOIN quality ON production.quarter = quality.quarter left JOIN quarterlySales_operatingProfit ON quality.quarter = quarterlySales_operatingProfit.quarter UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,quarter1,quarter2,quarter3,quarter4 FROM sales UNION ALL SELECT production_2020.quarter,A01P,A02P,A03P,A01Q,A02Q,A03Q,quarterlySales,operatingProfit,quarter1,quarter2,quarter3,quarter4 FROM production_2020 left JOIN quality_2020 ON production_2020.quarter = quality_2020.quarter left JOIN quarterlySales_operatingProfit_2020 ON quality_2020.quarter = quarterlySales_operatingProfit_2020.quarter UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,quarter1,quarter2,quarter3,quarter4 FROM sales_2020 UNION ALL SELECT production_2019.quarter,A01P,A02P,A03P,A01Q,A02Q,A03Q,quarterlySales,operatingProfit,quarter1,quarter2,quarter3,quarter4 FROM production_2019 left JOIN quality_2019 ON production_2019.quarter = quality_2019.quarter left JOIN quarterlySales_operatingProfit_2019 ON quality_2019.quarter = quarterlySales_operatingProfit_2019.quarter UNION ALL SELECT NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,quarter1,quarter2,quarter3,quarter4 FROM sales_2019;",
+        function (err, rows) {
+            /* KH. 생산 */
+            responseData.A01P = [];
+            responseData.A02P = [];
+            responseData.A03P = [];
+            /* KH. 매출 */
+            responseData.quarter1 = [];
+            responseData.quarter2 = [];
+            responseData.quarter3 = [];
+            responseData.quarter4 = [];
+            /* KH. 품질 */
+            responseData.A01Q = [];
+            responseData.A02Q = [];
+            responseData.A03Q = [];
+            /* KH. 매출액 & 영업이익 */
+            responseData.quarterlySales = [];
+            responseData.operatingProfit = [];
+
+            if (err) throw err;
+            if (rows[0]) {
+                responseData.result = "ok";
+                /* KH. 생산 */
+                rows.forEach(function (val) {
+                    responseData.A01P.push(val.A01P);
+                });
+
+                rows.forEach(function (val) {
+                    responseData.A02P.push(val.A02P);
+                });
+
+                rows.forEach(function (val) {
+                    responseData.A03P.push(val.A03P);
+                });
+                /* KH.매출 */
+                rows.forEach(function (val) {
+                    responseData.quarter1.push(val.quarter1);
+                });
+                rows.forEach(function (val) {
+                    responseData.quarter2.push(val.quarter2);
+                });
+                rows.forEach(function (val) {
+                    responseData.quarter3.push(val.quarter3);
+                });
+                rows.forEach(function (val) {
+                    responseData.quarter4.push(val.quarter4);
+                });
+                /* KH.품질 */
+                rows.forEach(function (val) {
+                    responseData.A01Q.push(val.A01Q);
+                });
+                rows.forEach(function (val) {
+                    responseData.A02Q.push(val.A02Q);
+                });
+                rows.forEach(function (val) {
+                    responseData.A03Q.push(val.A03Q);
+                });
+                /* KH.매출액 & 영업이익 */
+                rows.forEach(function (val) {
+                    responseData.quarterlySales.push(val.quarterlySales);
+                });
+                rows.forEach(function (val) {
+                    responseData.operatingProfit.push(val.operatingProfit);
+                });
+            } else {
+                responseData.result = "none";
+                /* KH.생산 */
+                responseData.A01P = "";
+                responseData.A02P = "";
+                responseData.A03P = "";
+                /* KH.매출 */
+                responseData.quarter1 = "";
+                responseData.quarter2 = "";
+                responseData.quarter3 = "";
+                responseData.quarter4 = "";
+                /* KH.품질 */
+                responseData.A01Q = "";
+                responseData.A02Q = "";
+                responseData.A03Q = "";
+                /* KH.매출액 & 영업이익 */
+                responseData.quarterlySales = "";
+                responseData.operatingProfit = "";
+            }
+
+            /* responseData를 json으로 응답함. */
+            res.json(responseData);
+            console.log("success \n" + responseData);
+        }
+    );
+});
+
 app.post("/sales.html", function (req, res) {
     //포스트방식으로 데이터 쿼리 날리기!
     var responseData = {};
